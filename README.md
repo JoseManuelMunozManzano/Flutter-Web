@@ -92,3 +92,28 @@ Dentro de la carpeta `ui` creamos las carpetas `pages` y `shared`.
 Dentro de la carpeta `pages` creamos el archivo `counter_page.dart`.
 
 En `main.dart` indico la ruta de nuestro recién creado `CounterPage`.
+
+Al crear la ruta:
+
+```dart
+  initialRoute: '/stateful',
+  routes: {
+    '/stateful': ( _ ) => CounterPage()
+  },
+```
+
+Se indica `'/stateful'`. Si no ponemos la barra `/` entonces la URL se ve `/#stateful`. Con la barra se ve `/#/stateful`.
+
+### Reutilización de Widgets
+
+Modificamos `counter_page.dart` para añadir estilos al botón.
+
+Si queremos reutilizar el botón más de una vez, lo mejor es separar ese Widget en un archivo independiente y pasar únicamente los argumentos que realmente vamos a necesitar. Con esto creamos un Widget personalizado.
+
+Una forma muy rápida de conseguir esto es posicionarnos en el texto `TextButton`, pulsar `Cmd+.` y seleccionar `Extract Widget`. Le damos el nombre `CustomFlatButton`. Si, por lo que sea no deja hacerlo, entonces toca hacerlo a mano.
+
+Si el botón solo se va a usar en `CounterPage` entonces, dentro de `pages` podría crear una carpeta `counter_page` y ponerlo ahí.
+
+Pero como el botón va a ser usado por toda la aplicación entonces, dentro de la carpeta `shared` creamos un nuevo archivo llamado `custom_flat_button.dart` y me llevo el trozo de código correspondiente al `TextButton`, salvo la parte de tratamiento del estado, que lo paso por argumento, al igual que el texto que debe verse en el botón.
+
+Con esto, para tener dos botones, solo tengo que llamar a `CustomFlatButton()` dos veces, pasando los argumentos que necesito.
