@@ -80,3 +80,15 @@ Pero vamos a hacer aplicaciones web, que se sienten que son web, no portadas.
   - Seleccionamos `Chrome`
   - Viendo el fuente `main.dart`, pulsar `F5`
     - Esto compila y genera la versión de desarrollo (no la final, que se crea al hacer el build) para web, con ciertos paquetes adicionales que nos permite hacer el hot reload, hot restart y ver los cambios en tiempo real
+
+### Página de contador con Stateful Widget
+
+Borramos todo el código de `main.dart` y, para generarlo de nuevo, escribimos el snippet `mateapp`.
+
+En la carpeta `lib` creamos la carpeta `ui`.
+
+Dentro de la carpeta `ui` creamos las carpetas `pages` y `shared`.
+
+Dentro de la carpeta `pages` creamos el archivo `counter_page.dart`.
+
+En `main.dart` indico la ruta de nuestro recién creado `CounterPage`.
