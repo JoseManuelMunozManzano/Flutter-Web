@@ -14,7 +14,7 @@ class CustomAppMenu extends StatelessWidget {
         children: [
           CustomFlatButton(
             text: 'Contador Stateful',
-            onPressed: () => context.go('/stateful'),
+            onPressed: () => context.push('/stateful'),
             color: Colors.black,
           ),
 
@@ -22,7 +22,7 @@ class CustomAppMenu extends StatelessWidget {
 
           CustomFlatButton(
             text: 'Contador Provider',
-            onPressed: () => context.go('/provider'),
+            onPressed: () => context.push('/provider'),
             color: Colors.black,
           ),
 
@@ -30,7 +30,7 @@ class CustomAppMenu extends StatelessWidget {
 
           CustomFlatButton(
             text: 'Otra página',
-            onPressed: () => context.go('/noexiste'),
+            onPressed: () => context.push('/noexiste'),
             color: Colors.black,
           ),
         ],
