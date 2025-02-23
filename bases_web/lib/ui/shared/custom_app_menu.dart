@@ -1,5 +1,6 @@
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppMenu extends StatelessWidget {
   const CustomAppMenu({super.key});
@@ -13,7 +14,7 @@ class CustomAppMenu extends StatelessWidget {
         children: [
           CustomFlatButton(
             text: 'Contador Stateful',
-            onPressed: () => Navigator.pushNamed(context, '/stateful'),
+            onPressed: () => context.go('/stateful'),
             color: Colors.black,
           ),
 
@@ -21,7 +22,7 @@ class CustomAppMenu extends StatelessWidget {
 
           CustomFlatButton(
             text: 'Contador Provider',
-            onPressed: () => Navigator.pushNamed(context, '/provider'),
+            onPressed: () => context.go('/provider'),
             color: Colors.black,
           ),
 
@@ -29,7 +30,7 @@ class CustomAppMenu extends StatelessWidget {
 
           CustomFlatButton(
             text: 'Otra página',
-            onPressed: () => Navigator.pushNamed(context, '/noexiste'),
+            onPressed: () => context.go('/noexiste'),
             color: Colors.black,
           ),
         ],
