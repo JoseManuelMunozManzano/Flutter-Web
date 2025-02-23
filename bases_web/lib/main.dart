@@ -8,10 +8,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'RutasApp',
-      routerConfig: routeGenerator,
+      initialRoute: '/stateful',
+      // Esto ya no lo necesito, lo gestiona RouteGenerator
+      // routes: {
+      //   '/stateful': (_) => CounterPage(),
+      //   '/provider': (_) => CounterProviderPage(),
+      // },
+      onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
     );
   }
 }
