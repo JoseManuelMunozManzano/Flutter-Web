@@ -1,24 +1,35 @@
-import 'package:bases_web/ui/shared/custom_app_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:bases_web/providers/counter_provider.dart';
+import 'package:bases_web/ui/shared/custom_app_menu.dart';
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 
-class CounterProviderPage extends StatefulWidget {
+class CounterProviderPage extends StatelessWidget {
   const CounterProviderPage({super.key});
 
   @override
-  State<CounterProviderPage> createState() => _CounterProviderPageState();
+  Widget build(BuildContext context) {
+    // Con esto tengo acceso a mi Provider en _CounterProviderPageBody()
+    // Lo tengo que indicar por encima del Widget en el que quiero usarlo.
+    return ChangeNotifierProvider(
+      create: (_) => CounterProvider(),
+      child: _CounterProviderPageBody(),
+    );
+  }
 }
 
-class _CounterProviderPageState extends State<CounterProviderPage> {
-  int counter = 15;
-
+class _CounterProviderPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    // Accedo a mi Provider.
+    final counterProvider = Provider.of<CounterProvider>(context);
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
           CustomAppMenu(),
           Spacer(),
 
@@ -29,7 +40,7 @@ class _CounterProviderPageState extends State<CounterProviderPage> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
-                'Contador: $counter',
+                'Contador: ${counterProvider.counter}',
                 style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
               ),
             ),
@@ -38,15 +49,9 @@ class _CounterProviderPageState extends State<CounterProviderPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomFlatButton(
-                text: 'Incrementar',
-                onPressed: () => setState(() => counter++),
-              ),
+              CustomFlatButton(text: 'Incrementar', onPressed: () => counterProvider.increment()),
 
-              CustomFlatButton(
-                text: 'Decrementar',
-                onPressed: () => setState(() => counter--),
-              ),
+              CustomFlatButton(text: 'Decrementar', onPressed: () => counterProvider.decrement()),
             ],
           ),
 

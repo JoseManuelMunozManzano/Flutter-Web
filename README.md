@@ -218,3 +218,13 @@ Tal y como está ahora, la parte del menú es parte de cada una de las páginas.
 Este `CustomAppMenu(),` no debe ser parte de `counter_page.dart`. Cuando cambiemos de pantalla solo debe cambiar el contenido de esa nueva pantalla. El menú de navegación NO debe cambiar.
 
 Esto lo vamos a ir haciendo en los siguientes puntos.
+
+### CounterProviderPage - Implementar Provider
+
+Vamos a hacer que nuestra pantalla `counter_provider_page.dart` realmente trabaje con `Provider` y no con un Stateful Widget.
+
+Instalamos la dependencia `provider` usando `PubSpec Assist`.
+
+Modificamos `counter_provider_page.dart` para devolverlo a un Stateless Widget y usar provider para gestionar el estado solo de esta pantalla.
+
+Creamos a nivel raiz la carpeta `providers` y dentro creamos el archivo `counter_provider.dart`. Los providers son una clase que permite a Flutter poderse redibujar cuando se notifica a los listeners.
