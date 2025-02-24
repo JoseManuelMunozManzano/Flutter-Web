@@ -277,3 +277,23 @@ Luego modificamos `main.dart` para usar el key creado en `navigation_service.dar
 Ahora ya puedo usar ese key para navegar, en lugar de la navegación tradicional que estábamos usando. Modificamos `custom_app_menu.dart`.
 
 Con esto tenemos una URL Friendly, pero nos sigue faltando por resolver el tema de los segmentos y los query parameters.
+
+### Get_it
+
+Vamos a sustituir el Singleton feote que hemos creado, y que es bastante difícil de probar.
+
+Modificamos `navigation_service.dart` para volver a dejar la clase pública y eliminar la creación de la instancia.
+
+Tenemos que crear un Singleton de otra manera y que se encuentre de manera global en nuestra aplicación.
+
+De nuevo, esto podemos hacerlo con un `ChangeNotifierProvider`, pero lo vamos a hacer usando el paquete `get_it`: `https://pub.dev/packages/get_it` que nos permite inyectar dependencias. No es un gestor de estados, por lo que no redibuja Widgets (aunque puede si usamos streams).
+
+Lo instalamos usando `PubSpec Assist`, indicando el paquete `get_it`.
+
+Para hacerlo funcionar:
+
+Dentro de la carpeta `lib` creamos un nuevo archivo llamado `locator.dart`. En este archivo mantendremos todos los singleton de manera centralizada. Lo bueno es que es muy rápido y es fácil de probar.
+
+Ahora lo configuramos en `main.dart`, para usar nuestro locator.
+
+Y por último, corregimos `custom_app_menu.dart` usando de nuevo nuestro locator.

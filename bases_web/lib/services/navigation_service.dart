@@ -6,7 +6,11 @@ import 'package:flutter/material.dart';
 // tenga acceso a la misma instancia, es decir, solo quiero un key.
 // Esto lo conseguimos haciendo la clase privada, aunque también se podría
 // implementar con provider.
-class _NavigationService {
+//
+//class _NavigationService {
+//
+// Como es feo, volvemos a hacer la clase pública
+class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   Future navigateTo(String routeName) {
@@ -24,4 +28,6 @@ class _NavigationService {
 // de manera global.\
 // Pero, de nuevo, no haría falta porque se podría hacer con provider, lo que pasa
 // es que esta información no es un state que nos sirva para redibujar widgets.
-final navigationService = _NavigationService();
+//
+// Como esto es feo, lo quitamos y volvemos a hacer la clase pública
+//final navigationService = _NavigationService();
