@@ -1,3 +1,4 @@
+import 'package:bases_web/ui/layout/main_layout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bases_web/router/route_generator.dart';
 
@@ -18,6 +19,16 @@ class MyApp extends StatelessWidget {
       //   '/provider': (_) => CounterProviderPage(),
       // },
       onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
+      // Trabaja junto con onGenerateRoute.
+      // Indicamos el layout.
+      // Nos hace falta usar navigatorKey porque es quien tiene la referencia
+      // a la navegación que este builder me está creando. Sin eso, al pulsar
+      // en el menú de navegación no va a esa página.
+      builder: (_, child) {
+        return MainLayoutPage(
+          child: child ?? Container()
+        );
+      }
     );
   }
 }

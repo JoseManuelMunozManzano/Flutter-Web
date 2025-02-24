@@ -253,3 +253,13 @@ En la carpeta `ui` creamos la carpeta `views`. Copiamos el contenido de la carpe
 Y los modificamos para quitarles el Scaffold y quitar la referencia a `CustomAppMenu`.
 
 Modificamos también `route_generator.dart` para que hagan match con los nuevos nombres de nuestras views.
+
+### Layout Pages
+
+Modificamos `main.dart` para añadir un builder, que será nuestro layout.
+
+También modificamos `main_layout_page.dart` para recibir el Widget que se cargará en el layout.
+
+Es decir, el layout es el menú de navegación, un Spacer() arriba y otro abajo. La vista es lo único que estamos renderizando, y la pasamos por parámetro al layout.
+
+Ahora tenemos que resolver un problema, y es que el menú de navegación no funciona al pulsar los enlaces. Nos hace falta usar navigatorKey en `main.dart`, porque es quien tiene la referencia a la navegación que este builder me está creando. Sin eso, al pulsar en el menú de navegación no va a esa página.
