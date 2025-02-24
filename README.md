@@ -297,3 +297,11 @@ Dentro de la carpeta `lib` creamos un nuevo archivo llamado `locator.dart`. En e
 Ahora lo configuramos en `main.dart`, para usar nuestro locator.
 
 Y por último, corregimos `custom_app_menu.dart` usando de nuevo nuestro locator.
+
+### Menú Responsivo
+
+Cuando el menú se hace de cierto tamaño, menos de 520px ya empieza a verse mal. En ese tamaño vamos a cambiar el menú de un row a un column.
+
+Cuando las dimensiones de la pantalla cambian, se vuelve a redibujar el menú de navegación. Esto Flutter lo hace muy eficientemente.
+
+Modificamos `custom_app_menu.dart`. Queremos que por si solo pueda detectar el tamaño del dispositivo para que el contenido que se visualice sea responsivo. Sabemos que tal y como está funciona bien en tablets y en desktop. Lo que hacemos es extraer el Widget `Container` y darle un nombre de clase private (con guión bajo) `TabletDesktopMenu`. Ahora copiamos esa clase y la pegamos abajo, y le cambiamos el nombre a `_MobileMenu` y cambiamos para que en vez de un Row sea un Column.
