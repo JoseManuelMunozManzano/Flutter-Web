@@ -228,3 +228,26 @@ Instalamos la dependencia `provider` usando `PubSpec Assist`.
 Modificamos `counter_provider_page.dart` para devolverlo a un Stateless Widget y usar provider para gestionar el estado solo de esta pantalla.
 
 Creamos a nivel raiz la carpeta `providers` y dentro creamos el archivo `counter_provider.dart`. Los providers son una clase que permite a Flutter poderse redibujar cuando se notifica a los listeners.
+
+### Layout Pages y Views
+
+Para solucionar el problema de la recarga de toda la app, incluyendo el menú de navegación cada vez que se cambia de página, tenemos que hacer varios pasos.
+
+- Pensar que tenemos que trabajar en base a views y layouts en lugar de páginas
+  - Nuestro router solo debe devolver la vista (todo menos el menú de navegación) en vez de toda la pantalla
+  - Un layout en un concepto, pero podemos verlo como un Widget que se encarga de renderizar cierta información específica
+  - Vamos a transformar nuestras páginas en views
+
+En la carpeta `ui` creamos la carpeta `layout` y dentro el archivo `main_layout_page.dart`.
+
+La diferencia entre los layouts y los views es que los layouts contienen un Scaffold, es decir, son el contenido de la página. Se pueden mostrar por sí solos. Un view no tiene un Scaffold y es un Widget que depende de otro Widget que tenga el Scaffold para colocarlo donde deba.
+
+En vez de transformar nuestras páginas en views, vamos a dejar la carpeta `pages` como referencia, aunque no se van a usar.
+
+En la carpeta `ui` creamos la carpeta `views`. Copiamos el contenido de la carpeta` pages` a la carpeta `views`. Cambiamos los nombres a los siguientes:
+
+- counter_view.dart
+- counter_provider_view.dart
+- view_404.dart
+
+Y los modificamos para, entre otras cosas, quitarles el Scaffold.
