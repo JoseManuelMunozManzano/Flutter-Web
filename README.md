@@ -263,3 +263,17 @@ También modificamos `main_layout_page.dart` para recibir el Widget que se carga
 Es decir, el layout es el menú de navegación, un Spacer() arriba y otro abajo. La vista es lo único que estamos renderizando, y la pasamos por parámetro al layout.
 
 Ahora tenemos que resolver un problema, y es que el menú de navegación no funciona al pulsar los enlaces. Nos hace falta usar navigatorKey en `main.dart`, porque es quien tiene la referencia a la navegación que este builder me está creando. Sin eso, al pulsar en el menú de navegación no va a esa página.
+
+### GlobalKey - NavigatorState
+
+Vamos a corregir la parte de la navegación. Necesitamos mantener la referencia al `navigatorKey`. Este navigatorKey es quien controla las rutas.
+
+Primero vamos a resolverlo de una manera fea y luego vamos a resolverlo mejor con `Get_it` para inyectar dependencias (no lo vamos a resolver con provider, aunque también se podría de manera sencilla)
+
+Dentro de la carpeta `lib` creamos la carpeta `services` y dentro el archivo `navigation_service.dart` que trataremos como un Singleton para obtener solo una key para toda la app.
+
+Luego modificamos `main.dart` para usar el key creado en `navigation_service.dart`.
+
+Ahora ya puedo usar ese key para navegar, en lugar de la navegación tradicional que estábamos usando. Modificamos `custom_app_menu.dart`.
+
+Con esto tenemos una URL Friendly, pero nos sigue faltando por resolver el tema de los segmentos y los query parameters.
