@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:bases_web/providers/counter_provider.dart';
-import 'package:bases_web/ui/shared/custom_app_menu.dart';
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 
 class CounterProviderView extends StatelessWidget {
@@ -28,7 +27,6 @@ class _CounterProviderPageBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomAppMenu(),
         Spacer(),
 
         Text('Provider Counter', style: TextStyle(fontSize: 20)),

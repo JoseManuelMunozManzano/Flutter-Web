@@ -1,21 +1,20 @@
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-import 'package:bases_web/ui/pages/counter_page.dart';
-import 'package:bases_web/ui/pages/counter_provider_page.dart';
-import 'package:bases_web/ui/pages/page_404.dart';
+import 'package:bases_web/ui/views/counter_provider_view.dart';
+import 'package:bases_web/ui/views/counter_view.dart';
+import 'package:bases_web/ui/views/view_404.dart';
 
 // Clase que va a trabajar en la creación de todas las rutas de manera automática.
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/stateful':
-        return _fadeRoute(CounterPage(), '/provider');
+        return _fadeRoute(CounterView(), '/provider');
       case '/provider':
-        return _fadeRoute(CounterProviderPage(), '/provider');
+        return _fadeRoute(CounterProviderView(), '/provider');
       default:
-        return _fadeRoute(Page404(), '/404');
+        return _fadeRoute(View404(), '/404');
     }
   }
 

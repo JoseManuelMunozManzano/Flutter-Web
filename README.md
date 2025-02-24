@@ -250,4 +250,6 @@ En la carpeta `ui` creamos la carpeta `views`. Copiamos el contenido de la carpe
 - counter_provider_view.dart
 - view_404.dart
 
-Y los modificamos para, entre otras cosas, quitarles el Scaffold.
+Y los modificamos para quitarles el Scaffold y quitar la referencia a `CustomAppMenu`.
+
+Modificamos también `route_generator.dart` para que hagan match con los nuevos nombres de nuestras views.
