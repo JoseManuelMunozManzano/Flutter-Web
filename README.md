@@ -305,3 +305,33 @@ Cuando el menú se hace de cierto tamaño, menos de 520px ya empieza a verse mal
 Cuando las dimensiones de la pantalla cambian, se vuelve a redibujar el menú de navegación. Esto Flutter lo hace muy eficientemente.
 
 Modificamos `custom_app_menu.dart`. Queremos que por si solo pueda detectar el tamaño del dispositivo para que el contenido que se visualice sea responsivo. Sabemos que tal y como está funciona bien en tablets y en desktop. Lo que hacemos es extraer el Widget `Container` y darle un nombre de clase private (con guión bajo) `TabletDesktopMenu`. Ahora copiamos esa clase y la pegamos abajo, y le cambiamos el nombre a `_MobileMenu` y cambiamos para que en vez de un Row sea un Column.
+
+## Segmentos de URL y Query Parameters
+
+He copiado la aplicación `bases_web` y le he dado el nombre `bases_web_segmentos_query`.
+
+Esta aplicación es la que voy a seguir evolucionando.
+
+### Temas puntuales de la sección
+
+Aquí tocaremos conceptos fundamentales de cualquier aplicación Web, como es el hecho de recibir parámetros de query y segmentos de URL, los cuales usaremos mucho más adelante en nuestras aplicaciones.
+
+Principalmente me quiero enfocar en esos dos puntos en la sección y a su vez, enseñar cómo mantener la aplicación basado en el URL y recuperación de múltiples segmentos.
+
+### Continuación de proyecto y explicación breve sobre Flutter Navigator 2.0
+
+https://docs.flutter.dev/ui/navigation
+
+Como es demasiado complejo, vamos a usar `Fluro`. Otra opción sería `Go_Router`.
+
+### Fluro - Router
+
+https://pub.dev/packages/fluro/versions/2.0.5
+
+Instalamos el paquete `fluro` usando `PubSpec Assist`.
+
+Ya no usamos el archivo `route_generator.dart`. Lo he borrado (puede seguir viéndose en el proyecto `bases_web`).
+
+Creo en la carpeta `router` el archivo `router.dart`.
+
+Modificamos `main.dart` para empezar a usar `router.dart`.
