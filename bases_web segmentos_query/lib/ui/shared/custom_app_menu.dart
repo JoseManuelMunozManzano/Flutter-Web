@@ -71,6 +71,11 @@ class _MobileMenu extends StatelessWidget {
           CustomFlatButton(
             text: 'Contador Stateful',
             onPressed:
+                // Esto que funciona en view_404.dart, no podemos usarlo aquí.
+                //() => Navigator.pushNamed(context, '/stateful'),
+                // El menú de navegación se encuentra fuera del contexto normal y se
+                // está construyendo la ruta usando el builder de main.dart y necesitamos
+                // nuestro navigatorKey.
                 () => locator<NavigationService>().navigateTo('/stateful'),
             color: Colors.black,
           ),

@@ -335,3 +335,13 @@ Ya no usamos el archivo `route_generator.dart`. Lo he borrado (puede seguir vié
 Creo en la carpeta `router` el archivo `router.dart`.
 
 Modificamos `main.dart` para empezar a usar `router.dart`.
+
+### Rutas de mi aplicación y animaciones
+
+Añadimos el resto de rutas necesarias y el tipo de transición en `router.dart`.
+
+### 404 Page
+
+Añadimos la ruta 404 en `router.dart`.
+
+Modificamos `view_404.dart` para que utilice el sistema de navegación con nuestro key al pulsar el botón Regresar..
