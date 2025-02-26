@@ -5,14 +5,19 @@ import 'package:bases_web/providers/counter_provider.dart';
 import 'package:bases_web/ui/shared/custom_flat_button.dart';
 
 class CounterProviderView extends StatelessWidget {
-  const CounterProviderView({super.key});
+  final String base;
+
+  const CounterProviderView({
+    super.key,
+    required this.base,
+  });
 
   @override
   Widget build(BuildContext context) {
     // Con esto tengo acceso a mi Provider en _CounterProviderPageBody()
     // Lo tengo que indicar por encima del Widget en el que quiero usarlo.
     return ChangeNotifierProvider(
-      create: (_) => CounterProvider(),
+      create: (_) => CounterProvider(base),
       child: _CounterProviderPageBody(),
     );
   }

@@ -95,8 +95,12 @@ class Flurorouter {
     },
   );
 
+  // Tratamos aquí los query parameters.
   static final Handler _counterProviderHandler = Handler(
-    handlerFunc: (context, params) => CounterProviderView(),
+    handlerFunc: (context, params) {
+      // print(params);
+      return CounterProviderView(base: params['q']?[0] ?? '10');
+    },
   );
 
   static final Handler _pageNotFound = Handler(

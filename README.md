@@ -363,3 +363,15 @@ Si se que, en `router.dart`, `:base` siempre va a tener un valor, puedo crear un
 En nuestro ejemplo voy a usar el mismo handler. En `router.dart` mando la base cuando llamo a `CounterView()`.
 
 Modificamos `counter_view.dart` para indicar que recibimos un argumento y lo tratamos.
+
+### Leer la base por un query parameter
+
+Un query parameter son argumentos opcionales. Eso tenemos que tenerlo en cuenta.
+
+No creamos un `router.define` ya que eso implica que la ruta esperada es obligatoria, caso de los segmentos URL. Lo manejamos directamente en el handler.
+
+Modificamos `custom_app_menu.dart` para crear un botón con un ejemplo ya preparado para tener query parameters.
+
+Modificamos `router.dart` para mandar el valor del query parameter.
+
+Modificamos `counter_provider_view` para que reciba los query parameters y también `counter_provider.dart` para que le llegue el valor.
