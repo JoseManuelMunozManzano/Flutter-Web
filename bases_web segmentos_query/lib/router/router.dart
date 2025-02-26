@@ -17,8 +17,17 @@ class Flurorouter {
       // transitionDuration: Duration(milliseconds: 300)
     );
 
+    // Tenemos dos rutas de /stateful, una sin segmentos y otra con segmentos.
     router.define(
       '/stateful',
+      handler: _counterHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+
+    // Con segmentos del URL.
+    // Se puede usar el mismo u otro handler.
+    router.define(
+      '/stateful/:base',
       handler: _counterHandler,
       transitionType: TransitionType.fadeIn,
     );
@@ -41,11 +50,13 @@ class Flurorouter {
           return const View404();
         }
 
+        // Ejecuta un código después de que el frame actual haya terminado de renderizarse.
         WidgetsBinding.instance.addPostFrameCallback((_) {
           router.navigateTo(
             context,
             '/404',
-            replace: true, // Reemplaza la ruta para que la animación sea idéntica a las demás
+            replace:
+                true, // Reemplaza la ruta para que la animación sea idéntica a las demás
             transition: TransitionType.fadeIn,
           );
         });
@@ -62,8 +73,22 @@ class Flurorouter {
   // viene el argumento deseado y, condicionalmente, retornar una u otra vista.
   // Regresa una página (tiene Scaffold) o una vista.
   // En este caso, queremos reemplazar vistas para que el menú de navegación no se recargue.
+  //
+  // Tratamos el uso de segmentos del URL.
+  // Si hacemos print(params['base']) su resultado es un arreglo de String.
+  // Es un arreglo porque el valor podría ser /10,abc,1 por ejemplo.
+  //
+  // Si hacemos print(params) también vemos los query parameters si se añaden.
+  // Por ejemplo, para esta ruta: http://localhost:50007/#/stateful/100?q=hola+que+tal&lat=10
+  // params vale: {base: [100], q: [hola que tal], lat: [10]}
+  // Vemos que los query parameters también es un array.
   static final Handler _counterHandler = Handler(
-    handlerFunc: (context, params) => CounterView(),
+    handlerFunc: (context, params) {
+      // Si tenemos base, entonces coge su primer valor del array.
+      print(params['base']?[0]);
+      print(params);
+      return CounterView();
+    },
   );
 
   static final Handler _counterProviderHandler = Handler(

@@ -345,3 +345,13 @@ Añadimos el resto de rutas necesarias y el tipo de transición en `router.dart`
 Añadimos la ruta 404 en `router.dart`.
 
 Modificamos `view_404.dart` para que utilice el sistema de navegación con nuestro key al pulsar el botón Regresar..
+
+### Obtener segmentos del URL
+
+Con nuestro nuevo sistema de rutas, usando Fluro, trabajar con segmentos del URL es muy fácil.
+
+Modificamos `router.dart`.
+
+Modificamos también `custom_app_menu.dart` para crear un botón con un ejemplo ya preparado para tener segmentos.
+
+Nos queda saber como coger el valor del segmento URL y que dicho valor vaya y sustituya el valor del contador.
