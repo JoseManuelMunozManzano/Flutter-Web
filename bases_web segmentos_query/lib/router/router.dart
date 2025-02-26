@@ -85,9 +85,13 @@ class Flurorouter {
   static final Handler _counterHandler = Handler(
     handlerFunc: (context, params) {
       // Si tenemos base, entonces coge su primer valor del array.
-      print(params['base']?[0]);
-      print(params);
-      return CounterView();
+      // print(params['base']?[0]);
+      // Imprime todos los segmentos y los query params.
+      // print(params);
+      // Podríamos preguntar aquí si el valor esperado es un número
+      // (lo hacemos en counter_view.dart) y si no se puede parsear
+      // podríamos hacer que no se muestre la ruta.
+      return CounterView(base: params['base']?[0] ?? '5');
     },
   );
 

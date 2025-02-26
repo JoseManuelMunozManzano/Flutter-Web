@@ -355,3 +355,11 @@ Modificamos `router.dart`.
 Modificamos también `custom_app_menu.dart` para crear un botón con un ejemplo ya preparado para tener segmentos.
 
 Nos queda saber como coger el valor del segmento URL y que dicho valor vaya y sustituya el valor del contador.
+
+### Leer la base por URL y aplicarlo al contador
+
+Si se que, en `router.dart`, `:base` siempre va a tener un valor, puedo crear un handler independiente, manejar la ruta y mandarle un argumento independiente. O puedo usar el mismo handler y hacer un if para saber si tenemos o no el segmento.
+
+En nuestro ejemplo voy a usar el mismo handler. En `router.dart` mando la base cuando llamo a `CounterView()`.
+
+Modificamos `counter_view.dart` para indicar que recibimos un argumento y lo tratamos.
