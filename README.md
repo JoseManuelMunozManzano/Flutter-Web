@@ -375,3 +375,9 @@ Modificamos `custom_app_menu.dart` para crear un botón con un ejemplo ya prepar
 Modificamos `router.dart` para mandar el valor del query parameter.
 
 Modificamos `counter_provider_view` para que reciba los query parameters y también `counter_provider.dart` para que le llegue el valor.
+
+### Múltiples segmentos de URL
+
+En `router.dart` nos definimos una nueva ruta con múltiples segmentos.
+
+Probar en el navegador esta ruta: `http://localhost:49399/#/dashboard/users/abc123/admin`

@@ -38,6 +38,14 @@ class Flurorouter {
       transitionType: TransitionType.fadeIn,
     );
 
+    // Múltiples segmentos de URL.
+    // Creamos otro handler.
+    router.define(
+      '/dashboard/users/:userid/:roleid',
+      handler: _dashboardUserHandler,
+      transitionType: TransitionType.fadeIn,
+    );
+
     router.define(
       '/404',
       handler: _pageNotFound,
@@ -102,6 +110,14 @@ class Flurorouter {
       return CounterProviderView(base: params['q']?[0] ?? '10');
     },
   );
+
+  // Tratamos aquí múltiples segmentos de URL.
+  static final Handler _dashboardUserHandler = Handler(
+    handlerFunc: (context, params) {
+      print(params);
+      return View404();
+    },
+  );  
 
   static final Handler _pageNotFound = Handler(
     handlerFunc: (_, __) => View404(),
