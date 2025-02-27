@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MainLayoutPage(child: child ?? Container());
       },
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: Colors.white,
+      )
     );
   }
 }

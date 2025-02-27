@@ -381,3 +381,15 @@ Modificamos `counter_provider_view` para que reciba los query parameters y tambi
 En `router.dart` nos definimos una nueva ruta con múltiples segmentos.
 
 Probar en el navegador esta ruta: `http://localhost:49399/#/dashboard/users/abc123/admin`
+
+### Separar los handlers de las rutas
+
+Vamos a separar la lógica de los handlers a un archivo independiente.
+
+La idea es que podemos tener distintos manejadores, como manejadores de rutas de usuarios, de productos... Eso se hace creando controladores especializados, como se haría en Spring o Nest.
+
+En la carpeta `router` creamos un nuevo archivo `route_handlers.dart`.
+
+Tomamos cada uno de los handlers de `router.dart` y nos los llevamos a `route_handlers.dart`.
+
+También tenemos que modificar las importaciones de `router.dart`.

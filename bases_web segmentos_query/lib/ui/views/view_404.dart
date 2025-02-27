@@ -7,24 +7,27 @@ class View404 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            '404',
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 10),
-          Text('No se encontró la página', style: TextStyle(fontSize: 20)),
-          CustomFlatButton(
-            text: 'Regresar',
-            // Esto sigue funcionando porque estamos dentro del contexto normal.
-            // Estamos dentro del contenedor de la ruta. Sabe donde se encuentra
-            // el router y tiene la referencia al mismo.
-            onPressed: () => Navigator.pushNamed(context, '/stateful'),
-          ),
-        ],
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '404',
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text('No se encontró la página', style: TextStyle(fontSize: 20)),
+            CustomFlatButton(
+              text: 'Regresar',
+              // Esto sigue funcionando porque estamos dentro del contexto normal.
+              // Estamos dentro del contenedor de la ruta. Sabe donde se encuentra
+              // el router y tiene la referencia al mismo.
+              onPressed: () => Navigator.pushNamed(context, '/stateful'),
+            ),
+          ],
+        ),
       ),
     );
   }
