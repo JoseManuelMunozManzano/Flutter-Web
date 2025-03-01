@@ -18,6 +18,8 @@ class HomePage extends StatelessWidget {
       // estática y superpuesto.
       // Para esto, tenemos que poner dos elementos, uno encima del otro. Usamos Stack
       body: Container(
+        // Este decoration ya no hace falta porque el estiramiento efecto móvil no puedo hacerlo
+        decoration: buildBoxDecoration(),
         child: Stack(
           children: [
 
@@ -33,6 +35,21 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  BoxDecoration buildBoxDecoration() => BoxDecoration(
+    gradient: LinearGradient(
+      colors: [
+        Colors.pink,
+        Colors.purpleAccent,
+      ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      // Puntos de quiebre del gradiente.
+      // En este ejemplo, esto hace los dos colores sólidos, uno en una mitad
+      // de la pantalla y el otro en la otra mitad.
+      stops: [ 0.5, 0.5]
+    )
+  );
 }
 
 class _HomeBody extends StatelessWidget {

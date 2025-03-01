@@ -447,7 +447,7 @@ En `main.dart` tenemos que hacer dos cosas:
 - Utilizar nuestro router cuando se crean las rutas
 - Llamar a configureRoutes()
 
-### HogePage
+### HomePage
 
 Modificamos `home_page.dart` para hacerlo de verdad un page (con Scaffold).
 
@@ -462,3 +462,9 @@ Creamos las vistas que se van a mostrar dentro de nuestro page. Dentro de la car
 - `pricing_view.dart`
 
 Mostramos todas estas views dentro de `home_page.dart`.
+
+### Crear un gradiente de fondo
+
+Modificamos `home_page.dart` para crear un gradiente y que quede bien cuando, al principio de la página estiro hacia abajo (efecto móvil de estirar con el dedo) o al final de la misma estiro hacia arriba.
+
+NOTA: En el curso, al estirar se ve blanco, pero esto ya no hace falta porque no veo que ese estiramiento sea posible en Web a día de hoy. Lo dejo porque así aprendo a hacer un gradiente.
