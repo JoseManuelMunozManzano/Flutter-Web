@@ -446,3 +446,19 @@ En `main.dart` tenemos que hacer dos cosas:
 
 - Utilizar nuestro router cuando se crean las rutas
 - Llamar a configureRoutes()
+
+### HogePage
+
+Modificamos `home_page.dart` para hacerlo de verdad un page (con Scaffold).
+
+Instalamos el paquete `google_fonts` usando `PubSpec Assist`.
+
+Creamos las vistas que se van a mostrar dentro de nuestro page. Dentro de la carpeta `views` creamos los archivos:
+
+- `about_view.dart`
+- `contact_view.dart`
+- `home_view.dart`
+- `location_view.dart`
+- `pricing_view.dart`
+
+Mostramos todas estas views dentro de `home_page.dart`.
