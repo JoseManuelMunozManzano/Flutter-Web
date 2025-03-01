@@ -474,3 +474,9 @@ NOTA: En el curso, al estirar se ve blanco, pero esto ya no hace falta porque no
 Vamos a añadir a `home_page.dart` nuestro menú.
 
 El menú lo creamos en la carpeta `shared`, con nombre `custom_app_menu.dart`.
+
+### Animaciones del menú
+
+Hacemos que, al pulsar click en el menú, el icono cambie a una X y la palabra Menú se posiciona en el centro.
+
+Estos cambios los hacemos en `custom_app_menu.dart`.
