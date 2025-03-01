@@ -62,11 +62,11 @@ class _CustomAppMenuState extends State<CustomAppMenu>
               // del children.
               if (isOpen)
                   ...[
-                    CustomMenuItem(text: 'Home', onPressed: () {}),
-                    CustomMenuItem(text: 'About', onPressed: () {}),
-                    CustomMenuItem(text: 'Pricing', onPressed: () {}),
-                    CustomMenuItem(text: 'Contact', onPressed: () {}),
-                    CustomMenuItem(text: 'Location', onPressed: () {}),
+                    CustomMenuItem(delay: 0, text: 'Home', onPressed: () {}),
+                    CustomMenuItem(delay: 30, text: 'About', onPressed: () {}),
+                    CustomMenuItem(delay: 60, text: 'Pricing', onPressed: () {}),
+                    CustomMenuItem(delay: 90, text: 'Contact', onPressed: () {}),
+                    CustomMenuItem(delay: 120, text: 'Location', onPressed: () {}),
                     SizedBox(height: 8,)
                   ],
             ],
@@ -98,7 +98,7 @@ class _MenuTitle extends StatelessWidget {
           AnimatedContainer(
             duration: Duration(milliseconds: 200),
             curve: Curves.easeInOut,
-            width: isOpen ? 50 : 0,
+            width: isOpen ? 45 : 0,
           ),
           Text(
             'Menú',

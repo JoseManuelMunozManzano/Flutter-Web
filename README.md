@@ -486,3 +486,9 @@ Estos cambios los hacemos en `custom_app_menu.dart`.
 Vamos a hacer más legible nuestro código de `custom_app_menu.dart`. Para ello, extraemos el Widget `Row` a una clase privada. También hacemos que haya más puntos en el menú.
 
 Creamos en la carpeta `shared` un archivo `custom_menu_item.dart` que configura cada elemento del menú de forma genérica.
+
+### Detalles estéticos del menú
+
+Arreglamos un par de detalles estéticos del menú. Para ello modificamos `custom_app_menu.dart`.
+
+Instalamos un paquete de animaciones `animate_do` usando `PubSpec Assist` y modificamos `custom_menu_item.dart`.
