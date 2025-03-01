@@ -41,7 +41,7 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Landing Page',
-      initialRoute: '/home',
+      initialRoute: '/about',
       onGenerateRoute: Flurorouter.router.generator,
     );
   }

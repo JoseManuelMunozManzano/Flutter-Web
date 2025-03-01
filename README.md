@@ -512,3 +512,11 @@ Como quiero mis providers de manera global, modifico `main.dart`.
 Ahora conecto el provider en `home_page.dart`.
 
 En cada una de las opciones del menú uso la función creada en mi provider para hacer el scroll. Modifico `custom_app_menu.dart`.
+
+### Cambiar el URL al hacer click en un enlace
+
+Nuestro scroll ya funciona, pero vemos que al hacer click en un punto del menú no cambia la URL.
+
+Modificamos `page_provider.dart` porque es donde hacemos el cambio físicamente cuando se hace click en uno de los enlaces del menú.
+
+Instalamos, usando `PubSpec Assist` el paquete `universal_html`. Con este paquete podemos navegar al URL indicado, y funciona en todos los tipos de dispositivos. Podemos usar todas las funciones de `html`, `window`, `history`... sin tener que hacer condiciones especiales para saber si es un móvil, web... Si por lo que sea no funciona, no ejecuta el procedimiento, pero sin reventar la app.
