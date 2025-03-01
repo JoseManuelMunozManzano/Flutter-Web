@@ -468,3 +468,9 @@ Mostramos todas estas views dentro de `home_page.dart`.
 Modificamos `home_page.dart` para crear un gradiente y que quede bien cuando, al principio de la página estiro hacia abajo (efecto móvil de estirar con el dedo) o al final de la misma estiro hacia arriba.
 
 NOTA: En el curso, al estirar se ve blanco, pero esto ya no hace falta porque no veo que ese estiramiento sea posible en Web a día de hoy. Lo dejo porque así aprendo a hacer un gradiente.
+
+### Menú superior - Botón y Texto
+
+Vamos a añadir a `home_page.dart` nuestro menú.
+
+El menú lo creamos en la carpeta `shared`, con nombre `custom_app_menu.dart`.
