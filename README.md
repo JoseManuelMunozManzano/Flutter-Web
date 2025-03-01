@@ -435,3 +435,14 @@ Creamos la estructura de directorios. Siempre dentro de la carpeta `lib` creamos
 Dentro de la carpeta `pages` creamos una página `home_page.dart`.
 
 Recordar que un `page` es un archivo que tiene un Scaffold, es decir, es toda la pantalla. En el caso de un `view` nos referimos a un segmento de la pantalla y no tienen un Scaffold.
+
+### Configurando las rutas
+
+Instalamos, usando `PubScpec Assist` el paquete `fluro` para configurar nuestras rutas.
+
+En la carpeta `router` creamos el archivo `router.dart` y su controlador de rutas `router_handlers.dart`.
+
+En `main.dart` tenemos que hacer dos cosas:
+
+- Utilizar nuestro router cuando se crean las rutas
+- Llamar a configureRoutes()
