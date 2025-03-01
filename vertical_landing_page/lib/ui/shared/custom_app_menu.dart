@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:vertical_landing_page/providers/page_provider.dart';
 import 'package:vertical_landing_page/ui/shared/custom_menu_item.dart';
 
 // Como vamos a hacer una animación, sabemos que vamos a necesitar un estado,
@@ -31,6 +33,10 @@ class _CustomAppMenuState extends State<CustomAppMenu>
 
   @override
   Widget build(BuildContext context) {
+    // La propiedad listen la ponemos a false para que no redibuje el Widget.
+    // No necesitamos que se redibuje.    
+    final pageProvider = Provider.of<PageProvider>(context, listen: false);    
+
     return MouseRegion(
       // Para que, cuando nos posicionemos en el menú, cambie el cursor
       // y sepamos que se puede hacer click.
@@ -60,15 +66,14 @@ class _CustomAppMenuState extends State<CustomAppMenu>
               // Usamos el operador spread para desestructurar y esparcir
               // cada uno de los items como si fueran hijos directos
               // del children.
-              if (isOpen)
-                  ...[
-                    CustomMenuItem(delay: 0, text: 'Home', onPressed: () {}),
-                    CustomMenuItem(delay: 30, text: 'About', onPressed: () {}),
-                    CustomMenuItem(delay: 60, text: 'Pricing', onPressed: () {}),
-                    CustomMenuItem(delay: 90, text: 'Contact', onPressed: () {}),
-                    CustomMenuItem(delay: 120, text: 'Location', onPressed: () {}),
-                    SizedBox(height: 8,)
-                  ],
+              if (isOpen) ...[
+                CustomMenuItem(delay: 0, text: 'Home', onPressed: () => pageProvider.goTo(0)),
+                CustomMenuItem(delay: 30, text: 'About', onPressed: () => pageProvider.goTo(1)),
+                CustomMenuItem(delay: 60, text: 'Pricing', onPressed: () => pageProvider.goTo(2)),
+                CustomMenuItem(delay: 90, text: 'Contact', onPressed: () => pageProvider.goTo(3)),
+                CustomMenuItem(delay: 120, text: 'Location', onPressed: () => pageProvider.goTo(4)),
+                SizedBox(height: 8),
+              ],
             ],
           ),
         ),

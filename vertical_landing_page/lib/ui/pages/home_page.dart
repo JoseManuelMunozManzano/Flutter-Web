@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:vertical_landing_page/providers/page_provider.dart';
 
 import 'package:vertical_landing_page/ui/shared/custom_app_menu.dart';
 
@@ -58,7 +61,14 @@ class _HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // La propiedad listen la ponemos a false para que no redibuje el Widget.
+    // No necesitamos que se redibuje.
+    final pageProvider = Provider.of<PageProvider>(context, listen: false);
+
     return PageView(
+      // Este controlador hace referencia a mi PageController del provider.      
+      controller: pageProvider.scrollController,
       scrollDirection: Axis.vertical,
       children: [
         // Aquí se van a mostrar las vistas.

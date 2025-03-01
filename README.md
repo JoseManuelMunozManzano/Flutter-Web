@@ -492,3 +492,23 @@ Creamos en la carpeta `shared` un archivo `custom_menu_item.dart` que configura 
 Arreglamos un par de detalles estéticos del menú. Para ello modificamos `custom_app_menu.dart`.
 
 Instalamos un paquete de animaciones `animate_do` usando `PubSpec Assist` y modificamos `custom_menu_item.dart`.
+
+### Scroll hacia una página en específico
+
+Queremos que, al hacer click en uno de los puntos del menú, el scroll se mueva automáticamente a esa pantalla.
+
+Esto es fácil si sabemos como funciona el gestor de estado en Flutter.
+
+Un `PageController` nos permite hacer la navegación a una pantalla o slide en particular, pero tenemos que mantener la referencia al mismo para que los hijos (los puntos del menú) puedan acceder a él, y hacer uso de ese PageController para poder decirle a qué página ir. 
+
+Es decir, necesito ese PageController de manera global.
+
+Por eso necesitamos un gestor de estado. Vamos a usar `provider` y lo instalamos como siempre, usando `PubSpec Assist`.
+
+En la carpeta `providers` creamos el archivo `page_provider.dart`.
+
+Como quiero mis providers de manera global, modifico `main.dart`.
+
+Ahora conecto el provider en `home_page.dart`.
+
+En cada una de las opciones del menú uso la función creada en mi provider para hacer el scroll. Modifico `custom_app_menu.dart`.
