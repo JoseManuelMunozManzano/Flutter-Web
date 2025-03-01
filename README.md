@@ -534,3 +534,9 @@ En `router_handlers.dart` leemos el segmento y llamo a la nueva función de mi p
 Cuando nos movemos con la rueda del ratón, se va cambiando el view, pero vemos que eso no se refleja en el URL.
 
 Tenemos todo lo necesario en `page_provider.dart`, en concreto en `scrollController`. Tenemos que añadir un listener para estar escuchando los movimientos.
+
+### Cambiar el título de la página web
+
+Queremos cambiar el título `Landing Page` por el nombre de la página en la que nos encontramos.
+
+Modificamos `page_provider.dart`.

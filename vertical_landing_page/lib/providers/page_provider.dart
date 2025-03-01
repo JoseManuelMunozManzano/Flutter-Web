@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:universal_html/html.dart' as html;
 
 class PageProvider extends ChangeNotifier {
@@ -26,6 +27,9 @@ class PageProvider extends ChangeNotifier {
     // También nos viene muy bien el poder indicar la página inicial.
     scrollController = PageController(initialPage: _getPageIndex(routeName));
 
+    // Cambiamos el título de la página
+    html.document.title = _pages[_getPageIndex(routeName)];
+
     // Añadimos un listener para estar escuchando los movimientos del scroll
     // y cambiar la URL cuando cambio de view.
     scrollController.addListener(() {
@@ -35,6 +39,7 @@ class PageProvider extends ChangeNotifier {
       // Solo se debería ejecutar cuando cambio de índice.
       if (index != _currentIndex) {
         html.window.history.pushState(null, 'none', '#/${_pages[index]}');
+        html.document.title = _pages[index];
         _currentIndex = index;
       }
     });
