@@ -14,6 +14,20 @@ class PageProvider extends ChangeNotifier {
     'location',
   ];
 
+  // El argumento routeName lo voy a usar para saber cual es la posición índice
+  // basando en el arreglo _pages.
+  createScrollController(String routeName) {
+    // Me creo un nuevo PageController porque cuando se invoca a esta función NO
+    // tenemos instancia de HomePage y por lo tanto no tenemos el
+    // scrollController declarado arriba.
+    // También nos viene muy bien el poder indicar la página inicial.
+    scrollController = PageController(initialPage: _getPageIndex(routeName));
+  }
+
+  int _getPageIndex(String routeName) {
+    return !_pages.contains(routeName) ? 0 : _pages.indexOf(routeName);
+  }
+
   // El menú va a llamar aquí y esta función va a mover el scrollController.
   // También va a modificar mi URL.
   goTo(int index) {

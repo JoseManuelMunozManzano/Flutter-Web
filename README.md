@@ -520,3 +520,11 @@ Nuestro scroll ya funciona, pero vemos que al hacer click en un punto del menú 
 Modificamos `page_provider.dart` porque es donde hacemos el cambio físicamente cuando se hace click en uno de los enlaces del menú.
 
 Instalamos, usando `PubSpec Assist` el paquete `universal_html`. Con este paquete podemos navegar al URL indicado, y funciona en todos los tipos de dispositivos. Podemos usar todas las funciones de `html`, `window`, `history`... sin tener que hacer condiciones especiales para saber si es un móvil, web... Si por lo que sea no funciona, no ejecuta el procedimiento, pero sin reventar la app.
+
+### Utilizar el segmento para definir la pantalla inicial
+
+Queremos que, al cambiar manualmente la URL, se lea ese segmento y se haga el scroll automático a esa view.
+
+Nos creamos un nuevo método en `page_provider.dart` llamado `createScrollController()`.
+
+En `router_handlers.dart` leemos el segmento y llamo a la nueva función de mi provider.
