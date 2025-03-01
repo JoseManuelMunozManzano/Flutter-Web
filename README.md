@@ -480,3 +480,9 @@ El menú lo creamos en la carpeta `shared`, con nombre `custom_app_menu.dart`.
 Hacemos que, al pulsar click en el menú, el icono cambie a una X y la palabra Menú se posiciona en el centro.
 
 Estos cambios los hacemos en `custom_app_menu.dart`.
+
+### Opciones del menú
+
+Vamos a hacer más legible nuestro código de `custom_app_menu.dart`. Para ello, extraemos el Widget `Row` a una clase privada. También hacemos que haya más puntos en el menú.
+
+Creamos en la carpeta `shared` un archivo `custom_menu_item.dart` que configura cada elemento del menú de forma genérica.
