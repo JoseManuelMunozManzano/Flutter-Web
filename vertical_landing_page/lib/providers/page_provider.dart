@@ -14,6 +14,9 @@ class PageProvider extends ChangeNotifier {
     'location',
   ];
 
+  // Página actual.
+  int _currentIndex = 0;
+
   // El argumento routeName lo voy a usar para saber cual es la posición índice
   // basando en el arreglo _pages.
   createScrollController(String routeName) {
@@ -22,6 +25,19 @@ class PageProvider extends ChangeNotifier {
     // scrollController declarado arriba.
     // También nos viene muy bien el poder indicar la página inicial.
     scrollController = PageController(initialPage: _getPageIndex(routeName));
+
+    // Añadimos un listener para estar escuchando los movimientos del scroll
+    // y cambiar la URL cuando cambio de view.
+    scrollController.addListener(() {
+      final index = (scrollController.page ?? 0).round();
+
+      // Cuidado porque esto se va a ejecutar muchísimas veces rompiendo la navegación.
+      // Solo se debería ejecutar cuando cambio de índice.
+      if (index != _currentIndex) {
+        html.window.history.pushState(null, 'none', '#/${_pages[index]}');
+        _currentIndex = index;
+      }
+    });
   }
 
   int _getPageIndex(String routeName) {
@@ -32,7 +48,8 @@ class PageProvider extends ChangeNotifier {
   // También va a modificar mi URL.
   goTo(int index) {
     // final routeName = _pages[index];
-    html.window.history.pushState(null, 'none', '#/${_pages[index]}');
+    // Como al ejecutar goTo también se dispara el listener, esto ya no hace falta aquí.
+    // html.window.history.pushState(null, 'none', '#/${_pages[index]}');
 
     scrollController.animateToPage(
       index,

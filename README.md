@@ -528,3 +528,9 @@ Queremos que, al cambiar manualmente la URL, se lea ese segmento y se haga el sc
 Nos creamos un nuevo método en `page_provider.dart` llamado `createScrollController()`.
 
 En `router_handlers.dart` leemos el segmento y llamo a la nueva función de mi provider.
+
+### Añadir un listener de movimiento del PageController
+
+Cuando nos movemos con la rueda del ratón, se va cambiando el view, pero vemos que eso no se refleja en el URL.
+
+Tenemos todo lo necesario en `page_provider.dart`, en concreto en `scrollController`. Tenemos que añadir un listener para estar escuchando los movimientos.
