@@ -2,6 +2,12 @@
 
 Curso de Fernando Herrera: `https://cursos.devtalles.com/courses/flutter-web`
 
+## Orden de los proyectos
+
+- bases_web
+- bases_web_segmentos_query
+- vertical_landing_page
+
 ## Flutter Web - Introducción
 
 ### Temas puntuales de la sección
@@ -393,3 +399,39 @@ En la carpeta `router` creamos un nuevo archivo `route_handlers.dart`.
 Tomamos cada uno de los handlers de `router.dart` y nos los llevamos a `route_handlers.dart`.
 
 También tenemos que modificar las importaciones de `router.dart`.
+
+## Scrollable Landing Page
+
+Nuevo proyecto `vertical_landing_page`
+
+### Temas puntuales de la sección
+
+Esta sección es muy importante para comprender aún más el funcionamiento de los URLs en Flutter Web, pero a la vez crearemos una aplicación bonita y elegante que tenga una interacción con diferentes elementos entre sí.
+
+Puntualmente veremos:
+
+- Menú personalizado
+- Animaciones
+- PageController
+- Segmentos de URL
+- Posiciones iniciales del PageController
+- Y muchas otras cosas
+
+### Inicio de proyecto
+
+Creamos el proyecto usando, en VSCode, `Flutter: New Project` e indicamos el nombre `vertical_landing_page`.
+
+Modificamos `main.dart`.
+
+Creamos la estructura de directorios. Siempre dentro de la carpeta `lib` creamos las carpetas:
+
+- `providers`
+- `router`
+- `ui`
+  - `pages`
+  - `shared`
+  - `views`
+
+Dentro de la carpeta `pages` creamos una página `home_page.dart`.
+
+Recordar que un `page` es un archivo que tiene un Scaffold, es decir, es toda la pantalla. En el caso de un `view` nos referimos a un segmento de la pantalla y no tienen un Scaffold.
