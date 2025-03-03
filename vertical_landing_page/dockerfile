@@ -1,0 +1,11 @@
+# Usa una imagen de Nginx compatible con Raspberry Pi (ARM)
+FROM nginx:alpine
+
+# Copia la app compilada en Flutter Web al directorio de Nginx
+COPY build/web /usr/share/nginx/html
+
+# Exponer el puerto 80 para servir la aplicación
+EXPOSE 80
+
+# Iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]

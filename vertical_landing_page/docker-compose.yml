@@ -1,0 +1,7 @@
+services:
+  flutter-web:  
+    build: .
+    container_name: flutter_web_landing_page
+    restart: always
+    ports:
+      - "8087:80"

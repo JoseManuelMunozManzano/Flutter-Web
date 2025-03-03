@@ -22,6 +22,10 @@ Esta es una sección introductoria, la cual tiene por objetivo hablar sobre:
 
 La idea es que antes de comenzar, tengan un panorama general del poder y limitantes de Flutter Web.
 
+En esta sección además tomaremos nuestro landing page y la desplegaremos en la Web.
+
+Hablaremos un poco de generalidades e instalaremos nuestra aplicación en el dispositivo físico como una PWA (Progressive Web App)
+
 ### Consideraciones importantes
 
 - PROS
@@ -540,3 +544,57 @@ Tenemos todo lo necesario en `page_provider.dart`, en concreto en `scrollControl
 Queremos cambiar el título `Landing Page` por el nombre de la página en la que nos encontramos.
 
 Modificamos `page_provider.dart`.
+
+## Desplegando una aplicación de Flutter Web
+
+En esta sección tomaremos nuestro landing page y la desplegaremos en la Web.
+
+Hablaremos un poco de generalidades e instalaremos nuestra aplicación en el dispositivo físico como una PWA (Progressive Web App)
+
+### Generar el build web
+
+Necesitamos generar el build o bundle de producción para desplegar en un sitio web.
+
+Ejecutamos el mandato `flutter build web`.
+
+Nuestro sitio web queda en la carpeta `build/web`. Todo nuestro código queda en `build/web/main.dart`.
+
+Ahora solo tenemos que llevarnos la carpeta `build/web` a nuestro hosting.
+
+### Configuración básica de una PWA
+
+https://web.dev/learn/pwa/
+
+Los archivos cruciales para transformar nuestra web a una PWA son `build/web/flutter_service_worker.js` y `web/manifest.json`.
+
+**Service Worker**
+
+Se puede ver como si fuera un proxy, es decir, nuestra app primero viene al Service Worker antes de hacer otra cosa.
+
+La estrategia que usa una PWA es `Network first with Cache Fallback`, es decir, primero va a la web a ver si puede obtener el recurso, y si no lo consigue, utiliza el recurso que está en local en la caché.
+
+**Manifest**
+
+En `web/manifest.json` modificamos alguna cosita.
+
+Igual en `web/index.html`.
+
+No modificar el mismo archivo existente en `build/web/manifest.json` porque cada vez que se haga un build se reescriben todos los ficheros.
+
+Una vez modificado volvemos a lanzar el build.
+
+### Desplegar la aplicación de Flutter Web en Docker en Raspberry Pi
+
+Voy a desplegar mi app en Docker, en mi Raspberry Pi. Para ello:
+
+- Creamos el fichero `Dockerfile` en la raiz
+- Creamos el archivo `docker-compose.yml` que también tengo en la raiz
+- Pasamos el contexto a mi docker de Raspberry Pi
+  - docker context use docker-pi
+- Ejecutamos los comandos
+  - docker-compose build
+  - docker-compose up -d
+- Ver los logs de Nginx
+  - docker logs flutter_web_landing_page
+- Acceder a la web
+  - http://192.168.50.2:8087
