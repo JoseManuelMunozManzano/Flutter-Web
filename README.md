@@ -7,6 +7,7 @@ Curso de Fernando Herrera: `https://cursos.devtalles.com/courses/flutter-web`
 - bases_web
 - bases_web_segmentos_query
 - vertical_landing_page
+- admin_dashboard
 
 ## Flutter Web - Introducción
 
@@ -598,3 +599,31 @@ Voy a desplegar mi app en Docker, en mi Raspberry Pi. Para ello:
   - docker logs flutter_web_landing_page
 - Acceder a la web
   - http://192.168.50.2:8087
+
+## Admin Dashboard - UI Login
+
+Proyecto `admin_dashboard`.
+
+Este es el último proyecto que se hace en el curso, pero va a involucrar muchas cosas: autenticación, formularios, paginación, posteo de imágenes y archivos en la nube, comunicación con backend, maneja tokens, interceptores mediante headers...
+
+### Temas puntuales de la sección
+
+El objetivo de la sección es que empecemos a dejar las bases de la navegación y diseño del login, la pantalla del registro y preparar el proyecto para todo lo que viene después.
+
+Esta sección es puro diseño y estructura de la aplicación.
+
+### Inicio del proyecto - AdminDashboard
+
+Como este proyecto es bastante grande, la estructura del filesystem tiene que ser bastante limpia para que, el día de mañana, sea fácil encontrar las cosas.
+
+Creamos este nuevo proyecto usando el comando de VSCode `Flutter:New Project` y le damos el nombre `admin_dashboard`.
+
+Una vez generado, accedemos a `lib/main.dart`, borramos todo y generamos un esqueleto de aplicación utilizando el snippet `mateapp` que modificamos un poco.
+
+Instalamos, usando `Pubspec Assist`, la dependencia `fluro`.
+
+Creamos la estructura de nuestro proyecto:
+
+- En la carpeta `lib` creamos las carpetas `ui`, `providers`, `router` y `services`, donde en este último estarán los fuentes encargados de hacer peticiones http o procesos que no implican re-renderizar
+- Dentro de `ui` creamos las carpetas `layouts`, `buttons`, `views`
+- Dentro de `layouts` creamos las carpetas `auth` y `dashboard`, es decir, va a haber dos layouts
