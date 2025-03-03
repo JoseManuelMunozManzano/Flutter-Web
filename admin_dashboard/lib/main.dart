@@ -1,6 +1,12 @@
+import 'package:admin_dashboard/router/router.dart';
+import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  // Configuramos rutas
+  Flurorouter.configureRoutes();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +16,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Admin Dashboard',
-      home: Container()
+      initialRoute: '/',
+      onGenerateRoute: Flurorouter.router.generator,
+      // El child es la vista que necesitamos mostrar.
+      // Se devuelve un layout al que se le pasa la view que tiene que mostrar.
+      builder: (_, child) {
+        return AuthLayout();
+      }
     );
   }
 }

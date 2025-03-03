@@ -627,3 +627,17 @@ Creamos la estructura de nuestro proyecto:
 - En la carpeta `lib` creamos las carpetas `ui`, `providers`, `router` y `services`, donde en este último estarán los fuentes encargados de hacer peticiones http o procesos que no implican re-renderizar
 - Dentro de `ui` creamos las carpetas `layouts`, `buttons`, `views`
 - Dentro de `layouts` creamos las carpetas `auth` y `dashboard`, es decir, va a haber dos layouts
+
+### Definir rutas y AuthLayout
+
+Vamos a crear el primer layout, el de autenticación, que nos va a permitir mostrar el login y el register.
+
+Dentro de la carpeta `auth` creamos el archivo `auth_layout.dart`.
+
+Dentro de la carpeta `views` creamos el archivo `login_view.dart`.
+
+Dentro de la carpeta `router` creamos el archivo `router.dart` y va a contener la configuración básica de mis rutas.
+
+En la carpeta `router` vamos a crear archivos independientes de handler para administración y para el dashboard. Creamos en `router` el archivo `admin_handlers.dart`.
+
+Utilizamos en `main.dart` el router creado.
