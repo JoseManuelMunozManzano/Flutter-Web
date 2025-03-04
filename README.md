@@ -680,3 +680,13 @@ Dentro de la carpeta `auth` creamos una nueva carpeta `widgets` y dentro el arch
 Estos widgets van a ser los necesarios para construir nuestro AuthLayout y no los vamos a reutilizar. Si los fuéramos a reutilizar en otro layout, entonces podría crear la carpeta `ui/widgets`, pero no es el caso.
 
 También modifico `auth_layout.dart` para llamar a `BackgroundTwitter`.
+
+### Custom Title y espacio para la vista
+
+Modificamos `auth_layout.dart` y vamos a crear un título personalizado que va a funcionar como un widget independiente.
+
+Solo va a funcionar para AuthLayout, así que creamos un nuevo archivo en `auth/widgets` llamado `custom_title.dart`.
+
+Modificamos `main.dart` para mandar la view a `AuthLayout`. Tengo que corregir `auth_layout.dart` para poder trabajar con ese argumento.
+
+Modificamos `login_view.dart` para que se vea claro que espacio tenemos para mostrar el login o el register.

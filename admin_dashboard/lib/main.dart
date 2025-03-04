@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       // El child es la vista que necesitamos mostrar.
       // Se devuelve un layout al que se le pasa la view que tiene que mostrar.
       builder: (_, child) {
-        return AuthLayout();
+        return AuthLayout(child: child!);
       }
     );
   }
