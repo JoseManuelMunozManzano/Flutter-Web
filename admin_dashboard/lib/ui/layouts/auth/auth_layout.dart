@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/ui/layouts/auth/widgets/background_twitter.dart';
 import 'package:flutter/material.dart';
 
 // Recordar que los layouts tienen un Scaffold
@@ -21,7 +22,6 @@ class AuthLayout extends StatelessWidget {
 }
 
 class _DesktopBody extends StatelessWidget {
-  const _DesktopBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _DesktopBody extends StatelessWidget {
         children: [
           // Twitter Background
           // Ancho dinámico
-          Expanded(child: Container(color: Colors.blue)),
+          BackgroundTwitter(),
 
           // View Container (la vista basada en el URL)
           // Ancho estático

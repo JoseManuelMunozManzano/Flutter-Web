@@ -670,3 +670,13 @@ porque queremos que los assets sean parte de los recursos que vamos a tener en l
 Con esto ya tenemos acceso a esas imágenes.
 
 Modificamos ahora `auth_layout.dart`. Vamos a hacer el diseño para la web (desktop) y luego lo vamos a adaptar a móvil.
+
+### BackgroundTwitter
+
+Como vamos a colocar bastante código, para que sea más fácil de mantener, vamos a crearlo en un nuevo archivo.
+
+Dentro de la carpeta `auth` creamos una nueva carpeta `widgets` y dentro el archivo `background_twitter.dart`.
+
+Estos widgets van a ser los necesarios para construir nuestro AuthLayout y no los vamos a reutilizar. Si los fuéramos a reutilizar en otro layout, entonces podría crear la carpeta `ui/widgets`, pero no es el caso.
+
+También modifico `auth_layout.dart` para llamar a `BackgroundTwitter`.
