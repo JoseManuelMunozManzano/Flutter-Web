@@ -690,3 +690,11 @@ Solo va a funcionar para AuthLayout, así que creamos un nuevo archivo en `auth/
 Modificamos `main.dart` para mandar la view a `AuthLayout`. Tengo que corregir `auth_layout.dart` para poder trabajar con ese argumento.
 
 Modificamos `login_view.dart` para que se vea claro que espacio tenemos para mostrar el login o el register.
+
+### Barra de enlaces inferior y enlaces
+
+Vamos a trabajar con la parte de abajo de nuestro layout, donde vamos a añadir unos enlaces.
+
+Modificamos `auth_layout.dart` para añadir los enlaces.
+
+En la carpeta `auth/widgets` creo el archivo `links_bar.dart`. Aquí creo un Widget LinkText que, como voy a reutilizar me lo llevo a la carpeta `ui/buttons`. Ahí creo el archivo `link_text.dart`. Su funcionalidad es la de un botón.
