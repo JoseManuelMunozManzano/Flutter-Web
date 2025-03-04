@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/router/admin_handlers.dart';
+import 'package:admin_dashboard/router/no_page_found_handlers.dart';
 import 'package:fluro/fluro.dart';
 
 // To-do estático porque no queremos crear instancias.
@@ -21,6 +22,8 @@ class Flurorouter {
 
     // TODO: Por hacer
     // router.define(registerRoute, handler: handler);
-  }
 
+    // 404
+    router.notFoundHandler = NoPageFoundHandlers.noPageFound;
+  }
 }

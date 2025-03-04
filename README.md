@@ -641,3 +641,13 @@ Dentro de la carpeta `router` creamos el archivo `router.dart` y va a contener l
 En la carpeta `router` vamos a crear archivos independientes de handler para administración y para el dashboard. Creamos en `router` el archivo `admin_handlers.dart`.
 
 Utilizamos en `main.dart` el router creado.
+
+### No Page Found - Route
+
+Vamos a hacer que nuestra página 404 sea una vista. Más adelante veremos como pasar de un Layout a otro Layout.
+
+En la carpeta `views` creamos la vista `no_page_found_view.dart`.
+
+Instalamos, usando `Pubspec Assist` el paquete `google_fonts`.
+
+Modificamos `router.dart` y añadimos un nuevo handler en la carpeta `router` llamado `no_page_found_handlers.dart`.
