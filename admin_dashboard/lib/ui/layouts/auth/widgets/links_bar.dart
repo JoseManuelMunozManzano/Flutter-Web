@@ -13,11 +13,14 @@ class LinksBar extends StatelessWidget {
       color: Colors.black,
       // Como en auth_layout la altura del contenedor padre es 0.95
       // aquí pongo el 0.05 restante.
-      height: size.height * 0.05,
+      // De hecho lo pongo más grande para tener un poco de scroll.
+      height: size.height * 0.07,
+
       // El Wrap es parecido a un Div con ciertas propiedades de FlexBox.
       child: Wrap(
+        alignment: WrapAlignment.center,
         children: [
-          LinkText(text: 'About'),
+          LinkText(text: 'About', onPressed: () => print('about')),
           LinkText(text: 'Help Center'),
           LinkText(text: 'Terms of Service'),
           LinkText(text: 'Privacy Policy'),

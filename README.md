@@ -698,3 +698,13 @@ Vamos a trabajar con la parte de abajo de nuestro layout, donde vamos a añadir 
 Modificamos `auth_layout.dart` para añadir los enlaces.
 
 En la carpeta `auth/widgets` creo el archivo `links_bar.dart`. Aquí creo un Widget LinkText que, como voy a reutilizar me lo llevo a la carpeta `ui/buttons`. Ahí creo el archivo `link_text.dart`. Su funcionalidad es la de un botón.
+
+### Anchor Tag
+
+Vamos a transformar `link_text.dart` para que realmente parezca un enlace en el que deje el cursor encima y se reaccione.
+
+Para eso necesito un estado que reaccionará cuando el cursor esté encima o salga del enlace.
+
+Por lo tanto, tenemos que transformar `link_text.dart` a un Stateful Widget.
+
+También modificamos `links_bar.dart` para pasar una función de prueba a ejecutar al pulsar click en el enlace.
