@@ -651,3 +651,22 @@ En la carpeta `views` creamos la vista `no_page_found_view.dart`.
 Instalamos, usando `Pubspec Assist` el paquete `google_fonts`.
 
 Modificamos `router.dart` y añadimos un nuevo handler en la carpeta `router` llamado `no_page_found_handlers.dart`.
+
+### Diseño del AuthLayout
+
+Para esta clase nos pasaron el logo de Twiter y su fondo.
+
+Creo un directorio en el raiz del proyecto llamado `assets` y los muevo ahí.
+
+Ahora nos vamos al archivo `pubspec.yaml` e indicamos:
+
+```yaml
+  assets:
+    - assets/
+```
+
+porque queremos que los assets sean parte de los recursos que vamos a tener en la aplicación.
+
+Con esto ya tenemos acceso a esas imágenes.
+
+Modificamos ahora `auth_layout.dart`. Vamos a hacer el diseño para la web (desktop) y luego lo vamos a adaptar a móvil.
