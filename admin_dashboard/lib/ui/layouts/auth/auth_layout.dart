@@ -12,20 +12,55 @@ class AuthLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: ListView(
         // Para que en modo móvil no se pueda arrastrar la página por
         // arriba ni por debajo.
         physics: ClampingScrollPhysics(),
         children: [
-          // Dektop
-          _DesktopBody(child: child),
-          // Mobile
+
+          (size.width > 1000)
+          ? _DesktopBody(child: child)
+          : _MobileBody(child: child),
 
           // LinksBar
           LinksBar(),
         ],
       ),
+    );
+  }
+}
+
+class _MobileBody extends StatelessWidget {
+
+  final Widget child;
+
+  const _MobileBody({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          CustomTitle(),
+          SizedBox(
+            width: double.infinity,
+            height: 420,
+            child: child,
+          ),
+
+          SizedBox(
+            width: double.infinity,
+            height: 400,
+            child: BackgroundTwitter()
+          )
+        ],
+      )
     );
   }
 }
@@ -54,11 +89,13 @@ class _DesktopBody extends StatelessWidget {
           // Ancho estático
           Container(
             width: 600,
-            height:double.infinity, // Podemos usarlo porque sabemos el height del Container padre.
+            height:
+                double
+                    .infinity, // Podemos usarlo porque sabemos el height del Container padre.
             color: Colors.black,
             child: Column(
               children: [
-                SizedBox(height: 20,),
+                SizedBox(height: 20),
                 CustomTitle(),
                 SizedBox(height: 50),
                 // El espacio sobrante va para mi vista de login o register.

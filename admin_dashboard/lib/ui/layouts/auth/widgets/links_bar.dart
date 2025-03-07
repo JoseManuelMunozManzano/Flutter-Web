@@ -14,7 +14,7 @@ class LinksBar extends StatelessWidget {
       // Como en auth_layout la altura del contenedor padre es 0.95
       // aquí pongo el 0.05 restante.
       // De hecho lo pongo más grande para tener un poco de scroll.
-      height: size.height * 0.07,
+      height: (size.width > 1000) ? size.height * 0.07 : null,
 
       // El Wrap es parecido a un Div con ciertas propiedades de FlexBox.
       child: Wrap(

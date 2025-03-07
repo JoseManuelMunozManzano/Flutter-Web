@@ -708,3 +708,9 @@ Para eso necesito un estado que reaccionará cuando el cursor esté encima o sal
 Por lo tanto, tenemos que transformar `link_text.dart` a un Stateful Widget.
 
 También modificamos `links_bar.dart` para pasar una función de prueba a ejecutar al pulsar click en el enlace.
+
+### Diseño para teléfonos
+
+Cuando el ancho sea menos de 1000px vamos a cambiar el diseño para que se vea bien en teléfonos móviles.
+
+Modificamos `auth_layout.dart` y `links_bar.dart`.
