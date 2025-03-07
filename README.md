@@ -714,3 +714,9 @@ También modificamos `links_bar.dart` para pasar una función de prueba a ejecut
 Cuando el ancho sea menos de 1000px vamos a cambiar el diseño para que se vea bien en teléfonos móviles.
 
 Modificamos `auth_layout.dart` y `links_bar.dart`.
+
+### Scrollbar
+
+Vamos a mostrar un scrollbar para que el usuario tenga claro que hay más pantalla.
+
+Modificamos `auth_layout.dart` y `main.dart` para personalizar el scrollbar.

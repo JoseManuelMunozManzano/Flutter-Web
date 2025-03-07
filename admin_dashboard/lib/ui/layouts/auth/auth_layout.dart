@@ -15,19 +15,24 @@ class AuthLayout extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: ListView(
-        // Para que en modo móvil no se pueda arrastrar la página por
-        // arriba ni por debajo.
-        physics: ClampingScrollPhysics(),
-        children: [
-
-          (size.width > 1000)
-          ? _DesktopBody(child: child)
-          : _MobileBody(child: child),
-
-          // LinksBar
-          LinksBar(),
-        ],
+      // La personalización del Scrollbar se hace desde el tema global de la aplicación.
+      // Ver main.dart
+      body: Scrollbar(
+        thumbVisibility: true,
+        child: ListView(
+          // Para que en modo móvil no se pueda arrastrar la página por
+          // arriba ni por debajo.
+          physics: ClampingScrollPhysics(),
+          children: [
+        
+            (size.width > 1000)
+            ? _DesktopBody(child: child)
+            : _MobileBody(child: child),
+        
+            // LinksBar
+            LinksBar(),
+          ],
+        ),
       ),
     );
   }
@@ -37,7 +42,7 @@ class _MobileBody extends StatelessWidget {
 
   final Widget child;
 
-  const _MobileBody({super.key, required this.child});
+  const _MobileBody({required this.child});
 
   @override
   Widget build(BuildContext context) {

@@ -22,7 +22,16 @@ class MyApp extends StatelessWidget {
       // Se devuelve un layout al que se le pasa la view que tiene que mostrar.
       builder: (_, child) {
         return AuthLayout(child: child!);
-      }
+      },
+
+      // Configuración personalizada del scrollbar
+      theme: ThemeData.light().copyWith(
+        scrollbarTheme: ScrollbarThemeData(
+          thumbColor: WidgetStatePropertyAll(
+            Colors.grey[500]
+          )
+        )
+      ),
     );
   }
 }
