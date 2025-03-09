@@ -726,3 +726,9 @@ Modificamos `auth_layout.dart` y `main.dart` para personalizar el scrollbar.
 Vamos a trabajar ahora, dentro del layout, al espacio asignado a la vista.
 
 Modificamos `login_view.dart` para crear el formulario.
+
+### Botón personalizado de ingreso
+
+Seguimos modificando `login_view.dart` para crear el formulario.
+
+En la carpeta `ui/buttons` nos creamos un nuevo botón `custom_outlined_button.dart`.
