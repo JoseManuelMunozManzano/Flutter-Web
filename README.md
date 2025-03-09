@@ -720,3 +720,9 @@ Modificamos `auth_layout.dart` y `links_bar.dart`.
 Vamos a mostrar un scrollbar para que el usuario tenga claro que hay más pantalla.
 
 Modificamos `auth_layout.dart` y `main.dart` para personalizar el scrollbar.
+
+### Formulario de Login
+
+Vamos a trabajar ahora, dentro del layout, al espacio asignado a la vista.
+
+Modificamos `login_view.dart` para crear el formulario.
