@@ -12,6 +12,7 @@ class LoginFormProvider extends ChangeNotifier {
     // Aquí es donde lanzamos la validación del formulario.
     if (formKey.currentState!.validate()) {
       print('Form valid ... Login');
+      print('$email === $password');
     } else {
       print('Form not valid');
     }

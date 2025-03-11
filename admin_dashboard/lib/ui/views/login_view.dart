@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/router/router.dart';
@@ -50,7 +51,13 @@ class LoginView extends StatelessWidget {
                     children: [
                       // Email
                       TextFormField(
-                        //validator: (),
+                        validator: (value) {
+                          if (!EmailValidator.validate(value ?? '')) return 'Email no válido';
+                          
+                          return null;
+                        },
+                        // Se dispara cada vez que cambia el valor de la caja de texto.
+                        onChanged: (value) => loginFormProvider.email = value,
                         style: TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
                           hint: 'Ingrese su correo',
@@ -65,13 +72,13 @@ class LoginView extends StatelessWidget {
                       TextFormField(
                         // Esta validación se lanza desde el provider.
                         validator: (value) {
-                          if (value == null || value.isEmpty)
-                            return 'Ingrese su contraseña';
-                          if (value.length < 6)
-                            return 'La contraseña debe de ser de al menos 6 caracteres';
+                          if (value == null || value.isEmpty) return 'Ingrese su contraseña';
+                          if (value.length < 6) return 'La contraseña debe de ser de al menos 6 caracteres';
 
                           return null; // Válido
                         },
+                        // Se dispara cada vez que cambia el valor de la caja de texto.
+                        onChanged: (value) => loginFormProvider.password = value,
                         obscureText: true,
                         style: TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(

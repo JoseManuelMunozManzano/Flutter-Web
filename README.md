@@ -779,3 +779,11 @@ Instalamos, usando `Pubspec Assist` el paquete `provider`.
 ### Formulario de ingreso
 
 Modificamos el archivo `login_view.dart` y `login_form_provider.dart`.
+
+### Obtener email y contraseña
+
+Vamos a enlazar los campos email y contraseña del formulario al provider, usando la propiedad onChanged.
+
+Modificamos `login_view.dart` y `login_form_provider.dart`.
+
+Instalamos un paquete para hacer validaciones de email (también podríamos usar una expresión regular). Usando `Pubspec Assists` instalamos el paquete `email_validator`.
