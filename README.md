@@ -740,3 +740,11 @@ Nos creamos, en la carpeta `ui/views` la view `register_view.dart`.
 Modificamos `router.dart` para añadir la ruta de la view de registro recien creada y en `admin_handlers.dart` añado un método handler para el registro.
 
 Para navegar de una pantalla a la otra, modificamos `login_view.dart` y la recien creada `register_view.dart`.
+
+### Centralizar estilos de los inputs
+
+Vamos a refactorizar el código para poder centralizar y reutilizar los input de login y del registro.
+
+En la carpeta `ui` creamos una nueva carpeta `inputs` y dentro el archivo `custom_inputs.dart`.
+
+De `register_view.dart` cogemos el método `buildInputDecoration()` y nos lo llevamos al archivo recien creado con el nombre `loginInputDecoration()`. Modificamos tanto `register_view.dart` como `login_view.dart` para utilizar este método estático.
