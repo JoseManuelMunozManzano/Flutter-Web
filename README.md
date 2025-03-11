@@ -748,3 +748,28 @@ Vamos a refactorizar el código para poder centralizar y reutilizar los input de
 En la carpeta `ui` creamos una nueva carpeta `inputs` y dentro el archivo `custom_inputs.dart`.
 
 De `register_view.dart` cogemos el método `buildInputDecoration()` y nos lo llevamos al archivo recien creado con el nombre `loginInputDecoration()`. Modificamos tanto `register_view.dart` como `login_view.dart` para utilizar este método estático.
+
+## Formularios de ingreso, registro y navegación
+
+Seguimos con el proyecto `admin_dashboard`.
+
+### Temas puntuales de la sección
+
+Esta sección tiene varios objetivos principales como son:
+
+- LocalStorage
+- Captura de información de formularios
+- Preparar las rutas del dashboard
+- Manejar un estado global de autenticación
+
+Poco a poco vamos preparando todo el dashboard administrativo que queremos crear.
+
+### Continuación de proyecto
+
+Vamos a manejar los formularios de registro y de login, pero sin mandarlo todavía a un backend.
+
+Obtendremos la información del formulario y haremos validaciones.
+
+Vamos a usar provider para manejar el formulario de registro y de login de manera independiente. El estado de la autenticación será otro provider. 
+
+En la carpeta `providers` creamos el archivo `login_form_provider.dart`.
