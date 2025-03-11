@@ -764,7 +764,7 @@ Esta sección tiene varios objetivos principales como son:
 
 Poco a poco vamos preparando todo el dashboard administrativo que queremos crear.
 
-### Continuación de proyecto
+### Creación de provider para formulario del login
 
 Vamos a manejar los formularios de registro y de login, pero sin mandarlo todavía a un backend.
 
@@ -773,3 +773,9 @@ Obtendremos la información del formulario y haremos validaciones.
 Vamos a usar provider para manejar el formulario de registro y de login de manera independiente. El estado de la autenticación será otro provider. 
 
 En la carpeta `providers` creamos el archivo `login_form_provider.dart`.
+
+Instalamos, usando `Pubspec Assist` el paquete `provider`.
+
+### Formulario de ingreso
+
+Modificamos el archivo `login_view.dart` y `login_form_provider.dart`.
