@@ -732,3 +732,11 @@ Modificamos `login_view.dart` para crear el formulario.
 Seguimos modificando `login_view.dart` para crear el formulario.
 
 En la carpeta `ui/buttons` nos creamos un nuevo botón `custom_outlined_button.dart`.
+
+### Formulario de Registro
+
+Nos creamos, en la carpeta `ui/views` la view `register_view.dart`.
+
+Modificamos `router.dart` para añadir la ruta de la view de registro recien creada y en `admin_handlers.dart` añado un método handler para el registro.
+
+Para navegar de una pantalla a la otra, modificamos `login_view.dart` y la recien creada `register_view.dart`.

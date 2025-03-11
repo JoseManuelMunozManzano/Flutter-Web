@@ -5,8 +5,8 @@ import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 
 // Recordar que las vistas no tienen un Scaffold
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,20 @@ class LoginView extends StatelessWidget {
           child: Form(
             child: Column(
               children: [
+
+                // Nombre
+                TextFormField(
+                  //validator: (),
+                  style: TextStyle(color: Colors.white),
+                  decoration: buildInputDecoration(
+                    hint: 'Ingrese su nombre',
+                    label: 'Nombre',
+                    icon: Icons.supervised_user_circle_sharp,
+                  ),
+                ),
+
+                SizedBox(height: 20),
+
                 // Email
                 TextFormField(
                   //validator: (),
@@ -28,11 +42,11 @@ class LoginView extends StatelessWidget {
                   decoration: buildInputDecoration(
                     hint: 'Ingrese su correo',
                     label: 'Email',
-                    icon: Icons.email_outlined,
+                    icon: Icons.email_outlined
                   ),
                 ),
 
-                SizedBox(height: 20),
+                SizedBox(height: 20,),
 
                 // Password
                 TextFormField(
@@ -42,33 +56,37 @@ class LoginView extends StatelessWidget {
                   decoration: buildInputDecoration(
                     hint: '**********',
                     label: 'Contraseña',
-                    icon: Icons.lock_outline_rounded,
+                    icon: Icons.lock_outline_rounded
                   ),
                 ),
 
                 SizedBox(height: 20),
-                CustomOutlinedButton(onPressed: () {}, text: 'Ingresar'),
+                CustomOutlinedButton(
+                  onPressed: () {},
+                  text: 'Crear cuenta',
+                ),
 
                 SizedBox(height: 20),
                 LinkText(
-                  text: 'Nueva cuenta',
+                  text: 'Ir al login',
                   onPressed: () {
-                    Navigator.pushNamed(context, Flurorouter.registerRoute);
+                    Navigator.pushNamed(context, Flurorouter.loginRoute);
                   },
                 ),
               ],
-            ),
+            )
           ),
         ),
-      ),
+      )
     );
   }
 
   InputDecoration buildInputDecoration({
     required String hint,
     required String label,
-    required IconData icon,
+    required IconData icon
   }) {
+
     return InputDecoration(
       border: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
@@ -85,5 +103,6 @@ class LoginView extends StatelessWidget {
       labelStyle: TextStyle(color: Colors.grey),
       hintStyle: TextStyle(color: Colors.grey),
     );
-  }
+  } 
+    
 }
