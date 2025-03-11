@@ -787,3 +787,11 @@ Vamos a enlazar los campos email y contraseña del formulario al provider, usand
 Modificamos `login_view.dart` y `login_form_provider.dart`.
 
 Instalamos un paquete para hacer validaciones de email (también podríamos usar una expresión regular). Usando `Pubspec Assists` instalamos el paquete `email_validator`.
+
+### Formulario de registro
+
+Vamos a realizar la misma tarea que hicimos en el formulario de ingreso, esto es, crear el provider y hacer que funcione en nuestro formulario de registro.
+
+En la carpeta `providers` creamos el archivo `register_form_provider.dart`.
+
+Modificamos `register_view.dart`.

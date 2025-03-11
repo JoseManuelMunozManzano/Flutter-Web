@@ -1,7 +1,7 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/router/router.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
 
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
@@ -39,13 +39,17 @@ class LoginView extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 370),
                 child: Form(
+                  // Con esta nueva propiedad se lanza automáticamente la validación.
+                  autovalidateMode: AutovalidateMode.always,
                   // Disparando la validación.
                   // Forma 1: Asociar el formulario con su key a una propiedad con la que
                   //    vamos a tener control absoluto del formulario.
                   //    El problema es que el key debería estar en algún sitio centralizado
                   //    para poder usarlo en otros archivos.
                   //    Por suerte, esto ya lo tenemos definido. Es nuestro login_form_provider.dart
-                  // Y con esto, ya tenemos acceso en el provider acceso a todo el estado del formulario.
+                  //    Y con esto, ya tenemos acceso en el provider acceso a todo el estado del formulario.
+                  // Forma 2: Con AutovalidateMode arriba indicado se lanza la validación automáticamente.
+                  // Estas dos formas se pueden usar juntas.
                   key: loginFormProvider.formKey,
                   child: Column(
                     children: [
