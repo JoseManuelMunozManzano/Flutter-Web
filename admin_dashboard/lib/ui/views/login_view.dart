@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/router/router.dart';
@@ -15,11 +16,12 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
 
     // Hacemos que nuestro provider login_form_provider.dart esté solo en este view.
     // Esto es porque no vamos a necesitar acceder a este estado una vez hagamos login.
     return ChangeNotifierProvider(
-      create: (_) => LoginFormProvider(),
+      create: (_) => LoginFormProvider(authProvider),
       // Usando Builder, lo que conseguimos es construir todo lo que está antes de
       // dicho Builder y luego el Builder construye su Widget.
       // Lo bueno es que nos deja montar loginFormProvider y ya lo tenemos listo para usar.
@@ -28,7 +30,10 @@ class LoginView extends StatelessWidget {
       // Another exception was thrown: Error: Could not find the correct Provider<LoginFormProvider> above this LoginView Widget
       child: Builder(
         builder: (context) {
-          final loginFormProvider = Provider.of<LoginFormProvider>(context, listen: false);
+          final loginFormProvider = Provider.of<LoginFormProvider>(
+            context,
+            listen: false,
+          );
 
           return Container(
             margin: EdgeInsets.only(top: 100),
@@ -56,8 +61,9 @@ class LoginView extends StatelessWidget {
                       // Email
                       TextFormField(
                         validator: (value) {
-                          if (!EmailValidator.validate(value ?? '')) return 'Email no válido';
-                          
+                          if (!EmailValidator.validate(value ?? ''))
+                            return 'Email no válido';
+
                           return null;
                         },
                         // Se dispara cada vez que cambia el valor de la caja de texto.
@@ -76,13 +82,16 @@ class LoginView extends StatelessWidget {
                       TextFormField(
                         // Esta validación se lanza desde el provider.
                         validator: (value) {
-                          if (value == null || value.isEmpty) return 'Ingrese su contraseña';
-                          if (value.length < 6) return 'La contraseña debe de ser de al menos 6 caracteres';
+                          if (value == null || value.isEmpty)
+                            return 'Ingrese su contraseña';
+                          if (value.length < 6)
+                            return 'La contraseña debe de ser de al menos 6 caracteres';
 
                           return null; // Válido
                         },
                         // Se dispara cada vez que cambia el valor de la caja de texto.
-                        onChanged: (value) => loginFormProvider.password = value,
+                        onChanged:
+                            (value) => loginFormProvider.password = value,
                         obscureText: true,
                         style: TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
@@ -98,7 +107,7 @@ class LoginView extends StatelessWidget {
                           // Con el key, ya puedo usar el provider.
                           loginFormProvider.validateForm();
                         },
-                        text: 'Ingresar'
+                        text: 'Ingresar',
                       ),
 
                       SizedBox(height: 20),

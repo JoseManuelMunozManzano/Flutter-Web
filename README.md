@@ -795,3 +795,11 @@ Vamos a realizar la misma tarea que hicimos en el formulario de ingreso, esto es
 En la carpeta `providers` creamos el archivo `register_form_provider.dart`.
 
 Modificamos `register_view.dart`.
+
+### AuthProvider - Autenticación Global
+
+Creamos un nuevo provider en la carpeta `providers` llamado `auth_provider.dart`, que tendrá el usuario que está conectado, el token de acceso y algunas cosas más.
+
+Modificamos `login_form_provider.dart` para añadir una referencia a nuestro recién creado provider que tenemos que inyectar en `login_view.dart`.
+
+En `main.dart` hacemos que nuestro provider sea global.
