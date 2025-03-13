@@ -5,24 +5,22 @@ class BackgroundTwitter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      decoration: buildBoxDecoration(),
       child: Container(
-        decoration: buildBoxDecoration(),
-        child: Container(
-          // Cuando se alcanzan estos límites, el icono de twitter empieza
-          // a hacerse más pequeño
-          constraints: BoxConstraints(maxWidth: 400),
-          child: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Image(
-                  image: AssetImage('twitter-white-logo.png'),
-                  width: 400,
-                ),
-              )
+        // Cuando se alcanzan estos límites, el icono de twitter empieza
+        // a hacerse más pequeño
+        constraints: BoxConstraints(maxWidth: 400),
+        child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Image(
+                image: AssetImage('twitter-white-logo.png'),
+                width: 400,
+              ),
             )
-        ),
-      )
+          )
+      ),
     );
   }
 

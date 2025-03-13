@@ -803,3 +803,21 @@ Creamos un nuevo provider en la carpeta `providers` llamado `auth_provider.dart`
 Modificamos `login_form_provider.dart` para añadir una referencia a nuestro recién creado provider que tenemos que inyectar en `login_view.dart`.
 
 En `main.dart` hacemos que nuestro provider sea global.
+
+### Pequeña corrección de un expanded
+
+En mobile hay un pequeño error. Modificamos `auth_layout.dart`, en la clase `_MobileBody` esta línea da error:
+
+```dart
+child: BackgroundTwitter()
+```
+
+Se corrige modificando `background_twitter.dart`, eliminando el widget `Expanded` y añadiéndolo a `auth_layout.dart`, en la clase `_DesktopBody`.
+
+También arreglo un error en `auth_layout.dart`, en la sentencia:
+
+```dart
+thumbVisibility: true,
+```
+
+Porque es necesario definir un ScrollController cuando se usa esta propiedad. Se añade el ScrollController.

@@ -7,8 +7,9 @@ import 'package:admin_dashboard/ui/layouts/auth/widgets/links_bar.dart';
 // Recordar que los layouts tienen un Scaffold
 class AuthLayout extends StatelessWidget {
   final Widget child;
+  final ScrollController _scrollController = ScrollController();
 
-  const AuthLayout({super.key, required this.child});
+  AuthLayout({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,10 @@ class AuthLayout extends StatelessWidget {
       // La personalización del Scrollbar se hace desde el tema global de la aplicación.
       // Ver main.dart
       body: Scrollbar(
+        controller: _scrollController,
         thumbVisibility: true,
         child: ListView(
+          controller: _scrollController,
           // Para que en modo móvil no se pueda arrastrar la página por
           // arriba ni por debajo.
           physics: ClampingScrollPhysics(),
@@ -88,7 +91,7 @@ class _DesktopBody extends StatelessWidget {
         children: [
           // Twitter Background
           // Ancho dinámico
-          BackgroundTwitter(),
+          Expanded(child: BackgroundTwitter()),
 
           // View Container (la vista basada en el URL)
           // Ancho estático
