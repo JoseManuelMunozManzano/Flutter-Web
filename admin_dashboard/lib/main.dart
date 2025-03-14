@@ -1,4 +1,3 @@
-import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +8,8 @@ import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
 
 import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
+import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
+import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
 
 // El main puede ser asíncrono sin problemas.
 void main() async {
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
         final authProvider = Provider.of<AuthProvider>(context);
 
         if (authProvider.authStatus == AuthStatus.checking) {
-          return Center(child: Text('checking'));
+          return SplashLayout();
         } else if (authProvider.authStatus == AuthStatus.authenticated) {
           return DashboardLayout(child: child!);
         } else {

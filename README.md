@@ -863,3 +863,15 @@ Creamos el nuevo layout. Para eso, en la carpeta `layouts/dashboard` creamos el 
 Modificamos `main.dart` para poder acceder a nuestro nuevo layout.
 
 En `auth_provider.dart` vamos a hacer un método para saber si el usuario está autenticado.
+
+### Splash Layout
+
+Cambiamos el Widget con el texto `checking` por otro layout.
+
+En la carpeta `layouts` creamos la carpeta `splash` y dentro el layout `splash_layout.dart`.
+
+Modificamos `main.dart`.
+
+Modificamos también `auth_provider.dart` para navegar al Dashboard en el método `login()`.
+
+Vemos que las rutas del navegador no se actualizan al navegar al Dashboard.
