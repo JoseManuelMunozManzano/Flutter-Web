@@ -9,7 +9,13 @@ class DashboardLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Dashboard', style: TextStyle(fontSize: 50))),
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Dashboard', style: TextStyle(fontSize: 50)),
+          Expanded(child: child)
+        ],
+      )),
     );
   }
 }

@@ -875,3 +875,21 @@ Modificamos `main.dart`.
 Modificamos también `auth_provider.dart` para navegar al Dashboard en el método `login()`.
 
 Vemos que las rutas del navegador no se actualizan al navegar al Dashboard.
+
+### Dashboard Routes
+
+Necesitamos crear la ruta dashboard en la url del navegador.
+
+Modificamos `router.dart`.
+
+En la carpeta `router` creamos un handler `dashboard_handlers.dart`.
+
+En la carpeta `ui\views` creamos la vista `dashboard_view.dart`.
+
+Modificamos `dashboard_layout.dart`.
+
+Modifico `main.dart` porque las urls en el navegador no están funcionando.
+
+Sigue fallando cuando estoy en `/dashboard`, borro el token y refresco, ya que debería volver a `/auth/login`.
+
+Esto se soluciona en la siguiente clase.
