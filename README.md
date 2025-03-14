@@ -855,3 +855,11 @@ Queremos tener un `navigatorKey` para poder cambiar los layouts.
 Para conseguir esto, modificamos `main.dart`.
 
 Además, en la carpeta `services` creamos el archivo `navigation_service.dart`.
+
+### Dashboard Layout
+
+Creamos el nuevo layout. Para eso, en la carpeta `layouts/dashboard` creamos el layout `dashboard_layout.dart`.
+
+Modificamos `main.dart` para poder acceder a nuestro nuevo layout.
+
+En `auth_provider.dart` vamos a hacer un método para saber si el usuario está autenticado.

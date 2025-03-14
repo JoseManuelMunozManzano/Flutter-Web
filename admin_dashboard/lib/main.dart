@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +28,15 @@ class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
+      providers: [
+        ChangeNotifierProvider(
+          // Cuando la aplicación crea el AuthProvider inmediatamente
+          // empiece el proceso de autenticación.
+          // Con lazy: true (valor por defecto) espera hasta que se usa
+          lazy: false,
+          create: (_) => AuthProvider()
+        )
+      ],
       child: MyApp(),
     );
   }
@@ -53,11 +62,17 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         // Para este momento ya debemos de saber si tenemos un token o no, o si el token
         // funcionó o no.
-        // print(LocalStorage.prefs.getString('token'));
-
         // Si tenemos token no hay que mostrar este AuthLayout, sino mandarlo
         // al Dashboard.
-        return AuthLayout(child: child!);
+        final authProvider = Provider.of<AuthProvider>(context);
+
+        if (authProvider.authStatus == AuthStatus.checking) {
+          return Center(child: Text('checking'));
+        } else if (authProvider.authStatus == AuthStatus.authenticated) {
+          return DashboardLayout(child: child!);
+        } else {
+          return AuthLayout(child: child!);
+        }
       },
 
       // Configuración personalizada del scrollbar
