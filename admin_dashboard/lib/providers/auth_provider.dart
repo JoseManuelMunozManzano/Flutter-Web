@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:flutter/material.dart';
 
 // Provider Global
@@ -8,10 +9,9 @@ class AuthProvider extends ChangeNotifier {
 
   login(String email, String password) {
     // TODO: Petición http
-
     _token = 'sfkjsdakldshfjashkfd.jkdsfhjadhsjk';
-    print('almacenar JWT: $_token');
-
+    LocalStorage.prefs.setString('token', _token!);
+    
     // TODO: Navegar al dashboard
 
     // Para que se redibuje donde deba redibujarse.

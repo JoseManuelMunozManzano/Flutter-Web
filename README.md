@@ -829,3 +829,17 @@ Vamos a hacer una refactorización para evitar hacer la inyección del `AuthProv
 El motivo es evitar tener esa dependencia y esa capa de complejidad en la app.
 
 Modificamos `login_form_provider.dart` y `login_view.dart` tanto para eliminar la inyección de dependencia como para conseguir la misma funcionalidad que antes.
+
+### LocalStorage
+
+https://pub.dev/packages/shared_preferences
+
+El paquete `shared_preferences` es muy usado. Permite grabar strings, enteros ... en el `LocalStorage`.
+
+Para instalar el paquete, usamos `Pubspec Assist` e indicamos el paquete `shared_preferences`.
+
+En la carpeta `services` creamos el archivo `local_storage.dart`.
+
+Modificamos `main.dart` para llamar a la configuración de LocalStorage y tener acceso a él en toda la app.
+
+El token lo vamos a grabar en dicho LocalStorage. Por tanto, también modificamos `auth_provider.dart`.
