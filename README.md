@@ -843,3 +843,15 @@ En la carpeta `services` creamos el archivo `local_storage.dart`.
 Modificamos `main.dart` para llamar a la configuración de LocalStorage y tener acceso a él en toda la app.
 
 El token lo vamos a grabar en dicho LocalStorage. Por tanto, también modificamos `auth_provider.dart`.
+
+### NavigationService
+
+Queremos tener el control de la navegación. Esto es porque cuando nos autenticamos necesitamos movernos a otro layout.
+
+No nos sirve la navegación para movernos a views dentro de un layout.
+
+Queremos tener un `navigatorKey` para poder cambiar los layouts.
+
+Para conseguir esto, modificamos `main.dart`.
+
+Además, en la carpeta `services` creamos el archivo `navigation_service.dart`.

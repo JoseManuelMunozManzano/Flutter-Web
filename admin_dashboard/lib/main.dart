@@ -1,9 +1,13 @@
-import 'package:admin_dashboard/providers/auth_provider.dart';
-import 'package:admin_dashboard/router/router.dart';
-import 'package:admin_dashboard/services/local_storage.dart';
-import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:admin_dashboard/router/router.dart';
+import 'package:admin_dashboard/providers/auth_provider.dart';
+
+import 'package:admin_dashboard/services/local_storage.dart';
+import 'package:admin_dashboard/services/navigation_service.dart';
+
+import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 
 // El main puede ser asíncrono sin problemas.
 void main() async {
@@ -42,6 +46,8 @@ class MyApp extends StatelessWidget {
       title: 'Admin Dashboard',
       initialRoute: '/',
       onGenerateRoute: Flurorouter.router.generator,
+      // Para poder cambiar de Layout.
+      navigatorKey: NavigationService.navigatorKey,
       // El child es la vista que necesitamos mostrar.
       // Se devuelve un layout al que se le pasa la view que tiene que mostrar.
       builder: (_, child) {
