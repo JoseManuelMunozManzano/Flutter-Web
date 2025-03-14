@@ -21,7 +21,7 @@ class LoginView extends StatelessWidget {
     // Hacemos que nuestro provider login_form_provider.dart esté solo en este view.
     // Esto es porque no vamos a necesitar acceder a este estado una vez hagamos login.
     return ChangeNotifierProvider(
-      create: (_) => LoginFormProvider(authProvider),
+      create: (_) => LoginFormProvider(),
       // Usando Builder, lo que conseguimos es construir todo lo que está antes de
       // dicho Builder y luego el Builder construye su Widget.
       // Lo bueno es que nos deja montar loginFormProvider y ya lo tenemos listo para usar.
@@ -105,7 +105,10 @@ class LoginView extends StatelessWidget {
                       CustomOutlinedButton(
                         onPressed: () {
                           // Con el key, ya puedo usar el provider.
-                          loginFormProvider.validateForm();
+                          final isValid = loginFormProvider.validateForm();
+                          if (isValid) {
+                            authProvider.login(loginFormProvider.email, loginFormProvider.password);
+                          }
                         },
                         text: 'Ingresar',
                       ),

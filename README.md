@@ -821,3 +821,11 @@ thumbVisibility: true,
 ```
 
 Porque es necesario definir un ScrollController cuando se usa esta propiedad. Se añade el ScrollController.
+
+### Remover inyección de dependencias
+
+Vamos a hacer una refactorización para evitar hacer la inyección del `AuthProvider` en `login_form_provider.dart`.
+
+El motivo es evitar tener esa dependencia y esa capa de complejidad en la app.
+
+Modificamos `login_form_provider.dart` y `login_view.dart` tanto para eliminar la inyección de dependencia como para conseguir la misma funcionalidad que antes.
