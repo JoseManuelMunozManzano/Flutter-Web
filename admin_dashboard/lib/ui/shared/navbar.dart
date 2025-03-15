@@ -9,23 +9,37 @@ class Navbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Container(
       width: double.infinity,
       height: 50,
       decoration: buildBoxDecoration(),
       child: Row(
         children: [
-          // TODO: Icono del menú
-          IconButton(icon: Icon(Icons.menu_outlined), onPressed: (){}),
+
+          // Si queremos que el if afecte a más de una sentencia, se crea
+          // un arreglo y se desestructura el resultado.
+          // Aquí no la necesitamos, pero queda el código como consulta
+          //
+          // if (size.width <= 700)
+          // ...[
+          //   IconButton(icon: Icon(Icons.menu_outlined), onPressed: () {}),
+          //   SizedBox(width: 5),
+          // ],
+
+          if (size.width <= 700)
+            IconButton(icon: Icon(Icons.menu_outlined), onPressed: () {}),
           SizedBox(width: 5),
 
           // Search Input
           // Usamos un tamaño máximo. Si el tamaño es más pequeño es responsive.
           // pero no se hace más grande que el tamaño máximo.
-          ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 250),
-            child: SearchText(),
-          ),
+          if (size.width > 390)
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 250),
+              child: SearchText(),
+            ),
 
           // Coge el espacio restante que dejan todos los widgets.
           Spacer(),
@@ -34,7 +48,6 @@ class Navbar extends StatelessWidget {
           SizedBox(width: 10),
           NavbarAvatar(),
           SizedBox(width: 10),
-
         ],
       ),
     );
@@ -42,11 +55,6 @@ class Navbar extends StatelessWidget {
 
   BoxDecoration buildBoxDecoration() => BoxDecoration(
     color: Colors.white,
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black12,
-        blurRadius: 5,
-      )
-    ]
+    boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
   );
 }

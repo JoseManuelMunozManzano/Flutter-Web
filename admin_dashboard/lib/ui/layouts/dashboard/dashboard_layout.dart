@@ -11,28 +11,37 @@ class DashboardLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Color(0xffEDF1F2),
-      body: Row(
+      // Necesito un stack para que en dispositivos menores de 700px que aparezca
+      // superpuesto el menú
+      body: Stack(
         children: [
-
-          // TODO: Esto depende si es más de 700px
-          Sidebar(),
-
-          Expanded(
-            child: Column(
-              children: [
-                // Navbar
-                Navbar(),
-            
-                // Contenedor de nuestra view
-                Expanded(child: child),
-              ],
-            ),
+          Row(
+            children: [
+              if (size.width >= 700)
+                Sidebar(),
+          
+              Expanded(
+                child: Column(
+                  children: [
+                    // Navbar
+                    Navbar(),
+          
+                    // Contenedor de nuestra view
+                    Expanded(child: child),
+                  ],
+                ),
+              ),
+            ],
           ),
 
+          if (size.width < 700)
+            Sidebar(),
         ],
-      )
+      ),
     );
   }
 }

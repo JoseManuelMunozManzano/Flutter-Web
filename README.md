@@ -967,3 +967,9 @@ Seguimos construyendo `navbar.dart`.
 En la carpeta `ui/shared/widgets` creamos el archivo `notifications_indicator.dart`.
 
 En la carpeta `ui/shared/widgets` creamos el archivo `navbar_avatar.dart`.
+
+### Navbar y Sidebar responsive
+
+Vamos a hacer que nuestra app reaccione en base a las dimensiones del dispositivo en que se ejecuta.
+
+Modificamos `navbar.dart` y `dashboard_layout.dart`.
