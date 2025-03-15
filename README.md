@@ -915,3 +915,17 @@ He vuelto a dejar `main.dart` como estaba antes. Eso significa que vuelven a no 
 Esto se corrige usando ahora nuestro NavigationService en `auth_provider.dart`.
 
 Arreglamos también un pequeño error en `register_view.dart` porque no cabía, en pantalla mobile, la parte del registro en pantalla.
+
+## Admin Dashboard Diseño
+
+Seguimos con el proyecto `admin_dashboard`.
+
+### Temas puntuales de la sección
+
+Aquí tocaremos conceptos fundamentales de cualquier aplicación Web, como es el hecho de recibir parámetros de query y segmentos de URL, los cuales usaremos mucho más adelante en nuestras aplicaciones.
+
+Principalmente me quiero enfocar en esos dos puntos en la sección y a su vez, enseñar cómo mantener la aplicación basado en el URL y recuperación de múltiples segmentos.
+
+### BackgroundColor a Dashboard
+
+Modificamos `dashboard_layout.dart`.

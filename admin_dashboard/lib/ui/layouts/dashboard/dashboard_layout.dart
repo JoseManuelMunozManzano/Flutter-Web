@@ -9,11 +9,14 @@ class DashboardLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffEDF1F2),
       body: Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Dashboard', style: TextStyle(fontSize: 50)),
-          Expanded(child: child)
+          Expanded(
+            child: child
+          )
         ],
       )),
     );
