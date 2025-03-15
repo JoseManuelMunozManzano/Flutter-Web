@@ -945,3 +945,7 @@ En la carpeta `ui/shared` creamos la carpeta `widgets` y dentro el archivo `logo
 Seguimos modificando `sidebar.dart`.
 
 En la carpeta `ui/shared/widgets` creamos los archivos `text_separator.dart` y `menu_item.dart`.
+
+### Llenar las opciones del menú
+
+Seguimos llenando nuestro sidebar con las opciones del menú. Modificamos `sidebar.dart`.
