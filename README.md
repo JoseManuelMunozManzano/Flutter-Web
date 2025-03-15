@@ -973,3 +973,15 @@ En la carpeta `ui/shared/widgets` creamos el archivo `navbar_avatar.dart`.
 Vamos a hacer que nuestra app reaccione en base a las dimensiones del dispositivo en que se ejecuta.
 
 Modificamos `navbar.dart` y `dashboard_layout.dart`.
+
+### Controlador del Sidebar
+
+Vamos a hacer una animación para mostrar y ocultar el menú.
+
+Además, cuando el menú esté abierto y se pulse click afuera, o en una opción del menú, este se debe de ocultar.
+
+Para conseguir hacer todo esto vamos a implementar un controlador para, de manera global, saber como se está usando el menú.
+
+En la carpeta `providers` creamos el archivo `sidemenu_provider.dart`.
+
+Es un provider porque vamos a tener que redibujar al cambiar de página.
