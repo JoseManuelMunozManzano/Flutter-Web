@@ -893,3 +893,25 @@ Modifico `main.dart` porque las urls en el navegador no están funcionando.
 Sigue fallando cuando estoy en `/dashboard`, borro el token y refresco, ya que debería volver a `/auth/login`.
 
 Esto se soluciona en la siguiente clase.
+
+### Condicionalmente mostrar el DashboardView o el LoginView
+
+Como se ha indicado, hay ciertas rutas que no están funcionando como esperamos.
+
+Si estamos en `/dashboard` porque nos hemos autenticado y cambiamos manualmente la url a `/` se verå, en el layout del Dashboard, los widgets de LoginView.
+
+Y, si borro el token y refresco, debería volver a `/auth/login`.
+
+Tenemos que asegurarnos de que nuestro handler regrese la vista correspondiente dependiendo del estado en el que nos encontramos en nuestra app.
+
+Modificamos `admin_handler.dart` para mostrar LoginView o RegisterView solo si no estamos autenticados.
+
+Modificamos `dashboard_handler.dart` para mostrar DashboardView solo si estamos autenticados.
+
+Si ahora alguien cambia manualmente la url no va a tener efecto porque irá al login si no está autenticado.
+
+He vuelto a dejar `main.dart` como estaba antes. Eso significa que vuelven a no verse bien las urls, pero con el cambio anterior si en la url estaba `/dashboard` y borraba el token, el programa lanzaba una excepción.
+
+Esto se corrige usando ahora nuestro NavigationService en `auth_provider.dart`.
+
+Arreglamos también un pequeño error en `register_view.dart` porque no cabía, en pantalla mobile, la parte del registro en pantalla.

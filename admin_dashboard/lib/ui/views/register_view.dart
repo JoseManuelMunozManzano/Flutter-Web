@@ -22,7 +22,7 @@ class RegisterView extends StatelessWidget {
           final registerFormProvider = Provider.of<RegisterFormProvider>(context, listen: false);
 
           return Container(
-            margin: EdgeInsets.only(top: 100),
+            margin: EdgeInsets.only(top: 50),
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Center(
               // Más grande que 370px el tamaño será de 370px.

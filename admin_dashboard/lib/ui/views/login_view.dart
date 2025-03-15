@@ -61,8 +61,9 @@ class LoginView extends StatelessWidget {
                       // Email
                       TextFormField(
                         validator: (value) {
-                          if (!EmailValidator.validate(value ?? ''))
+                          if (!EmailValidator.validate(value ?? '')) {
                             return 'Email no válido';
+                          }
 
                           return null;
                         },
@@ -82,10 +83,12 @@ class LoginView extends StatelessWidget {
                       TextFormField(
                         // Esta validación se lanza desde el provider.
                         validator: (value) {
-                          if (value == null || value.isEmpty)
+                          if (value == null || value.isEmpty) {
                             return 'Ingrese su contraseña';
-                          if (value.length < 6)
+                          }
+                          if (value.length < 6) {
                             return 'La contraseña debe de ser de al menos 6 caracteres';
+                          }
 
                           return null; // Válido
                         },

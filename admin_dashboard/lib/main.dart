@@ -69,31 +69,9 @@ class MyApp extends StatelessWidget {
 
         if (authProvider.authStatus == AuthStatus.checking) {
           return SplashLayout();
-          // Sin este cambalache las urls en el navegador no funcionan.
-          // Conforme avance el proyecto intentaré quitar esto.
         } else if (authProvider.authStatus == AuthStatus.authenticated) {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (!context.mounted) return; // Verifica si el widget sigue montado
-            if (ModalRoute.of(context)?.settings.name != '/dashboard') {
-              Flurorouter.router.navigateTo(
-                NavigationService.navigatorKey.currentContext!,
-                '/dashboard',
-                replace: true,
-              );
-            }
-          });
           return DashboardLayout(child: child!);
         } else {
-          Future.microtask(() {
-            if (!context.mounted) return; // Verifica si el widget sigue montado
-            if (ModalRoute.of(context)?.settings.name != '/auth/login') {
-              Flurorouter.router.navigateTo(
-                NavigationService.navigatorKey.currentContext!,
-                '/auth/login',
-                replace: true,
-              );
-            }
-          });
           return AuthLayout(child: child!);
         }
       },
