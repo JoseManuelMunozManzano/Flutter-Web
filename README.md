@@ -959,3 +959,11 @@ En la carpeta `ui/shared` creamos el archivo `navbar.dart`.
 En la carpeta `ui/shared/widgets` creamos el archivo `search_text.dart`.
 
 Modificamos `custom_inputs.dart`.
+
+### Notificaciones y Avatar
+
+Seguimos construyendo `navbar.dart`.
+
+En la carpeta `ui/shared/widgets` creamos el archivo `notifications_indicator.dart`.
+
+En la carpeta `ui/shared/widgets` creamos el archivo `navbar_avatar.dart`.

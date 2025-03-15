@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:admin_dashboard/ui/shared/widgets/navbar_avatar.dart';
+import 'package:admin_dashboard/ui/shared/widgets/notifications_indicator.dart';
 import 'package:admin_dashboard/ui/shared/widgets/search_text.dart';
 
 class Navbar extends StatelessWidget {
@@ -23,7 +25,16 @@ class Navbar extends StatelessWidget {
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 250),
             child: SearchText(),
-          )
+          ),
+
+          // Coge el espacio restante que dejan todos los widgets.
+          Spacer(),
+
+          NotificationsIndicator(),
+          SizedBox(width: 10),
+          NavbarAvatar(),
+          SizedBox(width: 10),
+
         ],
       ),
     );
