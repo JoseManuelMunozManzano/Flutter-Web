@@ -949,3 +949,13 @@ En la carpeta `ui/shared/widgets` creamos los archivos `text_separator.dart` y `
 ### Llenar las opciones del menú
 
 Seguimos llenando nuestro sidebar con las opciones del menú. Modificamos `sidebar.dart`.
+
+### Navbar
+
+Creamos el Navbar en `dashboard_layout.dart`, ya que se va a mantener persistente entre las distintas views.
+
+En la carpeta `ui/shared` creamos el archivo `navbar.dart`.
+
+En la carpeta `ui/shared/widgets` creamos el archivo `search_text.dart`.
+
+Modificamos `custom_inputs.dart`.
