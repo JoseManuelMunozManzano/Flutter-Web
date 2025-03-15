@@ -929,3 +929,13 @@ Principalmente me quiero enfocar en esos dos puntos en la sección y a su vez, e
 ### BackgroundColor a Dashboard
 
 Modificamos `dashboard_layout.dart`.
+
+### Sidebar
+
+Primero haremos el diseño del Sidebar para pantallas grandes y luego lo haremos para pantallas más pequeñas.
+
+Modificamos `dashboard_layout.dart`.
+
+En la carpeta `ui` creamos la carpeta `shared` y dentro el archivo `sidebar.dart`.
+
+En la carpeta `ui/shared` creamos la carpeta `widgets` y dentro el archivo `logo.dart`.
