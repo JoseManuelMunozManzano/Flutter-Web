@@ -991,3 +991,11 @@ Es un provider porque vamos a tener que redibujar al cambiar de página.
 Para ver los resultados de estos cambios, en el navegador hacer que el ancho de la app sea menor de 700px.
 
 Modificamos `dashboard_layout.dart` y `navbar.dart`.
+
+### Cerrar el menú lateral
+
+Vamos a cerrar el menú lateral al hacer click en cualquier otra parte de la pantalla o al hacer click en Dashboard.
+
+Modificamos `dashboard_layout.dart` para añadir un background, que es un Widget `Opacity` con un `GestureDetector`. Al pulsar ahí, se cerrará la barra lateral.
+
+Modificamos `sidebar.dart` para que, al pulsar en Dashboard, se cierre el menú lateral.

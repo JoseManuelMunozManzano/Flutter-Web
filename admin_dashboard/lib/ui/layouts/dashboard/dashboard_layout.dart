@@ -62,7 +62,20 @@ class _DashboardLayoutState extends State<DashboardLayout> with SingleTickerProv
               // El builder es la construcción de un Widget
               builder: (context, _) => Stack(
                 children: [
-                  // TODO: Background
+                  
+                  if (SidemenuProvider.isOpen)
+                    Opacity(
+                      opacity: SidemenuProvider.opacity.value,
+                      child: GestureDetector(
+                        onTap: () => SidemenuProvider.closeMenu(),
+                        child: Container(
+                          width: size.width,
+                          height: size.height,
+                          color: Colors.black26
+                        ),
+                      )
+                    ),
+
                   Transform.translate(
                     offset: Offset(SidemenuProvider.movement.value, 0),
                     child: Sidebar(),
