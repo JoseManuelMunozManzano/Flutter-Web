@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:admin_dashboard/router/router.dart';
+
 import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:admin_dashboard/providers/sidemenu_provider.dart';
 
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
@@ -37,6 +39,11 @@ class AppState extends StatelessWidget {
           lazy: false,
           create: (_) => AuthProvider(),
         ),
+
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => SidemenuProvider(),
+        )
       ],
       child: MyApp(),
     );

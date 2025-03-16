@@ -1,5 +1,7 @@
-import 'package:admin_dashboard/router/router.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:admin_dashboard/router/router.dart';
 
 import 'package:admin_dashboard/providers/sidemenu_provider.dart';
 
@@ -19,6 +21,9 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final sidemenuProvider = Provider.of<SidemenuProvider>(context);
+
     return Container(
       width: 200,
       height: double.infinity,
@@ -35,7 +40,8 @@ class Sidebar extends StatelessWidget {
           MenuItem(
             text: 'Dashboard',
             icon: Icons.compass_calibration_outlined,
-            onPressed: () => navigateTo(Flurorouter.dashboardRoute)
+            onPressed: () => navigateTo(Flurorouter.dashboardRoute),
+            isActive: sidemenuProvider.currentPage == Flurorouter.dashboardRoute,
           ),
 
           MenuItem(text: 'Orders', icon: Icons.shopping_cart_outlined, onPressed: () {}),
@@ -50,7 +56,8 @@ class Sidebar extends StatelessWidget {
           MenuItem(
             text: 'Icons',
             icon: Icons.list_alt_outlined,
-            onPressed: () => navigateTo(Flurorouter.iconsRoute)
+            onPressed: () => navigateTo(Flurorouter.iconsRoute),
+            isActive: sidemenuProvider.currentPage == Flurorouter.iconsRoute,
           ),
           MenuItem(text: 'Marketing', icon: Icons.mark_email_read_outlined, onPressed: () {}),
           MenuItem(text: 'Campaign', icon: Icons.note_add_outlined, onPressed: () {}),

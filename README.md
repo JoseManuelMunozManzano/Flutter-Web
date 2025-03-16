@@ -1027,6 +1027,16 @@ Modificamos `white_card.dart`.
 
 Queremos acceder a la vista correspondiente haciendo click en los elementos del Sidebar. En visualización mobiles, se cerrará el Sidebar.
 
-Modificamos `Sidebar.dart`.
+Modificamos `sidebar.dart`.
 
+### Activando opciones del menú
 
+Queremos que al pulsar un elemento del Sidebar este quede seleccionado.
+
+Modificamos `sidemenu_provider.dart` para transformarlo a un provider de verdad y jugar con el estado para saber qué elemento del Sidebar se ha seleccionado.
+
+Modificamos `sidebar.dart`.
+
+Modificamos `main.dart` para que se cargue desde ahí nuestro provider.
+
+Modificamos `dashboard_handlers.dart` para llamar al método del provider `setCurrentPageUrl()`.
