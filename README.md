@@ -1012,3 +1012,13 @@ Creamos, para reutilizar, en la carpeta `ui`:
 
 - La carpeta `labels` y dentro el archivo `custom_labels.dart`
 - La carpeta `cards` y dentro el archivo `white_card.dart`
+
+### Icons View y Ruta
+
+Creamos una nueva vista de Iconos.
+
+Hacemos una copia de `blank_view.dart` y la renombramos a  `icons_view.dart`.
+
+Para definir la ruta, modificamos `router.dart` y modificamos el handler `dashboard_handlers.dart` para que regrese la vista deseada (BlankView)
+
+Modificamos `white_card.dart`.

@@ -4,16 +4,20 @@ import 'package:google_fonts/google_fonts.dart';
 class WhiteCard extends StatelessWidget {
   final String? title;
   final Widget child;
+  final double? width;
 
   const WhiteCard({
     super.key,
+    required this.child,
     this.title,
-    required this.child
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      // Si width es null es como si no estuviera. Coge todo el ancho.
+      width: width,
       margin: EdgeInsets.all(8),
       padding: EdgeInsets.all(10),
       decoration: buildBoxDecoration(),
