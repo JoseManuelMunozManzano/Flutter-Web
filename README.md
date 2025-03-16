@@ -999,3 +999,16 @@ Vamos a cerrar el menú lateral al hacer click en cualquier otra parte de la pan
 Modificamos `dashboard_layout.dart` para añadir un background, que es un Widget `Opacity` con un `GestureDetector`. Al pulsar ahí, se cerrará la barra lateral.
 
 Modificamos `sidebar.dart` para que, al pulsar en Dashboard, se cierre el menú lateral.
+
+### Dashboard View y Blank View
+
+Vamos a dejar las bases para poder crear nuevas vistas, es decir, vamos a preparar un cascarón que será utilizado por todas las vistas nuevas.
+
+Modificamos `dashboard_view.dart`, y `dashboard_layout.dart`.
+
+Para que quede como cascarón, hacemos una copia de `dashboard_view.dart` con nombre `blank_view.dart`. Cuando queramos crear una nueva vista, esta será la base.
+
+Creamos, para reutilizar, en la carpeta `ui`:
+
+- La carpeta `labels` y dentro el archivo `custom_labels.dart`
+- La carpeta `cards` y dentro el archivo `white_card.dart`
