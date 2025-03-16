@@ -1048,3 +1048,19 @@ Vamos a modificar la view (ya existía) `blank_view.dart`, gestionar la ruta y a
 Creamos la nueva ruta modificando `router.dart` y `dashboard_handlers.dart`.
 
 Modificamos `sidebar.dart`.
+
+### Detalles finales del panel administrativo
+
+Si cambiamos la url a una ruta no existente, vemos que aparece en la parte izquierda una barra grisacea.
+
+El problema viene por un padding de `dashboard_layout.dart`. En concreto, esta línea:
+
+```dart
+padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+```
+
+Si se comenta el padding y sustituimos el widget Padding por un Container ya no pasa, pero perdemos el padding para las demás views. Vamos a dejarlo mal para la página 404.
+
+Hay otro error. Si indicamos una url no existente, aparece la página 404, pero queda seleccionado en el sidebar el último elemento seleccionado. Ahora no puedo seleccionar ese elemento. Tendría que indicar otro elemento y luego pulsar el que quiero seleccionar.
+
+Modificamos `no_page_found_handlers.dart` para quitar el elemento seleccionado.
