@@ -1022,3 +1022,11 @@ Hacemos una copia de `blank_view.dart` y la renombramos a  `icons_view.dart`.
 Para definir la ruta, modificamos `router.dart` y modificamos el handler `dashboard_handlers.dart` para que regrese la vista deseada (BlankView)
 
 Modificamos `white_card.dart`.
+
+### Navegación utilizando el Sidebar
+
+Queremos acceder a la vista correspondiente haciendo click en los elementos del Sidebar. En visualización mobiles, se cerrará el Sidebar.
+
+Modificamos `Sidebar.dart`.
+
+
