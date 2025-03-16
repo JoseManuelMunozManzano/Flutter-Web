@@ -1040,3 +1040,11 @@ Modificamos `sidebar.dart`.
 Modificamos `main.dart` para que se cargue desde ahí nuestro provider.
 
 Modificamos `dashboard_handlers.dart` para llamar al método del provider `setCurrentPageUrl()`.
+
+### Blank View, ruta y menú
+
+Vamos a modificar la view (ya existía) `blank_view.dart`, gestionar la ruta y activar la opción del menú.
+
+Creamos la nueva ruta modificando `router.dart` y `dashboard_handlers.dart`.
+
+Modificamos `sidebar.dart`.

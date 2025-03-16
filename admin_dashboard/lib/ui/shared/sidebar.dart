@@ -61,7 +61,12 @@ class Sidebar extends StatelessWidget {
           ),
           MenuItem(text: 'Marketing', icon: Icons.mark_email_read_outlined, onPressed: () {}),
           MenuItem(text: 'Campaign', icon: Icons.note_add_outlined, onPressed: () {}),
-          MenuItem(text: 'Black', icon: Icons.post_add_outlined, onPressed: () {}),
+          MenuItem(
+            text: 'Blank',
+            icon: Icons.post_add_outlined,
+            onPressed: () => navigateTo(Flurorouter.blankRoute),
+            isActive: sidemenuProvider.currentPage == Flurorouter.blankRoute,
+          ),
 
           SizedBox(height: 50),
           TextSeparator(text: 'Exit'),
