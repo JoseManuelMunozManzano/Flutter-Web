@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/sidemenu_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/ui/shared/widgets/navbar_avatar.dart';
@@ -29,7 +30,10 @@ class Navbar extends StatelessWidget {
           // ],
 
           if (size.width <= 700)
-            IconButton(icon: Icon(Icons.menu_outlined), onPressed: () {}),
+            IconButton(icon: Icon(
+              Icons.menu_outlined),
+              onPressed: () => SidemenuProvider.openMenu()
+            ),
           SizedBox(width: 5),
 
           // Search Input

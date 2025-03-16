@@ -1,13 +1,31 @@
+import 'package:admin_dashboard/providers/sidemenu_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/ui/shared/navbar.dart';
 import 'package:admin_dashboard/ui/shared/sidebar.dart';
 
-class DashboardLayout extends StatelessWidget {
+class DashboardLayout extends StatefulWidget {
   // El child que mostraremos en alguna parte del layout.
   final Widget child;
 
   const DashboardLayout({super.key, required this.child});
+
+  @override
+  State<DashboardLayout> createState() => _DashboardLayoutState();
+}
+
+class _DashboardLayoutState extends State<DashboardLayout> with SingleTickerProviderStateMixin {
+
+  // Para inicializar menuController de SidemenuProvider.
+  // Recordar que se declaró con late.
+  @override
+  void initState() {
+    super.initState();
+    SidemenuProvider.menuController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 300)
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +49,7 @@ class DashboardLayout extends StatelessWidget {
                     Navbar(),
           
                     // Contenedor de nuestra view
-                    Expanded(child: child),
+                    Expanded(child: widget.child),
                   ],
                 ),
               ),
@@ -39,7 +57,19 @@ class DashboardLayout extends StatelessWidget {
           ),
 
           if (size.width < 700)
-            Sidebar(),
+            AnimatedBuilder(
+              animation: SidemenuProvider.menuController,
+              // El builder es la construcción de un Widget
+              builder: (context, _) => Stack(
+                children: [
+                  // TODO: Background
+                  Transform.translate(
+                    offset: Offset(SidemenuProvider.movement.value, 0),
+                    child: Sidebar(),
+                  )
+                ],
+              ),
+            )
         ],
       ),
     );

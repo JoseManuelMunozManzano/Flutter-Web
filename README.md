@@ -985,3 +985,9 @@ Para conseguir hacer todo esto vamos a implementar un controlador para, de maner
 En la carpeta `providers` creamos el archivo `sidemenu_provider.dart`.
 
 Es un provider porque vamos a tener que redibujar al cambiar de página.
+
+### Animar menú lateral
+
+Para ver los resultados de estos cambios, en el navegador hacer que el ancho de la app sea menor de 700px.
+
+Modificamos `dashboard_layout.dart` y `navbar.dart`.
