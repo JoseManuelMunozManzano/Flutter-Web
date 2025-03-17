@@ -1064,3 +1064,21 @@ Si se comenta el padding y sustituimos el widget Padding por un Container ya no 
 Hay otro error. Si indicamos una url no existente, aparece la página 404, pero queda seleccionado en el sidebar el último elemento seleccionado. Ahora no puedo seleccionar ese elemento. Tendría que indicar otro elemento y luego pulsar el que quiero seleccionar.
 
 Modificamos `no_page_found_handlers.dart` para quitar el elemento seleccionado.
+
+## Backend para el panel administrativo
+
+Añadimos un proyecto hecho en Node `backend-cafe`, que será el backend de nuestro proyecto `admin_dashboard`.
+
+### Temas puntuales de la sección
+
+Temas de la sección
+
+- Configurar un backend existente
+- Conectar MongoDB Atlas
+- Llenar la base de datos con información
+
+El objetivo es preparar un backend real para nuestra aplicación administrativa y así hacer el ejercicio apegado a la realidad.
+
+### Configuración de proyecto
+
+- Para ejecutar este proyecto acceder a el y ejecutar en consola: `node app`
