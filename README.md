@@ -1082,3 +1082,15 @@ El objetivo es preparar un backend real para nuestra aplicación administrativa 
 ### Configuración de proyecto
 
 - Para ejecutar este proyecto acceder a el y ejecutar en consola: `node app`
+
+## Autenticación y protección de rutas
+
+Vamos a empezar a conectar nuestras piezas de Flutter del proyecto `admin_dashboard` con el backend `backend-cafe`.
+
+### Temas puntuales de la sección
+
+Empezamos con el registro, login y verificación del token. Usaremos el paquete `dio` que incluye interceptores (un patrón adaptador).
+
+### Continuación de proyecto
+
+A partir de este momento, siempre hay que ejecutar tanto el proyecto de Flutter como el proyecto backend, este último con el comando `node app`.
