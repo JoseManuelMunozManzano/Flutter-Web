@@ -1094,3 +1094,15 @@ Empezamos con el registro, login y verificación del token. Usaremos el paquete 
 ### Continuación de proyecto
 
 A partir de este momento, siempre hay que ejecutar tanto el proyecto de Flutter como el proyecto backend, este último con el comando `node app`.
+
+### Dio - Centralizar los llamados a nuestro backend
+
+Las peticiones que requieren un JWT tendrán una key `x-token` que irá en la parte de los `Headers`.
+
+Vamos a tener un punto centralizado en el que vamos a poner el JWT para que todas las peticiones la utilicen. Para esto, vamos a utilizar el paquete `dio`, alternativa al paquete `http`, muy útil para, entre otras cosas, centralizar la configuración de los headers de nuestras peticiones.
+
+Instalamos `dio` usando `Pubspec Assist`.
+
+Creamos, en la carpeta `lib`, una carpeta `api` y dentro un archivo llamado `cafe_api.dart`.
+
+La llamada al método de este nuevo archivo lo vamos a poner en un par de sitios. Por ahora lo ponemos en `main.dart`, que es el momento en el que mi app es construida.

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:admin_dashboard/api/cafe_api.dart';
+
 import 'package:admin_dashboard/router/router.dart';
 
 import 'package:admin_dashboard/providers/auth_provider.dart';
@@ -20,8 +22,12 @@ void main() async {
   // configuración.
   // Con esto, en cualquier parte de la app tengo acceso al LocalStorage.
   await LocalStorage.configurePrefs();
+  
+  CafeApi.configureDio();
+
   // Configuramos rutas
   Flurorouter.configureRoutes();
+  
   runApp(AppState());
 }
 
@@ -40,10 +46,7 @@ class AppState extends StatelessWidget {
           create: (_) => AuthProvider(),
         ),
 
-        ChangeNotifierProvider(
-          lazy: false,
-          create: (_) => SidemenuProvider(),
-        )
+        ChangeNotifierProvider(lazy: false, create: (_) => SidemenuProvider()),
       ],
       child: MyApp(),
     );
