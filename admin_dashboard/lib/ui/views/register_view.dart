@@ -1,13 +1,17 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
-import 'package:admin_dashboard/router/router.dart';
 import 'package:provider/provider.dart';
+
+import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:admin_dashboard/providers/register_form_provider.dart';
+
+import 'package:email_validator/email_validator.dart';
+
+import 'package:admin_dashboard/router/router.dart';
 
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
-import 'package:admin_dashboard/providers/register_form_provider.dart';
 
 // Recordar que las vistas no tienen un Scaffold
 class RegisterView extends StatelessWidget {
@@ -19,7 +23,10 @@ class RegisterView extends StatelessWidget {
       create: (_) => RegisterFormProvider(),
       child: Builder(
         builder: (context) {
-          final registerFormProvider = Provider.of<RegisterFormProvider>(context, listen: false);
+          final registerFormProvider = Provider.of<RegisterFormProvider>(
+            context,
+            listen: false,
+          );
 
           return Container(
             margin: EdgeInsets.only(top: 50),
@@ -37,8 +44,10 @@ class RegisterView extends StatelessWidget {
                       // Nombre
                       TextFormField(
                         validator: (value) {
-                          if (value == null || value.isEmpty) return 'Ingrese su nombre';
-                          if (value.length < 5) return 'El nombre debe ser de al menos 5 caracteres';
+                          if (value == null || value.isEmpty)
+                            return 'Ingrese su nombre';
+                          if (value.length < 5)
+                            return 'El nombre debe ser de al menos 5 caracteres';
 
                           return null;
                         },
@@ -56,11 +65,13 @@ class RegisterView extends StatelessWidget {
                       // Email
                       TextFormField(
                         validator: (value) {
-                          if (!EmailValidator.validate(value ?? '')) return 'Email no válido';
+                          if (!EmailValidator.validate(value ?? ''))
+                            return 'Email no válido';
 
                           return null;
                         },
-                        onChanged: (value) => registerFormProvider.email = value,
+                        onChanged:
+                            (value) => registerFormProvider.email = value,
                         style: TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
                           hint: 'Ingrese su correo',
@@ -74,12 +85,15 @@ class RegisterView extends StatelessWidget {
                       // Password
                       TextFormField(
                         validator: (value) {
-                          if (value == null || value.isEmpty) return 'Ingrese su contraseña';
-                          if (value.length < 6) return 'La contraseña debe de ser de al menos 6 caracteres';
+                          if (value == null || value.isEmpty)
+                            return 'Ingrese su contraseña';
+                          if (value.length < 6)
+                            return 'La contraseña debe de ser de al menos 6 caracteres';
 
                           return null; // Válido
                         },
-                        onChanged: (value) => registerFormProvider.password = value,
+                        onChanged:
+                            (value) => registerFormProvider.password = value,
                         obscureText: true,
                         style: TextStyle(color: Colors.white),
                         decoration: CustomInputs.loginInputDecoration(
@@ -92,7 +106,17 @@ class RegisterView extends StatelessWidget {
                       SizedBox(height: 20),
                       CustomOutlinedButton(
                         onPressed: () {
-                          registerFormProvider.validateForm();
+                          final validForm = registerFormProvider.validateForm();
+                          if (!validForm) {
+                            return;
+                          }
+
+                          final authProvider = Provider.of<AuthProvider>(context, listen: false);
+                          authProvider.register(
+                            registerFormProvider.email,
+                            registerFormProvider.password,
+                            registerFormProvider.name,
+                          );
                         },
                         text: 'Crear cuenta',
                       ),

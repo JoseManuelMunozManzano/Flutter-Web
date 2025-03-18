@@ -1106,3 +1106,12 @@ Instalamos `dio` usando `Pubspec Assist`.
 Creamos, en la carpeta `lib`, una carpeta `api` y dentro un archivo llamado `cafe_api.dart`.
 
 La llamada al método de este nuevo archivo lo vamos a poner en un par de sitios. Por ahora lo ponemos en `main.dart`, que es el momento en el que mi app es construida.
+
+### Crear usuario - Http post
+
+Seguimos completando `cafe_api.dart` para añadir la petición post.
+
+Modificamos `register_form_provider.dart` y `register_view.dart`.
+
+Modificamos `auth_provider.dart`.
+
