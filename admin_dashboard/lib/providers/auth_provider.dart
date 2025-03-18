@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/api/cafe_api.dart';
+import 'package:admin_dashboard/models/http/auth_response.dart';
 
 import 'package:admin_dashboard/router/router.dart';
-
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
 
@@ -14,6 +14,7 @@ enum AuthStatus { checking, authenticated, notAuthenticated }
 class AuthProvider extends ChangeNotifier {
   String? _token;
   AuthStatus authStatus = AuthStatus.checking;
+  Usuario? user;
 
   AuthProvider() {
     isAuthenticated();
@@ -34,26 +35,26 @@ class AuthProvider extends ChangeNotifier {
   register(String email, String password, String name) {
     // Tomamos esta información y creamos el objeto que pasaremos como body
     // al backend.
-    final data = {
-      'nombre': name,
-      'correo': email,
-      'password': password,
-    };
+    final data = {'nombre': name, 'correo': email, 'password': password};
 
     // Se hace el .then() porque el post devuelve un Future.
-    CafeApi.post('/usuarios', data).then(
-      (json) {
-        print(json);
-      }
-    ).catchError((e) {
-      print('Error en: $e');
-      // TODO: Mostrar notificación de error
-    });
+    CafeApi.post('/usuarios', data)
+        .then((json) {
+          // print(json);
+          // Serializamos el json
+          final authResponse = AuthResponse.fromMap(json);
+          user = authResponse.usuario;
 
-    // authStatus = AuthStatus.authenticated;
-    // LocalStorage.prefs.setString('token', _token!);
-    // NavigationService.replaceTo(Flurorouter.dashboardRoute);
-    // notifyListeners();
+          // Grabamos el LocalStorage
+          authStatus = AuthStatus.authenticated;
+          LocalStorage.prefs.setString('token', authResponse.token);
+          NavigationService.replaceTo(Flurorouter.dashboardRoute);
+          notifyListeners();
+        })
+        .catchError((e) {
+          print('Error en: $e');
+          // TODO: Mostrar notificación de error
+        });
   }
 
   Future<bool> isAuthenticated() async {

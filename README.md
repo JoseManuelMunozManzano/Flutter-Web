@@ -45,7 +45,7 @@ Hablaremos un poco de generalidades e instalaremos nuestra aplicación en el dis
 
 Esto puede haber cambiado a mejor (o peor ;D)
 
-¿Por qué estudiar Flutter Web? 
+¿Por qué estudiar Flutter Web?
 
 - Puede hacer cosas que en otras tecnologías toma mucho tiempo o no hay forma de hacerlo fácilmente
 - Si tienes una aplicación hecha en Flutter, ya tienes una aplicación Web (con excepciones)
@@ -504,7 +504,7 @@ Queremos que, al hacer click en uno de los puntos del menú, el scroll se mueva 
 
 Esto es fácil si sabemos como funciona el gestor de estado en Flutter.
 
-Un `PageController` nos permite hacer la navegación a una pantalla o slide en particular, pero tenemos que mantener la referencia al mismo para que los hijos (los puntos del menú) puedan acceder a él, y hacer uso de ese PageController para poder decirle a qué página ir. 
+Un `PageController` nos permite hacer la navegación a una pantalla o slide en particular, pero tenemos que mantener la referencia al mismo para que los hijos (los puntos del menú) puedan acceder a él, y hacer uso de ese PageController para poder decirle a qué página ir.
 
 Es decir, necesito ese PageController de manera global.
 
@@ -661,8 +661,8 @@ Creo un directorio en el raiz del proyecto llamado `assets` y los muevo ahí.
 Ahora nos vamos al archivo `pubspec.yaml` e indicamos:
 
 ```yaml
-  assets:
-    - assets/
+assets:
+  - assets/
 ```
 
 porque queremos que los assets sean parte de los recursos que vamos a tener en la aplicación.
@@ -770,7 +770,7 @@ Vamos a manejar los formularios de registro y de login, pero sin mandarlo todav�
 
 Obtendremos la información del formulario y haremos validaciones.
 
-Vamos a usar provider para manejar el formulario de registro y de login de manera independiente. El estado de la autenticación será otro provider. 
+Vamos a usar provider para manejar el formulario de registro y de login de manera independiente. El estado de la autenticación será otro provider.
 
 En la carpeta `providers` creamos el archivo `login_form_provider.dart`.
 
@@ -1017,7 +1017,7 @@ Creamos, para reutilizar, en la carpeta `ui`:
 
 Creamos una nueva vista de Iconos.
 
-Hacemos una copia de `blank_view.dart` y la renombramos a  `icons_view.dart`.
+Hacemos una copia de `blank_view.dart` y la renombramos a `icons_view.dart`.
 
 Para definir la ruta, modificamos `router.dart` y modificamos el handler `dashboard_handlers.dart` para que regrese la vista deseada (BlankView)
 
@@ -1115,3 +1115,30 @@ Modificamos `register_form_provider.dart` y `register_view.dart`.
 
 Modificamos `auth_provider.dart`.
 
+### Autenticando usuario en el registro
+
+Seguimos modificando `auth_provider.dart`.
+
+Usaremos la web `https://quicktype.io/` para generar el código de un modelo dada una respuesta JSON.
+
+En la carpeta `lib` creamos una nueva carpeta `models` y dentro otra carpeta `http`. Dentro de esta última carpeta creamos el archivo `auth_response.dart`.
+
+Vamos a tener aquí agrupados todos los modelos que son respuestas de http.
+
+El código de `auth_response.dart` se genera en la web de `quicktype.io` usando la response de la creación de un usuario. Como ejemplo, he usado esta response:
+
+```json
+{
+  "usuario": {
+    "rol": "USER_ROLE",
+    "estado": true,
+    "google": false,
+    "nombre": "test1",
+    "correo": "test1@test.com",
+    "uid": "67d9aacfee31ef110a3c0ae6"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2Q5YWFjZmVlMzFlZjExMGEzYzBhZTYiLCJpYXQiOjE3NDIzMTgyODcsImV4cCI6MTc0MjkyMzA4N30.PuXxdGY9oaRkMVHt4pZ5e5YSfsZoxwNTqDCOL1ZMrHs"
+}
+```
+
+Modificamos `auth_provider.dart` para llamar al método `fromMap()` de `auth_response.dart`.

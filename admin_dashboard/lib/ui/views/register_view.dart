@@ -44,10 +44,12 @@ class RegisterView extends StatelessWidget {
                       // Nombre
                       TextFormField(
                         validator: (value) {
-                          if (value == null || value.isEmpty)
+                          if (value == null || value.isEmpty) {
                             return 'Ingrese su nombre';
-                          if (value.length < 5)
+                          }
+                          if (value.length < 5) {
                             return 'El nombre debe ser de al menos 5 caracteres';
+                          }
 
                           return null;
                         },
@@ -65,8 +67,9 @@ class RegisterView extends StatelessWidget {
                       // Email
                       TextFormField(
                         validator: (value) {
-                          if (!EmailValidator.validate(value ?? ''))
+                          if (!EmailValidator.validate(value ?? '')) {
                             return 'Email no válido';
+                          }
 
                           return null;
                         },
@@ -85,10 +88,12 @@ class RegisterView extends StatelessWidget {
                       // Password
                       TextFormField(
                         validator: (value) {
-                          if (value == null || value.isEmpty)
+                          if (value == null || value.isEmpty) {
                             return 'Ingrese su contraseña';
-                          if (value.length < 6)
+                          }
+                          if (value.length < 6) {
                             return 'La contraseña debe de ser de al menos 6 caracteres';
+                          }
 
                           return null; // Válido
                         },
