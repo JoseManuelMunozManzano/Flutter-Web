@@ -22,15 +22,27 @@ class AuthProvider extends ChangeNotifier {
   }
 
   login(String email, String password) {
-    // TODO: Petición http
-    _token = 'sfkjsdakldshfjashkfd.jkdsfhjadhsjk';
-    LocalStorage.prefs.setString('token', _token!);
+    // Tomamos esta información y creamos el objeto que pasaremos como body
+    // al backend.
+    final data = {'correo': email, 'password': password};
 
-    // Para que se redibuje donde deba redibujarse.
-    authStatus = AuthStatus.authenticated;
-    notifyListeners();
+    CafeApi.post('/auth/login', data)
+      .then((json) {
+        final authReponse = AuthResponse.fromMap(json);
+        user = authReponse.usuario;
 
-    NavigationService.replaceTo(Flurorouter.dashboardRoute);
+        authStatus = AuthStatus.authenticated;
+        // Grabamos el LocalStorage
+        LocalStorage.prefs.setString('token', authReponse.token);
+        NavigationService.replaceTo(Flurorouter.dashboardRoute);
+        // Para que se redibuje donde deba redibujarse.
+        notifyListeners();
+
+      })
+      .catchError((e) {
+        NotificationsService.showSnackbarError('Usuario / Password no válidos');
+      });
+
   }
 
   register(String email, String password, String name) {

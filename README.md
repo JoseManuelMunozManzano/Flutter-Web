@@ -1156,3 +1156,27 @@ Es un servicio y no un provider porque este último puede redibujar widgets. Los
 Para poder mostrar estos snackbars necesito una referencia con mi app (una key). Esto lo consigo modificando `main.app`, usando la propiedad `scaffoldMessengerKey`.
 
 Y lo mandamos llamar en `auth_provider.dart`.
+
+### Login de usuario
+
+Hacemos la llamada http, como hicimos en el registro, pero ahora para el login.
+
+Modificamos `auth_provider.dart`.
+
+NOTA: Una response de un login sería, por ejemplo:
+
+```json
+{
+  "usuario": {
+    "rol": "USER_ROLE",
+    "estado": true,
+    "google": false,
+    "nombre": "test1",
+    "correo": "test1@test.com",
+    "uid": "67d9aacfee31ef110a3c0ae6"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2Q5YWFjZmVlMzFlZjExMGEzYzBhZTYiLCJpYXQiOjE3NDI0NDk0ODUsImV4cCI6MTc0MzA1NDI4NX0.-4nFXdffFJp1eGJ4HW9Jlhn114t0gIRkasYZ-kD7JvA"
+}
+```
+
+Esta respuesta es la misma que ya tenemos mapeada en `auth_response.dart`. No tenemos que hacer nada aquí.
