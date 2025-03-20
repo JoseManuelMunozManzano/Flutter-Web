@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:admin_dashboard/providers/auth_provider.dart';
 
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
 import 'package:admin_dashboard/ui/cards/white_card.dart';
@@ -8,6 +11,9 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final user = Provider.of<AuthProvider>(context).user!;
+
     return ListView(
         // Para que no rebote cuando se llega al final del scroll.
         physics: ClampingScrollPhysics(),
@@ -17,8 +23,8 @@ class DashboardView extends StatelessWidget {
           SizedBox(height: 10),
 
           WhiteCard(
-            title: 'Sales Statistics',
-            child: Text('Hola mundo'),
+            title: user.nombre,
+            child: Text(user.correo),
           ),
         ],
       );

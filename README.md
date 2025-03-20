@@ -1180,3 +1180,29 @@ NOTA: Una response de un login sería, por ejemplo:
 ```
 
 Esta respuesta es la misma que ya tenemos mapeada en `auth_response.dart`. No tenemos que hacer nada aquí.
+
+### Validar JWT
+
+Tenemos que verificar el JWT que obtenemos al hacer login contra nuestro backend cada vez que la aplicación se recarga o cuando necesitamos realizar alguna interacción contra el backend, que obviamente espera recibir ese JWT.
+
+En el backend tenemos un endpoint para renovar o validar el JWT. Si el token es válido devuelve esto:
+
+```json
+{
+  "usuario": {
+    "rol": "USER_ROLE",
+    "estado": true,
+    "google": false,
+    "nombre": "test1",
+    "correo": "test1@test.com",
+    "uid": "67d9aacfee31ef110a3c0ae6"
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2Q5YWFjZmVlMzFlZjExMGEzYzBhZTYiLCJpYXQiOjE3NDI0NTAzMTgsImV4cCI6MTc0MzA1NTExOH0.j3oUbsG5vInOYLX3EkCVOwMHN3WCXW4AfTDs9mjXNB8"
+}
+```
+
+Vemos que devuelve un nuevo token (aunque no lo usamos).
+
+Para implementar esta llamada modificamos `auth_provider.dart`.
+
+Modificamos `dashboard_view.dart` para mostrar el nombre del usuario.

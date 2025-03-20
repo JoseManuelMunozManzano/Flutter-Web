@@ -13,7 +13,6 @@ enum AuthStatus { checking, authenticated, notAuthenticated }
 // Provider Global
 // Porque tenemos que saber en toda la app si el usuario esta autenticado y quien es.
 class AuthProvider extends ChangeNotifier {
-  String? _token;
   AuthStatus authStatus = AuthStatus.checking;
   Usuario? user;
 
@@ -27,22 +26,26 @@ class AuthProvider extends ChangeNotifier {
     final data = {'correo': email, 'password': password};
 
     CafeApi.post('/auth/login', data)
-      .then((json) {
-        final authReponse = AuthResponse.fromMap(json);
-        user = authReponse.usuario;
+        .then((json) {
+          final authReponse = AuthResponse.fromMap(json);
+          user = authReponse.usuario;
 
-        authStatus = AuthStatus.authenticated;
-        // Grabamos el LocalStorage
-        LocalStorage.prefs.setString('token', authReponse.token);
-        NavigationService.replaceTo(Flurorouter.dashboardRoute);
-        // Para que se redibuje donde deba redibujarse.
-        notifyListeners();
+          authStatus = AuthStatus.authenticated;
+          // Grabamos el LocalStorage
+          LocalStorage.prefs.setString('token', authReponse.token);
+          NavigationService.replaceTo(Flurorouter.dashboardRoute);
 
-      })
-      .catchError((e) {
-        NotificationsService.showSnackbarError('Usuario / Password no válidos');
-      });
+          // Para que se use el nuevo JWT en todas las peticiones
+          CafeApi.configureDio();
 
+          // Para que se redibuje donde deba redibujarse.
+          notifyListeners();
+        })
+        .catchError((e) {
+          NotificationsService.showSnackbarError(
+            'Usuario / Password no válidos',
+          );
+        });
   }
 
   register(String email, String password, String name) {
@@ -62,10 +65,16 @@ class AuthProvider extends ChangeNotifier {
           authStatus = AuthStatus.authenticated;
           LocalStorage.prefs.setString('token', authResponse.token);
           NavigationService.replaceTo(Flurorouter.dashboardRoute);
+
+          // Para que se use el nuevo JWT en todas las peticiones
+          CafeApi.configureDio();
+
           notifyListeners();
         })
         .catchError((e) {
-          NotificationsService.showSnackbarError('Usuario / Password no válidos');
+          NotificationsService.showSnackbarError(
+            'Usuario / Password no válidos',
+          );
         });
   }
 
@@ -78,13 +87,22 @@ class AuthProvider extends ChangeNotifier {
       return false;
     }
 
-    // TODO: ir al backend y comprobar si el JWT es válido
+    // Ir al backend y comprobar si el JWT es válido
+    try {
+      final resp = await CafeApi.httpGet('/auth');
+      final authResponse = AuthResponse.fromMap(resp);
+      user = authResponse.usuario;
 
-    // Esperamos un segundo para simular una petición muy lenta a un backend.
-    await Future.delayed(Duration(milliseconds: 1000));
+      // Grabamos el LocalStorage
+      authStatus = AuthStatus.authenticated;
+      LocalStorage.prefs.setString('token', authResponse.token);
 
-    authStatus = AuthStatus.authenticated;
-    notifyListeners();
-    return true;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      authStatus = AuthStatus.notAuthenticated;
+      notifyListeners();
+      return false;
+    }
   }
 }
