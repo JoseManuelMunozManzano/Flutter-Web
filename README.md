@@ -1142,3 +1142,17 @@ El código de `auth_response.dart` se genera en la web de `quicktype.io` usando 
 ```
 
 Modificamos `auth_provider.dart` para llamar al método `fromMap()` de `auth_response.dart`.
+
+### Mostrar snackbars - NotificationService
+
+Mostramos un snackbar cuando hay un mensaje de error, por ejemplo al crear una nueva cuenta con un usuario ya existente.
+
+Lo hacemos genérico, y creamos dos tipos distintos de snackbars.
+
+En la carpeta `services` creamos el archivo `notifications_service.dart`.
+
+Es un servicio y no un provider porque este último puede redibujar widgets. Los servicios también pueden redibujar widgets, pero no son un ChangeNotifier Provider o NotifyListeners, porque manejamos todo mediante objetos y referencias.
+
+Para poder mostrar estos snackbars necesito una referencia con mi app (una key). Esto lo consigo modificando `main.app`, usando la propiedad `scaffoldMessengerKey`.
+
+Y lo mandamos llamar en `auth_provider.dart`.

@@ -10,6 +10,7 @@ import 'package:admin_dashboard/providers/sidemenu_provider.dart';
 
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
+import 'package:admin_dashboard/services/notifications_service.dart';
 
 import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
@@ -68,6 +69,8 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: Flurorouter.router.generator,
       // Para poder cambiar de Layout.
       navigatorKey: NavigationService.navigatorKey,
+      // Para poder mostrar los snackbars
+      scaffoldMessengerKey: NotificationsService.messengerKey,
       // El child es la vista que necesitamos mostrar.
       // Se devuelve un layout al que se le pasa la view que tiene que mostrar.
       builder: (_, child) {

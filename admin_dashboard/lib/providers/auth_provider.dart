@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/api/cafe_api.dart';
@@ -52,8 +53,7 @@ class AuthProvider extends ChangeNotifier {
           notifyListeners();
         })
         .catchError((e) {
-          print('Error en: $e');
-          // TODO: Mostrar notificación de error
+          NotificationsService.showSnackbarError('Usuario / Password no válidos');
         });
   }
 
