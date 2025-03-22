@@ -36,7 +36,10 @@ class _CategoryModalState extends State<CategoryModal> {
   @override
   Widget build(BuildContext context) {
     // No tengo que redibujar
-    final categoryProvider = Provider.of<CategoriesProvider>(context, listen: false);
+    final categoryProvider = Provider.of<CategoriesProvider>(
+      context,
+      listen: false,
+    );
 
     return Container(
       padding: EdgeInsets.all(20),
@@ -83,9 +86,9 @@ class _CategoryModalState extends State<CategoryModal> {
                 if (id == null) {
                   // Crear
                   await categoryProvider.newCategory(nombre);
-
                 } else {
                   // Actualizar
+                  await categoryProvider.updateCategory(id!, nombre);
                 }
 
                 Navigator.of(context).pop();

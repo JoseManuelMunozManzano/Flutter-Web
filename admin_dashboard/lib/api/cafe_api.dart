@@ -26,8 +26,7 @@ class CafeApi {
       final resp = await _dio.get(path);
       return resp.data; // La data es el body de la respuesta.
     } catch (e) {
-      print(e);
-      throw ('Error en el GET');
+      throw ('Error en el GET: $e');
     }
   }
 
@@ -43,8 +42,21 @@ class CafeApi {
       final resp = await _dio.post(path, data: formData);
       return resp.data; // La data es el body de la respuesta.
     } catch (e) {
-      print(e);
-      throw ('Error en el POST');
+      throw ('Error en el POST: $e');
+    }
+  }
+
+  static Future put(String path, Map<String, dynamic> data) async {
+    final formData = FormData.fromMap(data);
+
+    try {
+      // No necesitamos volver a llamar al método configureDio porque ya está
+      // configurado en la instancia _dio.
+      // Si no hubiera data vale mandarle un map vacío.
+      final resp = await _dio.put(path, data: formData);
+      return resp.data; // La data es el body de la respuesta.
+    } catch (e) {
+      throw ('Error en el PUT: $e');
     }
   }
 }

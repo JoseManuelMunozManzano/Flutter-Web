@@ -32,4 +32,22 @@ class CategoriesProvider extends ChangeNotifier {
       print('Error al crear categoría: $e');
     }
   }
+
+  Future updateCategory(String id, String name) async {
+    // Este es el body necesario para crear la categoría
+    final data = {'nombre': name};
+
+    try {
+      await CafeApi.put('/categorias/$id', data);
+
+      final index = categorias.indexWhere((cat) => cat.id == id);
+      if (index != -1) {
+        categorias[index].nombre = name;
+      }
+
+      notifyListeners();
+    } catch (e) {
+      print('Error al actualizar categoría: $e');
+    }
+  }
 }

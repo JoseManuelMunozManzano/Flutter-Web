@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/models/category.dart';
 
+import 'package:admin_dashboard/ui/modals/category_modal.dart';
+
 class CategoriesDTS extends DataTableSource {
   final List<Category> categorias;
   // Un AlertDiagog requiere el context.
@@ -27,7 +29,12 @@ class CategoriesDTS extends DataTableSource {
             children: [
               IconButton(
                 onPressed: () {
-                  print('editando: $categoria');
+                  showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    constraints: BoxConstraints(maxWidth: double.infinity),
+                    builder: (_) => CategoryModal(categoria: categoria),
+                  );
                 },
                 icon: Icon(Icons.edit_outlined),
               ),

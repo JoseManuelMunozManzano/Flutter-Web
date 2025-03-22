@@ -1341,3 +1341,13 @@ Vamos a crear una nueva categoría en nuestro backend y a mostrarla.
 Vamos a crear el canal de comunicación en el provider `categories_provider.dart` para mandar llamar la creación de una nueva categoría.
 
 Llamamos en `category_modal.dart` al pulsar el botón guardar.
+
+### Actualizar categoría
+
+En `cafe_api.dart` creamos un método para hacer put.
+
+Actualizamos `categories_datasource.dart` para que funcione el icono de actualización.
+
+En `categories_provider.dart` creamos un método para actualizar categorías y tenemos que cambiar el nombre de la categoría correcta.
+
+También actualizamos `category_modal.dart`.
