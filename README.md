@@ -1323,3 +1323,9 @@ Modificamos `categories_view.dart` y `categories_datasource.dart`.
 Modifico `categories_datasource.dart` y `categories_view.dart`.
 
 Para corregir el fondo que se visualiza al aparecer el dialog, modificamos `dashboard_layout.dart`. Cogemos su padding y nos lo llevamos a `categories_view.dart`, `blank_view.dart`, `icons_view.dart`, `no_page_found_view.dart` y `dashboard_view.dart`.
+
+### Modal para editar y agregar categorías
+
+En la carpeta `ui` nos creamos una carpeta `modals` y dentro el archivo `category_modal.dart`.
+
+Al modal lo llamamos desde `categories_view.dart`.
