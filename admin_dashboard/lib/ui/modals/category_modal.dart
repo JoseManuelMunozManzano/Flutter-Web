@@ -1,10 +1,13 @@
 import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:flutter/material.dart';
 
+import 'package:admin_dashboard/providers/categories_provider.dart';
+
 import 'package:admin_dashboard/models/category.dart';
 
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
+import 'package:provider/provider.dart';
 
 // Es con estado porque tenemos que mantener el estado de un campo de texto.
 // Como solo tenemos que mantener un campo no merece la pena hacer un provider.
@@ -32,6 +35,9 @@ class _CategoryModalState extends State<CategoryModal> {
 
   @override
   Widget build(BuildContext context) {
+    // No tengo que redibujar
+    final categoryProvider = Provider.of<CategoriesProvider>(context, listen: false);
+
     return Container(
       padding: EdgeInsets.all(20),
       height: 500,
@@ -42,13 +48,16 @@ class _CategoryModalState extends State<CategoryModal> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(widget.categoria?.nombre ?? 'Nueva categoría', style: CustomLabels.h1.copyWith(color: Colors.white)),
+              Text(
+                widget.categoria?.nombre ?? 'Nueva categoría',
+                style: CustomLabels.h1.copyWith(color: Colors.white),
+              ),
               IconButton(
                 onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(Icons.close, color: Colors.white)
-              )
+                icon: Icon(Icons.close, color: Colors.white),
+              ),
             ],
-          ), 
+          ),
 
           Divider(color: Colors.white.withValues(alpha: 0.3)),
 
@@ -71,24 +80,31 @@ class _CategoryModalState extends State<CategoryModal> {
             alignment: Alignment.center,
             child: CustomOutlinedButton(
               onPressed: () async {
-                
+                if (id == null) {
+                  // Crear
+                  await categoryProvider.newCategory(nombre);
+
+                } else {
+                  // Actualizar
+                }
+
+                Navigator.of(context).pop();
               },
               text: 'Guardar',
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
     );
   }
 
   BoxDecoration buildBoxDecoration() => BoxDecoration(
-    borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(20),
+      topRight: Radius.circular(20),
+    ),
     color: Color(0xff0f2041),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black26
-      )
-    ]
+    boxShadow: [BoxShadow(color: Colors.black26)],
   );
 }

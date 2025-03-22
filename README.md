@@ -1333,3 +1333,11 @@ Al modal lo llamamos desde `categories_view.dart`.
 ### Contenido del modal de categoría
 
 Modificamos `category_modal.dart` y `custom_outlined_button.dart`.
+
+### Crear categorías
+
+Vamos a crear una nueva categoría en nuestro backend y a mostrarla.
+
+Vamos a crear el canal de comunicación en el provider `categories_provider.dart` para mandar llamar la creación de una nueva categoría.
+
+Llamamos en `category_modal.dart` al pulsar el botón guardar.
