@@ -105,4 +105,11 @@ class AuthProvider extends ChangeNotifier {
       return false;
     }
   }
+
+  logout() {
+    LocalStorage.prefs.remove('token');
+    authStatus = AuthStatus.notAuthenticated;    
+    notifyListeners();
+    // No hace falta navegar a ningún sitio porque ya lo hacemos en main.dart.
+  }
 }

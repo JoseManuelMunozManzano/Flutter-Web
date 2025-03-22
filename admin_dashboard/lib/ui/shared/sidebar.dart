@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:admin_dashboard/router/router.dart';
 
+import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/providers/sidemenu_provider.dart';
 
 import 'package:admin_dashboard/services/navigation_service.dart';
@@ -21,7 +22,6 @@ class Sidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final sidemenuProvider = Provider.of<SidemenuProvider>(context);
 
     return Container(
@@ -41,15 +41,40 @@ class Sidebar extends StatelessWidget {
             text: 'Dashboard',
             icon: Icons.compass_calibration_outlined,
             onPressed: () => navigateTo(Flurorouter.dashboardRoute),
-            isActive: sidemenuProvider.currentPage == Flurorouter.dashboardRoute,
+            isActive:
+                sidemenuProvider.currentPage == Flurorouter.dashboardRoute,
           ),
 
-          MenuItem(text: 'Orders', icon: Icons.shopping_cart_outlined, onPressed: () {}),
-          MenuItem(text: 'Analytic', icon: Icons.show_chart_outlined, onPressed: () {}),
-          MenuItem(text: 'Categories', icon: Icons.layers_outlined, onPressed: () {}),
-          MenuItem(text: 'Products', icon: Icons.dashboard_outlined, onPressed: () {}),
-          MenuItem(text: 'Discount', icon: Icons.attach_money_outlined, onPressed: () {}),
-          MenuItem(text: 'Customers', icon: Icons.people_alt_outlined, onPressed: () {}),
+          MenuItem(
+            text: 'Orders',
+            icon: Icons.shopping_cart_outlined,
+            onPressed: () {},
+          ),
+          MenuItem(
+            text: 'Analytic',
+            icon: Icons.show_chart_outlined,
+            onPressed: () {},
+          ),
+          MenuItem(
+            text: 'Categories',
+            icon: Icons.layers_outlined,
+            onPressed: () {},
+          ),
+          MenuItem(
+            text: 'Products',
+            icon: Icons.dashboard_outlined,
+            onPressed: () {},
+          ),
+          MenuItem(
+            text: 'Discount',
+            icon: Icons.attach_money_outlined,
+            onPressed: () {},
+          ),
+          MenuItem(
+            text: 'Customers',
+            icon: Icons.people_alt_outlined,
+            onPressed: () {},
+          ),
 
           SizedBox(height: 30),
           TextSeparator(text: 'UI Elements'),
@@ -59,8 +84,16 @@ class Sidebar extends StatelessWidget {
             onPressed: () => navigateTo(Flurorouter.iconsRoute),
             isActive: sidemenuProvider.currentPage == Flurorouter.iconsRoute,
           ),
-          MenuItem(text: 'Marketing', icon: Icons.mark_email_read_outlined, onPressed: () {}),
-          MenuItem(text: 'Campaign', icon: Icons.note_add_outlined, onPressed: () {}),
+          MenuItem(
+            text: 'Marketing',
+            icon: Icons.mark_email_read_outlined,
+            onPressed: () {},
+          ),
+          MenuItem(
+            text: 'Campaign',
+            icon: Icons.note_add_outlined,
+            onPressed: () {},
+          ),
           MenuItem(
             text: 'Blank',
             icon: Icons.post_add_outlined,
@@ -70,24 +103,20 @@ class Sidebar extends StatelessWidget {
 
           SizedBox(height: 50),
           TextSeparator(text: 'Exit'),
-          MenuItem(text: 'Logout', icon: Icons.exit_to_app_outlined, onPressed: () {}),
+          MenuItem(
+            text: 'Logout',
+            icon: Icons.exit_to_app_outlined,
+            onPressed: () {
+              Provider.of<AuthProvider>(context, listen: false).logout();
+            },
+          ),
         ],
       ),
     );
   }
 
   BoxDecoration buildBoxDecoration() => BoxDecoration(
-    gradient: LinearGradient(
-      colors: [
-        Color(0xff092044),
-        Color(0xff092042),
-      ]
-    ),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black26,
-        blurRadius: 10,
-      ),
-    ],
+    gradient: LinearGradient(colors: [Color(0xff092044), Color(0xff092042)]),
+    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
   );
 }

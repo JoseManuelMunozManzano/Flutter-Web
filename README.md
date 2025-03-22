@@ -1206,3 +1206,11 @@ Vemos que devuelve un nuevo token (aunque no lo usamos).
 Para implementar esta llamada modificamos `auth_provider.dart`.
 
 Modificamos `dashboard_view.dart` para mostrar el nombre del usuario.
+
+### Logout
+
+El logout consiste en eliminar la key `token` del LocalStorage.
+
+Modificamos `auth_provider.dart` para crear esta funcionalidad.
+
+El logout es llamado desde `sidebar.dart`.
