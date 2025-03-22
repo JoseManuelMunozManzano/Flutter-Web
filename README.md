@@ -1311,3 +1311,9 @@ En la carpeta `models/http` creamos el archivo `categories_response.dart`.
 En la carpeta `models` creamos el archivo `category.dart`.
 
 Usamos CategoriesResponse en `categories_provider.dart`.
+
+### PaginatedDataTable con la información del backend
+
+Vamos a pasar las categorías obtenidas a la view.
+
+Modificamos `categories_view.dart` y `categories_datasource.dart`.

@@ -27,6 +27,10 @@ class _CategoriesViewState extends State<CategoriesView> {
 
   @override
   Widget build(BuildContext context) {
+    // Por defecto listen: true
+    // Cuando se ejecute notifyListeners() se redibujarán los Widgets.
+    final categorias = Provider.of<CategoriesProvider>(context).categorias;
+
     return ListView(
       // Para que no rebote cuando se llega al final del scroll.
       physics: ClampingScrollPhysics(),
@@ -42,7 +46,7 @@ class _CategoriesViewState extends State<CategoriesView> {
             DataColumn(label: Text('Creado por')),
             DataColumn(label: Text('Acciones')),
           ],
-          source: CategoriesDTS(),
+          source: CategoriesDTS(categorias),
 
           header: Text('Categorías disponibles', maxLines: 2),
           onRowsPerPageChanged: (value) {

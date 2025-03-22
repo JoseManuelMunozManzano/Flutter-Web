@@ -15,7 +15,6 @@ class CategoriesProvider extends ChangeNotifier {
     categorias = [...categoriesResp.categorias];
     print(categorias);
 
-    notifyListeners;
-    ();
+    notifyListeners();
   }
 }
