@@ -1245,3 +1245,9 @@ De la carpeta `ui/views` uso el cascarón `blank_view.dart` para crear la view `
 Una vez tenemos la vista, creamos la ruta en `dashboard_handlers.dart` y `router.dart`.
 
 Para poder acceder, modificamos también `sidebar.dart`.
+
+### PaginatedDataTable
+
+Modificamos `categories_view.dart` para añadir el widget `PaginatedDataTable`.
+
+Para la fuente de datos creamos, en la carpeta `lib` la carpeta `datatables` y dentro el archivo `categories_datasource.dart`.
