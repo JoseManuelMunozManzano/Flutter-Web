@@ -1271,3 +1271,43 @@ En la carpeta `providers` creamos el archivo `categories_provider.dart`.
 El provider lo colocamos en `main.dart` para que esté disponible en toda la app.
 
 Al provider lo llamaremos en `categories_view.dart`.
+
+### Mapear categorías
+
+Usaremos el generador `quicktype.io` para que nos mapee el resultado del get a las categorías.
+
+El resultado que obtenemos es este:
+
+```json
+{
+  "total": 4,
+  "categorias": [
+    {
+      "_id": "67de7797b343760f4fb7d761",
+      "nombre": "Teclados",
+      "usuario": { "_id": "67d9aacfee31ef110a3c0ae6", "nombre": "test1" }
+    },
+    {
+      "_id": "67de77a6b343760f4fb7d766",
+      "nombre": "Monitores",
+      "usuario": { "_id": "67d9aacfee31ef110a3c0ae6", "nombre": "test1" }
+    },
+    {
+      "_id": "67de77afb343760f4fb7d76b",
+      "nombre": "Micrófonos",
+      "usuario": { "_id": "67d9aacfee31ef110a3c0ae6", "nombre": "test1" }
+    },
+    {
+      "_id": "67de77bab343760f4fb7d770",
+      "nombre": "Controles",
+      "usuario": { "_id": "67d9aacfee31ef110a3c0ae6", "nombre": "test1" }
+    }
+  ]
+}
+```
+
+En la carpeta `models/http` creamos el archivo `categories_response.dart`.
+
+En la carpeta `models` creamos el archivo `category.dart`.
+
+Usamos CategoriesResponse en `categories_provider.dart`.
