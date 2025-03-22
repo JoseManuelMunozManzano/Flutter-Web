@@ -1329,3 +1329,7 @@ Para corregir el fondo que se visualiza al aparecer el dialog, modificamos `dash
 En la carpeta `ui` nos creamos una carpeta `modals` y dentro el archivo `category_modal.dart`.
 
 Al modal lo llamamos desde `categories_view.dart`.
+
+### Contenido del modal de categoría
+
+Modificamos `category_modal.dart` y `custom_outlined_button.dart`.
