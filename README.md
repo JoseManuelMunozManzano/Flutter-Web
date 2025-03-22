@@ -1259,3 +1259,15 @@ Seguimos jugando con las opciones que nos da el Widget `PaginatedDateTable`.
 Modificamos `categories_view.dart`.
 
 Creamos un botón para dar de alta una nueva categoría. En la carpeta `ui/buttons` creamos un archivo `custom_icon_button.dart`.
+
+### Cargar las categorías desde el backend
+
+Vamos a rellenar nuestra tabla con información del backend.
+
+Para ello necesitamos un Provider porque al cargar las categorías tenemos que redibujar los Widgets. También funcionaría con servicios (FutureBuilder o StreamBuilder)
+
+En la carpeta `providers` creamos el archivo `categories_provider.dart`.
+
+El provider lo colocamos en `main.dart` para que esté disponible en toda la app.
+
+Al provider lo llamaremos en `categories_view.dart`.
