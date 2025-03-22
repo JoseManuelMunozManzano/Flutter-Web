@@ -1317,3 +1317,9 @@ Usamos CategoriesResponse en `categories_provider.dart`.
 Vamos a pasar las categorías obtenidas a la view.
 
 Modificamos `categories_view.dart` y `categories_datasource.dart`.
+
+### Mensaje de confirmación de eliminación
+
+Modifico `categories_datasource.dart` y `categories_view.dart`.
+
+Para corregir el fondo que se visualiza al aparecer el dialog, modificamos `dashboard_layout.dart`. Cogemos su padding y nos lo llevamos a `categories_view.dart`, `blank_view.dart`, `icons_view.dart`, `no_page_found_view.dart` y `dashboard_view.dart`.

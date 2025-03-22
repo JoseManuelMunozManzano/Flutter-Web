@@ -9,6 +9,7 @@ class BlankView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         // Para que no rebote cuando se llega al final del scroll.
         physics: ClampingScrollPhysics(),
         children: [

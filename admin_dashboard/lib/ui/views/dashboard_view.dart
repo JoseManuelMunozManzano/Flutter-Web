@@ -15,6 +15,7 @@ class DashboardView extends StatelessWidget {
     final user = Provider.of<AuthProvider>(context).user!;
 
     return ListView(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         // Para que no rebote cuando se llega al final del scroll.
         physics: ClampingScrollPhysics(),
         children: [

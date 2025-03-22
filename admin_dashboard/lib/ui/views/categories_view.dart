@@ -32,6 +32,7 @@ class _CategoriesViewState extends State<CategoriesView> {
     final categorias = Provider.of<CategoriesProvider>(context).categorias;
 
     return ListView(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       // Para que no rebote cuando se llega al final del scroll.
       physics: ClampingScrollPhysics(),
       children: [
@@ -46,7 +47,7 @@ class _CategoriesViewState extends State<CategoriesView> {
             DataColumn(label: Text('Creado por')),
             DataColumn(label: Text('Acciones')),
           ],
-          source: CategoriesDTS(categorias),
+          source: CategoriesDTS(categorias, context),
 
           header: Text('Categorías disponibles', maxLines: 2),
           onRowsPerPageChanged: (value) {
