@@ -1214,3 +1214,9 @@ El logout consiste en eliminar la key `token` del LocalStorage.
 Modificamos `auth_provider.dart` para crear esta funcionalidad.
 
 El logout es llamado desde `sidebar.dart`.
+
+### Submit cuando se presiona Enter
+
+Queremos que, al pulsar Intro al hacer login o el registro, si los datos son correctos, haga la misma funcionalidad que pulsar el botón Ingresar o Crear cuenta.
+
+Modificamos `login_view.dart` y `register_view.dart`.
