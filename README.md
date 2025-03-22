@@ -1220,3 +1220,28 @@ El logout es llamado desde `sidebar.dart`.
 Queremos que, al pulsar Intro al hacer login o el registro, si los datos son correctos, haga la misma funcionalidad que pulsar el botón Ingresar o Crear cuenta.
 
 Modificamos `login_view.dart` y `register_view.dart`.
+
+## Mantenimiento de categorías
+
+Continuamos con el proyecto `admin_dashboard` y el backend `backend_cafe`.
+
+Vamos a crear un CRUD completo. Para mostrar la data en tabla de forma paginada usaremos el Widget `PaginatedDataTable`. En esta sección vemos los fundamentos de este Widget, con la idea de poder configurar cada row de la tabla como queramos, y en la siguiente haremos un uso más avanzado del mismo.
+
+### Temas puntuales de la sección
+
+Esta sección tiene por objetivo crear un CRUD en una colección. Puntualmente tocaremos los siguientes temas:
+
+- Widget PaginatedDataTable
+- Paginación
+- Modals
+- CRUD
+- Prompts
+- DataTableSource
+
+### Crear ruta y vista para las categorías
+
+De la carpeta `ui/views` uso el cascarón `blank_view.dart` para crear la view `categories_view.dart`.
+
+Una vez tenemos la vista, creamos la ruta en `dashboard_handlers.dart` y `router.dart`.
+
+Para poder acceder, modificamos también `sidebar.dart`.
