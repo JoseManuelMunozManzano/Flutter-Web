@@ -1251,3 +1251,11 @@ Para poder acceder, modificamos también `sidebar.dart`.
 Modificamos `categories_view.dart` para añadir el widget `PaginatedDataTable`.
 
 Para la fuente de datos creamos, en la carpeta `lib` la carpeta `datatables` y dentro el archivo `categories_datasource.dart`.
+
+### Configuraciones adicionales del PaginatedDataTable
+
+Seguimos jugando con las opciones que nos da el Widget `PaginatedDateTable`.
+
+Modificamos `categories_view.dart`.
+
+Creamos un botón para dar de alta una nueva categoría. En la carpeta `ui/buttons` creamos un archivo `custom_icon_button.dart`.
