@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:admin_dashboard/providers/categories_provider.dart';
 
 import 'package:admin_dashboard/models/category.dart';
 
@@ -15,6 +18,11 @@ class CategoriesDTS extends DataTableSource {
   @override
   DataRow getRow(int index) {
     final categoria = categorias[index];
+
+    final categoryProvider = Provider.of<CategoriesProvider>(
+      context,
+      listen: false,
+    );
 
     return DataRow.byIndex(
       index: index,
@@ -51,7 +59,8 @@ class CategoriesDTS extends DataTableSource {
                         child: Text('No')
                       ),
                       TextButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          await categoryProvider.deleteCategory(categoria.id);
                           Navigator.of(context).pop();
                         },
                         child: Text('Si, borrar')

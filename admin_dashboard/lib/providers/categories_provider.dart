@@ -13,7 +13,6 @@ class CategoriesProvider extends ChangeNotifier {
     final categoriesResp = CategoriesResponse.fromMap(resp);
 
     categorias = [...categoriesResp.categorias];
-    print(categorias);
 
     notifyListeners();
   }
@@ -48,6 +47,18 @@ class CategoriesProvider extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       print('Error al actualizar categoría: $e');
+    }
+  }
+
+  Future deleteCategory(String id) async {
+    try {
+      await CafeApi.delete('/categorias/$id', {});
+
+      categorias.removeWhere((categoria) => categoria.id == id);
+
+      notifyListeners();
+    } catch (e) {
+      print('Error al eliminar categoría: $e');
     }
   }
 }

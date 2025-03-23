@@ -59,4 +59,19 @@ class CafeApi {
       throw ('Error en el PUT: $e');
     }
   }
+
+  // Nuestro back no espera ningún body, pero se deja configurado.
+  static Future delete(String path, Map<String, dynamic> data) async {
+    final formData = FormData.fromMap(data);
+    
+    try {
+      // No necesitamos volver a llamar al método configureDio porque ya está
+      // configurado en la instancia _dio.
+      // Si no hubiera data vale mandarle un map vacío.
+      final resp = await _dio.delete(path);
+      return resp.data; // La data es el body de la respuesta.
+    } catch (e) {
+      throw ('Error en el DELETE: $e');
+    }
+  }
 }

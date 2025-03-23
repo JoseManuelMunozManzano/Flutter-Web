@@ -1346,8 +1346,16 @@ Llamamos en `category_modal.dart` al pulsar el botón guardar.
 
 En `cafe_api.dart` creamos un método para hacer put.
 
-Actualizamos `categories_datasource.dart` para que funcione el icono de actualización.
+Actualizamos `categories_datasource.dart` para que funcione el icono de actualización de categoría.
 
 En `categories_provider.dart` creamos un método para actualizar categorías y tenemos que cambiar el nombre de la categoría correcta.
 
 También actualizamos `category_modal.dart`.
+
+### Eliminar categoría
+
+En `cafe_api.dart` creamos un método para hacer delete.
+
+Actualizamos `categories_datasource.dart` para que funcione el icono de eliminación de categoría.
+
+En `categories_provider.dart` creamos un método para actualizar categorías y tenemos que cambiar el nombre de la categoría correcta.
