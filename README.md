@@ -1360,10 +1360,16 @@ Actualizamos `categories_datasource.dart` para que funcione el icono de eliminac
 
 En `categories_provider.dart` creamos un método para actualizar categorías y tenemos que cambiar el nombre de la categoría correcta.
 
-### Problema en POST y PUT
+### Snackbars de creación y actualización
 
 Cuando se elimina una categoría, realmente se hace un soft delete, es decir, el state de la fila en MongoDB queda como false, lo que hace que no se visualice.
 
 Pero si se intenta dar de alta el mismo nombre de categoría, el POST da error.
 
-Se modifica el backend, `controllers/categorias.js` para hacer un `findByIdAndDelete` en vez de `findByIdAndUpdate`.
+Como queremos mantener la integridad referencia, vamos a mostrar un snackbar para indicar si ha habido algún problema o no a la hora de crear/actualizar una categoría.
+
+Modificamos `category_modal.dart`, `notifications_service.dart` y `categories_provider.dart`.
+
+Problema que veo: cuando actualizo a un nombre ya existente, en la app de Node sale de la app.
+
+Actualizo el backend, el archivo `controllers/categorias.js`, método `actualizarCategoria`.

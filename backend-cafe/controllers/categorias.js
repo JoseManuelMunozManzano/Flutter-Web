@@ -58,15 +58,21 @@ const actualizarCategoria = async (req, res = response) => {
 
   data.usuario = req.usuario._id;
 
-  const categoria = await Categoria.findByIdAndUpdate(id, data, { new: true });
-
-  res.json(categoria);
+  try {
+    const categoria = await Categoria.findByIdAndUpdate(id, data, { new: true });
+    res.json(categoria);
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      msg: 'Error al actualizar la categoría',
+    });
+  }
 };
 
 const borrarCategoria = async (req, res = response) => {
   const { id } = req.params;
-  // const categoriaBorrada = await Categoria.findByIdAndUpdate( id, { estado: false }, {new: true });
-  const categoriaBorrada = await Categoria.findByIdAndDelete(id);
+
+  const categoriaBorrada = await Categoria.findByIdAndUpdate(id, { estado: false }, { new: true });
 
   res.json(categoriaBorrada);
 };

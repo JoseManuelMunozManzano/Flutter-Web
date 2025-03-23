@@ -28,7 +28,8 @@ class CategoriesProvider extends ChangeNotifier {
       categorias.add(newCategory);
       notifyListeners();
     } catch (e) {
-      print('Error al crear categoría: $e');
+      // print('Error al crear categoría: $e');
+      throw 'Error al crear categoría';
     }
   }
 
@@ -46,7 +47,8 @@ class CategoriesProvider extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      print('Error al actualizar categoría: $e');
+      // print('Error al actualizar categoría: $e');
+      throw 'Error al actualizar categoría';
     }
   }
 
