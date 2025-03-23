@@ -1359,3 +1359,11 @@ En `cafe_api.dart` creamos un método para hacer delete.
 Actualizamos `categories_datasource.dart` para que funcione el icono de eliminación de categoría.
 
 En `categories_provider.dart` creamos un método para actualizar categorías y tenemos que cambiar el nombre de la categoría correcta.
+
+### Problema en POST y PUT
+
+Cuando se elimina una categoría, realmente se hace un soft delete, es decir, el state de la fila en MongoDB queda como false, lo que hace que no se visualice.
+
+Pero si se intenta dar de alta el mismo nombre de categoría, el POST da error.
+
+Se modifica el backend, `controllers/categorias.js` para hacer un `findByIdAndDelete` en vez de `findByIdAndUpdate`.
