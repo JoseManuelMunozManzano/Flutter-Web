@@ -1395,3 +1395,28 @@ Modifico también comentarios de `navigation_service.dart`.
 ### Crear múltiples usuarios en nuestra BBDD
 
 Creamos varios usuarios en la BBDD usando Postman.
+
+## Mantenimiento de usuarios
+
+Continuamos con el proyecto `admin_dashboard` y el backend `backend_cafe`.
+
+Hacemos un uso avanzado del `PaginatedDataTable`.
+
+### Temas puntuales de la sección
+
+En esta sección nos enfocaremos en el mantenimiento de usuarios, específicamente los siguientes puntos:
+
+- Ordenar tabla mediante los encabezados de las columnas
+- Segmentos de URL
+- Formularios
+- Diseño de dos columnas
+- Validar segmento de URL contra el backend
+- Manejo de errores
+
+La idea de este mantenimiento es que preparemos todo lo que ocupamos para poder actualizar los usuarios y dejar abierta las puertas para la siguiente sección donde actualizaremos la fotografía del mismo.
+
+### Assets de loader y de no imagen
+
+He guardado en la carpeta `assets` las imágenes `loader.gif` y `no-image.jpg`.
+
+Vamos al archivo `pubscpec.yaml` y guardamos el archivo para que dispare el `flutter pub get`. Esto revisa las depedencias que están en los assets y los va a adicionar.
