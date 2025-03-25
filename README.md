@@ -1373,3 +1373,25 @@ Modificamos `category_modal.dart`, `notifications_service.dart` y `categories_pr
 Problema que veo: cuando actualizo a un nombre ya existente, en la app de Node sale de la app.
 
 Actualizo el backend, el archivo `controllers/categorias.js`, método `actualizarCategoria`.
+
+## Optimizaciones
+
+Continuamos con el proyecto `admin_dashboard` y el backend `backend_cafe`.
+
+### Optimizaciones en el manejo de rutas
+
+Hemos venido trabajando la navegación de Flutter como se haría en una aplicación móvil, en el sentido de que en una app móvil cuando navegamos a otra pantalla se pone encima de la anterior y esto hace que tengamos todo el historial de estos Widgets abiertos y que, ante cualquier cambio (animación, el cursor msimo), se redibuja todo, lo que hace que haya una precisión de píxels perfecta.
+
+En la web no funciona así. Cuando navegamos a una nueva pantalla, destruimos la anterior.
+
+A nivel programación, en lugar de ejecutar `Navigator.pushNamed` tenemos que ejecutar `NavigagorpushReplacementNamed`.
+
+Modificamos `login_view.dart` y `register_view.dart`.
+
+También modificamos `sidebar.dart`.
+
+Modifico también comentarios de `navigation_service.dart`.
+
+### Crear múltiples usuarios en nuestra BBDD
+
+Creamos varios usuarios en la BBDD usando Postman.
