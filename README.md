@@ -1420,3 +1420,11 @@ La idea de este mantenimiento es que preparemos todo lo que ocupamos para poder 
 He guardado en la carpeta `assets` las imágenes `loader.gif` y `no-image.jpg`.
 
 Vamos al archivo `pubscpec.yaml` y guardamos el archivo para que dispare el `flutter pub get`. Esto revisa las depedencias que están en los assets y los va a adicionar.
+
+### Ruta y vista de usuarios
+
+Modificamos `router.dart` y `dashboard_handlers.dart`.
+
+Usando la plantilla `ui/views/blank_view.dart` creo la vista `users_view.dart`.
+
+Modificamos `sidebar.dart` para que funcione el click de Users.
