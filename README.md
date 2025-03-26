@@ -1448,3 +1448,9 @@ Para el mapeo de la información que viene del backend, usamos `quicktype.io`. C
 Modificamos `main.dart` para crear la instancia del provider.
 
 Creamos una variable del provider en `views/users_view.dart`, pero queda pendiente el uso del mismo.
+
+### Llenar la tabla con los usuarios
+
+Ahora si, llenamos la tabla en `users_view.dart`.
+
+También modificamos `users_datasource.dart` para que reciba la data y renderice lo que tenga que renderizar.

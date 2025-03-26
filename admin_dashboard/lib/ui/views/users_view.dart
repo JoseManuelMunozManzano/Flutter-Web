@@ -14,7 +14,7 @@ class UsersView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final usersProvider = Provider.of<UsersProvider>(context);
-    final usersDataSource = UsersDTS();
+    final usersDataSource = UsersDTS(usersProvider.users);
 
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
