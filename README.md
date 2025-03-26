@@ -1431,6 +1431,20 @@ Modificamos `sidebar.dart` para que funcione el click de Users.
 
 ### UsersView temporal
 
-Modificamos `users_view.dart`.
+Modificamos `users_view.dart` para incluir un `PaginatedDataTable`.
 
 Creamos un datasource en `datatables` llamado `users_datasource.dart`.
+
+### UsersProvider
+
+Vamos a obtener del backend los datos de los usuarios y mostrarlo en nuestro `PaginatedDataTable`.
+
+Creamos en la carpeta `providers` un provider `users_provider.dart`.
+
+En la carpeta `models` creamos un archivo `usuario.dart` y nos llevamos la `class Usuario` desde `auth_response.dart` a este nuevo archivo. Añadimos el campo `img`.
+
+Para el mapeo de la información que viene del backend, usamos `quicktype.io`. Creamos en `models/http` el modelo de respuesta generado, con nombre `users_reponse.dart`.
+
+Modificamos `main.dart` para crear la instancia del provider.
+
+Creamos una variable del provider en `views/users_view.dart`, pero queda pendiente el uso del mismo.

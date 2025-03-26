@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:admin_dashboard/datatables/users_datasource.dart';
+
+import 'package:admin_dashboard/providers/users_provider.dart';
 
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
 
@@ -9,6 +12,8 @@ class UsersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final usersProvider = Provider.of<UsersProvider>(context);
     final usersDataSource = UsersDTS();
 
     return ListView(
