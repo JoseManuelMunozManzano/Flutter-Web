@@ -1454,3 +1454,9 @@ Creamos una variable del provider en `views/users_view.dart`, pero queda pendien
 Ahora si, llenamos la tabla en `users_view.dart`.
 
 También modificamos `users_datasource.dart` para que reciba la data y renderice lo que tenga que renderizar.
+
+### Ordenar la lista de usuarios
+
+Como tenemos toda la data en el front, ordenaremos en el front en vez de hacer otra petición al back y que este me la devuelva ordenada.
+
+Modificamos `users_provider.dart` y `users_view.dart`. Este último archivo es el que manda el criterio de ordenación.

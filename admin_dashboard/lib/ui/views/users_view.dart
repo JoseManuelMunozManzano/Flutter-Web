@@ -28,8 +28,13 @@ class UsersView extends StatelessWidget {
         PaginatedDataTable(
           columns: [
             DataColumn(label: Text('Avatar')),
-            DataColumn(label: Text('Nombre')),
-            DataColumn(label: Text('Email')),
+            // Lo hacemos ordenable
+            DataColumn(label: Text('Nombre'), onSort: (colIndex, _) {
+              usersProvider.sort<String>((user) => user.nombre);
+            }),
+            DataColumn(label: Text('Email'), onSort: (colIndex, _) {
+              usersProvider.sort<String>((user) => user.correo);
+            }),
             DataColumn(label: Text('UID')),
             DataColumn(label: Text('Acciones')),
           ],

@@ -9,6 +9,7 @@ class UsersProvider extends ChangeNotifier {
 
   List<Usuario> users = [];
   bool isLoading = true;
+  bool ascending = true;
 
   UsersProvider() {
     // Para que, nada más crearse una instancia de esta clase, guarde los datos
@@ -24,6 +25,23 @@ class UsersProvider extends ChangeNotifier {
 
     isLoading = false;
 
+    notifyListeners();
+  }
+
+  void sort<T>(Comparable<T> Function(Usuario user) getField) {
+    users.sort((a, b) {
+      // La función nos va a retornar el campo que queremos obtener.
+      final aValue = getField(a);
+      final bValue = getField(b);
+
+      return ascending 
+      ? Comparable.compare(aValue, bValue)
+      : Comparable.compare(bValue, aValue);
+    });
+
+    ascending = !ascending;
+
+    // El sort() cambia el arreglo por lo que volveremos a redibujar.
     notifyListeners();
   }
 }
