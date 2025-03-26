@@ -1428,3 +1428,9 @@ Modificamos `router.dart` y `dashboard_handlers.dart`.
 Usando la plantilla `ui/views/blank_view.dart` creo la vista `users_view.dart`.
 
 Modificamos `sidebar.dart` para que funcione el click de Users.
+
+### UsersView temporal
+
+Modificamos `users_view.dart`.
+
+Creamos un datasource en `datatables` llamado `users_datasource.dart`.
