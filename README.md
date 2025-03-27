@@ -1464,3 +1464,13 @@ Modificamos `users_provider.dart` y `users_view.dart`. Este último archivo es e
 ### Indicadores visuales de la columna ordenada
 
 Modificamos `users_view.dart` y `users_provder.dart`.
+
+### User View y Ruta para un usuario independiente
+
+Vamos a preparar la ruta para que permita segmentos.
+
+Creamos primero la vista. En la carpeta `views` hacemos una copia de `blank_view.dart` y le damos el nombre `user_view.dart`.
+
+Definimos la ruta. Modificamos `router.dart` y `dashboard_handlers.dart`.
+
+Modificamos `users_datasource.dart` para que llame a `user_view.dart`.
