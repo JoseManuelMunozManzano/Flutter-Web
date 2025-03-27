@@ -1460,3 +1460,7 @@ También modificamos `users_datasource.dart` para que reciba la data y renderice
 Como tenemos toda la data en el front, ordenaremos en el front en vez de hacer otra petición al back y que este me la devuelva ordenada.
 
 Modificamos `users_provider.dart` y `users_view.dart`. Este último archivo es el que manda el criterio de ordenación.
+
+### Indicadores visuales de la columna ordenada
+
+Modificamos `users_view.dart` y `users_provder.dart`.
