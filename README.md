@@ -1474,3 +1474,9 @@ Creamos primero la vista. En la carpeta `views` hacemos una copia de `blank_view
 Definimos la ruta. Modificamos `router.dart` y `dashboard_handlers.dart`.
 
 Modificamos `users_datasource.dart` para que llame a `user_view.dart`.
+
+### Validar UID contra el backend
+
+Modificamos `user_view.dart`.
+
+Modificamos `users_provider.dart`.

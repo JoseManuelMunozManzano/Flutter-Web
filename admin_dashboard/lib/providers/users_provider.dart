@@ -1,8 +1,8 @@
-import 'package:admin_dashboard/models/http/users_response.dart';
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/api/cafe_api.dart';
 
+import 'package:admin_dashboard/models/http/users_response.dart';
 import 'package:admin_dashboard/models/usuario.dart';
 
 class UsersProvider extends ChangeNotifier {
@@ -20,12 +20,21 @@ class UsersProvider extends ChangeNotifier {
   getPaginatedUsers() async {
     final resp = await CafeApi.httpGet('/usuarios?limite=100&desde=0');
     final usersResponse = UsersResponse.fromMap(resp);
-
     users = [...usersResponse.usuarios];
-
     isLoading = false;
-
     notifyListeners();
+  }
+
+  Future<Usuario> getUserById(String uid) async {
+    try {
+      final resp = await CafeApi.httpGet('/usuarios/$uid');
+      final user = Usuario.fromMap(resp);
+      // No hacemos notifyListeners() porque no hacemos nada con ese usuario.
+      return user;
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
   }
 
   void sort<T>(Comparable<T> Function(Usuario user) getField) {
