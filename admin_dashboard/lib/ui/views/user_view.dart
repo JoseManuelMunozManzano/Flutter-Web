@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -163,9 +164,18 @@ class _UserViewForm extends StatelessWidget {
             ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 130),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   // TODO: PUT - Actualizar usuario
-                  userFormProvider.updateUser();
+                  final saved = await userFormProvider.updateUser();
+                  if (saved) {
+                    NotificationsService.showSnackbar('Usuario actualizado');
+                    // Forma no recomendada de actualizar la lista de usuarios,
+                    // porque hacemos otra petición al back.
+                    // Más adelante se corrige esto.
+                    Provider.of<UsersProvider>(context, listen: false).getPaginatedUsers();
+                  } else {
+                    NotificationsService.showSnackbarError('No se pudo guardar');
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.indigo),

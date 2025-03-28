@@ -55,7 +55,7 @@ class CafeApi {
       // Si no hubiera data vale mandarle un map vacío.
       final resp = await _dio.put(path, data: formData);
       return resp.data; // La data es el body de la respuesta.
-    } catch (e) {
+    } on DioException catch (e) {
       throw ('Error en el PUT: $e');
     }
   }
