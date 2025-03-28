@@ -1496,3 +1496,11 @@ Modificamos `custom_labels.dart`.
 Seguimos modificando `user_view.dart` para crear la pantalla, en este caso el formulario.
 
 Modificamos `custom_inputs.dart`.
+
+### Formulario de actualización de usuario
+
+Vamos a controlar la información del formulario. Necesitamos mantener toda la información del estado de ese formulario.
+
+Creamos un nuevo provider para manejar el formulario. En la carpeta `providers` creo el archivo `user_form_provider.dart`.
+
+Modificamos `main.dart` para añadir ahí el provider y lo usamos en `user_view.dart`.
