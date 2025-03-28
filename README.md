@@ -1483,4 +1483,10 @@ Modificamos `users_provider.dart`.
 
 ### Diseño de la pantalla de User View
 
-Vamos a crear la pantalla, modificando `user_view.dart`.
+Vamos a crear la estructura de la pantalla como una tabla, modificando `user_view.dart`.
+
+### Espacio para el avatar del usuario
+
+Seguimos modificando `user_view.dart` para crear la pantalla, en este caso el diseño del Avatar.
+
+Modificamos `custom_labels.dart`.

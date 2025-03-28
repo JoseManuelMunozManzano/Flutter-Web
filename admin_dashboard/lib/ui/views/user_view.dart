@@ -74,12 +74,8 @@ class _UserViewBody extends StatelessWidget {
         children: [
           TableRow(
             children: [
-              // TODO: Avatar
-              Container(
-                width: 250,
-                height: 200,
-                color: Colors.red,
-              ),
+              // AVATAR
+              _AvatarContainer(),
 
               // TODO: Formulario de actualización
               Container(
@@ -90,6 +86,74 @@ class _UserViewBody extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class _AvatarContainer extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return WhiteCard(
+      // Aunque ya es de 250, al indicarlo en columnWidths, lo vamos a
+      // poner aquí, aunque no haga falta.
+      width: 250,
+      child: SizedBox(
+        // Para que centre, porque si no centra con respecto a la imagen.
+        // Ahora el contenedor se expande y centra con respecto al contenedor.
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Profile', style: CustomLabels.h2),
+            SizedBox(height: 20),
+
+            SizedBox(
+              width: 150,
+              height: 160,
+              child: Stack(
+                children: [
+                  ClipOval(
+                    child: Image(
+                      image: AssetImage('no-image.jpg')
+                    ),
+                  ),
+
+                  Positioned(
+                    bottom: 5,
+                    right: 5,
+                    child: Container(
+                      width: 45,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        border: Border.all(color: Colors.white, width: 5),
+                      ),
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.indigo,
+                        elevation: 0,
+                        child: Icon(Icons.camera_alt_outlined, size: 20, color: Colors.white),
+                        onPressed: () {
+                          // TODO: Seleccionar la imagen
+                        },
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+            SizedBox(height: 20),
+
+            Text(
+              'Nombre de usuario',
+              style: TextStyle(fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+          ]
+        ),
+      )
     );
   }
 }
