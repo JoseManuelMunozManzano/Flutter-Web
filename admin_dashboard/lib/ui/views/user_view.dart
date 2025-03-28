@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:email_validator/email_validator.dart';
+
 import 'package:admin_dashboard/providers/users_provider.dart';
 import 'package:admin_dashboard/providers/user_form_provider.dart';
 
@@ -105,7 +107,7 @@ class _UserViewForm extends StatelessWidget {
     return WhiteCard(
       title: 'Información general',
       child: Form(
-        // TODO: Key
+        key: userFormProvider.formKey,
         autovalidateMode: AutovalidateMode.always,
         child: Column(
           children: [
@@ -117,6 +119,12 @@ class _UserViewForm extends StatelessWidget {
                 label: 'Nombre',
                 icon: Icons.supervised_user_circle_outlined,
               ),
+              onChanged: (value) => user.nombre = value,
+              validator: (value) {
+                if (value == null || value.isEmpty) return 'Ingrese un nombre';
+                if (value.length < 2) return 'El nombre debe de ser de dos letras como mínimo';
+                return null;
+              },
             ),
 
             SizedBox(height: 20),
@@ -127,7 +135,13 @@ class _UserViewForm extends StatelessWidget {
                 hint: 'Correo del usuario',
                 label: 'Correo',
                 icon: Icons.mark_email_read_outlined,
-              ),              
+              ),
+              onChanged: (value) => user.correo = value,
+              validator: (value) {
+                if (!EmailValidator.validate(value ?? '')) return 'Email no válido';
+                return null;
+              },
+
             ),
 
             SizedBox(height: 20),
@@ -136,7 +150,8 @@ class _UserViewForm extends StatelessWidget {
               constraints: BoxConstraints(maxWidth: 130),
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: PUT - Actualizar usuario                  
+                  // TODO: PUT - Actualizar usuario
+                  userFormProvider.updateUser();
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.indigo),
@@ -162,6 +177,10 @@ class _AvatarContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final userFormProvider = Provider.of<UserFormProvider>(context);
+    final user = userFormProvider.user!;
+
     return WhiteCard(
       // Aunque ya es de 250, al indicarlo en columnWidths, lo vamos a
       // poner aquí, aunque no haga falta.
@@ -215,7 +234,9 @@ class _AvatarContainer extends StatelessWidget {
             SizedBox(height: 20),
 
             Text(
-              'Nombre de usuario',
+              // Este valor no se actualiza porque no se ha avisado a los listener
+              // del cambio del valor.
+              user.nombre,
               style: TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),

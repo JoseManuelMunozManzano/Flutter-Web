@@ -1504,3 +1504,9 @@ Vamos a controlar la información del formulario. Necesitamos mantener toda la i
 Creamos un nuevo provider para manejar el formulario. En la carpeta `providers` creo el archivo `user_form_provider.dart`.
 
 Modificamos `main.dart` para añadir ahí el provider y lo usamos en `user_view.dart`.
+
+### Validaciones y valores actualizados del usuario
+
+Modificamos `user_view.dart` para añadir las validaciones.
+
+Modificamos `user_form_provider.dart`.

@@ -11,8 +11,15 @@ class UserFormProvider extends ChangeNotifier {
 
   // TODO: pensar como voy a actualizar el usuario del provider
 
-  bool validForm() {
+  bool _validForm() {
     return formKey.currentState!.validate();
   }
 
+  updateUser() {
+    if (!_validForm()) return;
+
+    print('Info a postear');
+    print(user!.nombre);
+    print(user!.correo);
+  }
 }
