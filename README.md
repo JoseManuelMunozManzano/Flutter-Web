@@ -1480,3 +1480,7 @@ Modificamos `users_datasource.dart` para que llame a `user_view.dart`.
 Modificamos `user_view.dart`.
 
 Modificamos `users_provider.dart`.
+
+### Diseño de la pantalla de User View
+
+Vamos a crear la pantalla, modificando `user_view.dart`.

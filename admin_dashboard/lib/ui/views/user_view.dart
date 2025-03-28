@@ -49,7 +49,47 @@ class _UserViewState extends State<UserView> {
               child: CircularProgressIndicator(),
             ),
           ),
+
+        if (user != null)
+          _UserViewBody()
       ],
+    );
+  }
+}
+
+class _UserViewBody extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Table(
+        // Si no indicamos esta propiedad, el ancho de las columnas
+        // por defecto es el mismo para cada celda.
+        // Una vez indicada un ancho, si no se indican más anchos, por defecto
+        // para el resto de celdas toma todo el ancho de forma equitativa.
+        columnWidths: {
+          0: FixedColumnWidth(250)
+        },
+        // TODO: Ancho de la columna
+        children: [
+          TableRow(
+            children: [
+              // TODO: Avatar
+              Container(
+                width: 250,
+                height: 200,
+                color: Colors.red,
+              ),
+
+              // TODO: Formulario de actualización
+              Container(
+                height: 200,
+                color: Colors.green,
+              ),
+            ]
+          )
+        ],
+      ),
     );
   }
 }
