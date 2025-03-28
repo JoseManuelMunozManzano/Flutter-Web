@@ -39,4 +39,27 @@ class CustomInputs {
       hintStyle: TextStyle(color: Colors.grey),
     );
   }
+
+  static InputDecoration formInputDecoration({
+    required String hint,
+    required String label,
+    required IconData icon,
+  }) {
+    return InputDecoration(
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.indigo.withValues(alpha: 0.3)),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.indigo.withValues(alpha: 0.3)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.blue.withValues(alpha: 0.6)),
+      ),
+      hintText: hint,
+      labelText: label,
+      prefixIcon: Icon(icon, color: Colors.grey),
+      labelStyle: TextStyle(color: Colors.grey),
+      hintStyle: TextStyle(color: Colors.grey),
+    );
+  }
 }

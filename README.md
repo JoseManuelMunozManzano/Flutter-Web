@@ -1490,3 +1490,9 @@ Vamos a crear la estructura de la pantalla como una tabla, modificando `user_vie
 Seguimos modificando `user_view.dart` para crear la pantalla, en este caso el diseño del Avatar.
 
 Modificamos `custom_labels.dart`.
+
+### Espacio para el formulario de actualización
+
+Seguimos modificando `user_view.dart` para crear la pantalla, en este caso el formulario.
+
+Modificamos `custom_inputs.dart`.

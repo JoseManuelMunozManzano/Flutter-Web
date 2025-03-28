@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -77,15 +78,68 @@ class _UserViewBody extends StatelessWidget {
               // AVATAR
               _AvatarContainer(),
 
-              // TODO: Formulario de actualización
-              Container(
-                height: 200,
-                color: Colors.green,
-              ),
+              // Formulario de actualización
+              _UserViewForm(),
             ]
           )
         ],
       ),
+    );
+  }
+}
+
+class _UserViewForm extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return WhiteCard(
+      title: 'Información general',
+      child: Form(
+        // TODO: Key
+        autovalidateMode: AutovalidateMode.always,
+        child: Column(
+          children: [
+
+            TextFormField(
+              decoration: CustomInputs.formInputDecoration(
+                hint: 'Nombre del usuario',
+                label: 'Nombre',
+                icon: Icons.supervised_user_circle_outlined,
+              ),
+            ),
+
+            SizedBox(height: 20),
+
+            TextFormField(
+              decoration: CustomInputs.formInputDecoration(
+                hint: 'Correo del usuario',
+                label: 'Correo',
+                icon: Icons.mark_email_read_outlined,
+              ),              
+            ),
+
+            SizedBox(height: 20),
+
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 130),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.indigo),
+                  shadowColor: WidgetStatePropertyAll(Colors.transparent),
+                  foregroundColor: WidgetStatePropertyAll(Colors.white),
+                ),
+                child: Row(
+                  children: [
+                    Icon(Icons.save_outlined, size: 20),
+                    Text(' Guardar'),
+                  ],
+                )
+              ),
+            )
+          ],
+        )
+      )
     );
   }
 }
