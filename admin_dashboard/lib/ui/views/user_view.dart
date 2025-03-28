@@ -119,7 +119,14 @@ class _UserViewForm extends StatelessWidget {
                 label: 'Nombre',
                 icon: Icons.supervised_user_circle_outlined,
               ),
-              onChanged: (value) => user.nombre = value,
+              onChanged: (value) {
+                // Forma 1 de notificar a los listeners
+                // user.nombre = value;
+                // userFormProvider.updateListeners();
+
+                // Forma 2 de notificar a los listeners
+                userFormProvider.copyUserWith(nombre: value);
+              },
               validator: (value) {
                 if (value == null || value.isEmpty) return 'Ingrese un nombre';
                 if (value.length < 2) return 'El nombre debe de ser de dos letras como mínimo';
@@ -136,7 +143,14 @@ class _UserViewForm extends StatelessWidget {
                 label: 'Correo',
                 icon: Icons.mark_email_read_outlined,
               ),
-              onChanged: (value) => user.correo = value,
+              onChanged: (value) {
+                // Forma 1 de notificar a los listeners
+                // user.correo = value;
+                // userFormProvider.updateListeners();
+
+                // Forma 2 de notificar a los listeners
+                userFormProvider.copyUserWith(correo: value);
+              },
               validator: (value) {
                 if (!EmailValidator.validate(value ?? '')) return 'Email no válido';
                 return null;
@@ -236,6 +250,7 @@ class _AvatarContainer extends StatelessWidget {
             Text(
               // Este valor no se actualiza porque no se ha avisado a los listener
               // del cambio del valor.
+              // Esto es porque en el provider no se llama a notifyListeners();
               user.nombre,
               style: TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,

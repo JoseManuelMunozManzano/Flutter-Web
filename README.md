@@ -1510,3 +1510,9 @@ Modificamos `main.dart` para añadir ahí el provider y lo usamos en `user_view.
 Modificamos `user_view.dart` para añadir las validaciones.
 
 Modificamos `user_form_provider.dart`.
+
+### Notificar Listeners cuando se cambia el usuario
+
+Modificamos `user_form_provider.dart` porque como no notificamos a los listeners `notifyListeners()` entonces en `user_view.dart` no se actualiza el nombre en el avatar.
+
+Modificamos también `user_view.dart`.
