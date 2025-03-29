@@ -53,4 +53,19 @@ class UsersProvider extends ChangeNotifier {
     // El sort() cambia el arreglo por lo que volveremos a redibujar.
     notifyListeners();
   }
+
+  void refreshUser(Usuario newUser) {
+
+    users = users.map(
+      (user) {
+        if (user.uid == newUser.uid) {
+          user = newUser;
+        }
+
+        return user;
+      }
+    ).toList();
+
+    notifyListeners();
+  }
 }

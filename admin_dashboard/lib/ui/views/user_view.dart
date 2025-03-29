@@ -165,14 +165,16 @@ class _UserViewForm extends StatelessWidget {
               constraints: BoxConstraints(maxWidth: 130),
               child: ElevatedButton(
                 onPressed: () async {
-                  // TODO: PUT - Actualizar usuario
                   final saved = await userFormProvider.updateUser();
                   if (saved) {
                     NotificationsService.showSnackbar('Usuario actualizado');
                     // Forma no recomendada de actualizar la lista de usuarios,
                     // porque hacemos otra petición al back.
                     // Más adelante se corrige esto.
-                    Provider.of<UsersProvider>(context, listen: false).getPaginatedUsers();
+                    // Provider.of<UsersProvider>(context, listen: false).getPaginatedUsers();
+
+                    // Sin acceder al backend
+                    Provider.of<UsersProvider>(context, listen: false).refreshUser(user);
                   } else {
                     NotificationsService.showSnackbarError('No se pudo guardar');
                   }

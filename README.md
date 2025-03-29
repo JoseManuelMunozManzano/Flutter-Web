@@ -1522,3 +1522,9 @@ Modificamos también `user_view.dart`.
 Modificamos `user_form_provider.dart`, `cafe_api.dart` y `user_view.dart`.
 
 Modificamos `user_view.dart` porque cuando volvemos a la lista, si hemos cambiado el nombre y el correo, vemos que no se ve ese nombre/correo actualizado en la lista. En este punto actualizamos la data de la lista de una forma no recomendada, que es volviendo a obtener la data del backend. Lo arreglamos en el siguiente punto.
+
+### Actualizar el listado de usuarios
+
+Vamos a actualizar el listado de usuarios, pero sin hacer la petición http.
+
+Modfificamos `users_provider.dart` y `user_view.dart`.
