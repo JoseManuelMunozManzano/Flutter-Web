@@ -1570,3 +1570,11 @@ Modificamos `user_form_provider.dart` y corregimos `usuario.dart` para que en el
 Modificamos `cafe_api.dart` para añadir un método que trata el multipart.
 
 Llamamos en `user_view.dart`.
+
+### Mensaje de carga de imagen
+
+Desde el momento en que empezamos a subir la imagen hasta que obtengo la url pasa un tiempo. Vamos a hacer que aparezca algo (un loader) que bloquee al usuario y que no pueda interactuar con la aplicación.
+
+Añadimos un modal con un dialog en `notifications_service.dart`.
+
+Modificamos `user_view.dart`.

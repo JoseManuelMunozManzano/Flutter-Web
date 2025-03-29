@@ -25,4 +25,23 @@ class NotificationsService {
 
     messengerKey.currentState!.showSnackBar(snackbar);
   }
+
+  // Creamos un modal con un dialog
+  static showBudyIndicator(BuildContext context) {
+    final AlertDialog dialog = AlertDialog(
+      content: SizedBox(
+        width: 100,
+        height: 100,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
+    );
+
+    // Para mostrarlo necesito acceso al context
+    showDialog(
+      context: context,
+      builder: (_) => dialog
+    );
+  }
 }
