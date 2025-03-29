@@ -27327,7 +27327,7 @@ return}if(typeof print=="function"){print(a)
 return}throw"Unable to print message: "+String(a)},
 aw7(){var s=$.xd(),r=s.zN$
 r===$&&A.a()
-r.sGh("http://localhost:8080/api")
+r.sGh("/api")
 s=s.zN$
 r=A.cn($.tY.aQ().a.i(0,"token"))
 s.sVw(A.an(["x-token",r==null?"":r],t.N,t.z))},

@@ -11,7 +11,7 @@ class CafeApi {
 
   static void configureDio() {
     // Base del url
-    _dio.options.baseUrl = 'http://localhost:8080/api';
+    _dio.options.baseUrl = '/api';
 
     // Configurar Headers
     _dio.options.headers = {

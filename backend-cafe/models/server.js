@@ -5,76 +5,74 @@ const fileUpload = require('express-fileupload');
 const { dbConnection } = require('../database/config');
 
 class Server {
+  constructor() {
+    this.app = express();
+    this.port = process.env.PORT;
 
-    constructor() {
-        this.app  = express();
-        this.port = process.env.PORT;
+    this.paths = {
+      auth: '/api/auth',
+      buscar: '/api/buscar',
+      categorias: '/api/categorias',
+      productos: '/api/productos',
+      usuarios: '/api/usuarios',
+      uploads: '/api/uploads',
+    };
 
-        this.paths = {
-            auth:       '/api/auth',
-            buscar:     '/api/buscar',
-            categorias: '/api/categorias',
-            productos:  '/api/productos',
-            usuarios:   '/api/usuarios',
-            uploads:    '/api/uploads',
-        }
+    // Conectar a base de datos
+    this.conectarDB();
 
+    // Middlewares
+    this.middlewares();
 
-        // Conectar a base de datos
-        this.conectarDB();
+    // Rutas de mi aplicación
+    this.routes();
+  }
 
-        // Middlewares
-        this.middlewares();
+  async conectarDB() {
+    await dbConnection();
+  }
 
-        // Rutas de mi aplicación
-        this.routes();
-    }
+  middlewares() {
+    // CORS
+    this.app.use(
+      cors({
+        origin: 'https://192.168.50.2:446', // dirección del frontend
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        credentials: true,
+        allowedHeaders: ['Content-Type', 'Authorization', 'x-token'],
+      })
+    );
 
-    async conectarDB() {
-        await dbConnection();
-    }
+    // Lectura y parseo del body
+    this.app.use(express.json());
 
+    // Directorio Público
+    this.app.use(express.static('public'));
 
-    middlewares() {
+    // Fileupload - Carga de archivos
+    this.app.use(
+      fileUpload({
+        useTempFiles: true,
+        tempFileDir: '/tmp/',
+        createParentPath: true,
+      })
+    );
+  }
 
-        // CORS
-        this.app.use( cors() );
+  routes() {
+    this.app.use(this.paths.auth, require('../routes/auth'));
+    this.app.use(this.paths.buscar, require('../routes/buscar'));
+    this.app.use(this.paths.categorias, require('../routes/categorias'));
+    this.app.use(this.paths.productos, require('../routes/productos'));
+    this.app.use(this.paths.usuarios, require('../routes/usuarios'));
+    this.app.use(this.paths.uploads, require('../routes/uploads'));
+  }
 
-        // Lectura y parseo del body
-        this.app.use( express.json() );
-
-        // Directorio Público
-        this.app.use( express.static('public') );
-
-        // Fileupload - Carga de archivos
-        this.app.use( fileUpload({
-            useTempFiles : true,
-            tempFileDir : '/tmp/',
-            createParentPath: true
-        }));
-
-    }
-
-    routes() {
-        
-        this.app.use( this.paths.auth, require('../routes/auth'));
-        this.app.use( this.paths.buscar, require('../routes/buscar'));
-        this.app.use( this.paths.categorias, require('../routes/categorias'));
-        this.app.use( this.paths.productos, require('../routes/productos'));
-        this.app.use( this.paths.usuarios, require('../routes/usuarios'));
-        this.app.use( this.paths.uploads, require('../routes/uploads'));
-        
-    }
-
-    listen() {
-        this.app.listen( this.port, () => {
-            console.log('Servidor corriendo en puerto', this.port );
-        });
-    }
-
+  listen() {
+    this.app.listen(this.port, () => {
+      console.log('Servidor corriendo en puerto', this.port);
+    });
+  }
 }
-
-
-
 
 module.exports = Server;

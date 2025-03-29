@@ -1618,3 +1618,38 @@ Copiamos todo el contenido de la carpeta `build/web` y la copiamos en el proyect
 Ahora vamos a un navegador web y accedemos a la ruta: `http://localhost:8080`. Donde antes veíamos `Acceso Denegado` ahora veremos ya nuestra app de Flutter.
 
 No veremos los `assets`, pero la app si funciona. Para corregir las imágenes de los `assets` nos vamos a nuestro backend, a la carpeta `public/assets` y veremos que existe otra carpeta `assets`. Ese es el problema. Cortamos las imágenes que están en la carpeta hija `assets` y copiamos en la carpeta padre `assets`. La carpeta hija `assets` la podemos borrar.
+
+### Desplegar aplicación de Flutter en Docker
+
+En el curso se despliega la app en la Web, pero yo solo quiero desplegarla en Docker, en mi Raspberry Pi.
+
+En el backend, en la raiz he creado los archivos `Dockerfile` y `docker-compose.yml`.
+
+He creado una red con el comando: `docker network create cafe-net`.
+
+Y conecto mi docker de Mongo `docker network connect cafe-net mongo`.
+
+Para la parte de front, para que sea https, he usando NGINX. Para ello:
+
+```
+mkdir -p frontend-nginx/certs
+cd frontend-nginx/certs
+
+He creado un archivo Dockerfile
+
+# Genera la clave privada
+openssl genrsa -out key.pem 2048
+
+# Genera el certificado autofirmado (válido por 365 días) ESTO EN MI RASPBERRY PI!! en la ruta /home/pi/docker/projects/backend-cafe/certs
+openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout /home/pi/docker/projects/backend-cafe/certs/key.pem \
+  -out /home/pi/docker/projects/backend-cafe/certs/cert.pem \
+  -subj "/C=ES/ST=Dev/L=Local/O=Dev/CN=192.168.50.2"
+```
+
+Y en `cafe_api.dart` he quitado la parte de localhost y dejado solo la ruta relativa `/api` como base del URL.
+
+Acceder a la carpeta del backend y ejecutar `docker compose up --build -d`.
+
+Acceder en el navegador a la app usando la ruta `https://192.168.50.2:446/`.
