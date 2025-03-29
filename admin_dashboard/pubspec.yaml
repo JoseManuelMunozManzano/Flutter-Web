@@ -9,6 +9,7 @@ environment:
 dependencies:
   dio: ^5.8.0+1
   email_validator: ^3.0.0
+  file_picker: ^9.2.3
   fluro: ^2.0.5
   flutter:
     sdk: flutter

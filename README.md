@@ -1538,3 +1538,25 @@ Modificamos `user_view.dart` y `users_providers.dart`.
 También modificamos `cafe_api.dart`.
 
 Modificamos `user_form_provider.dart` por un error que le da al instructor porque no se destruye el formKey (a mi no me ocurre ese error) al entrar a un user, cambiar el id en el url para que nos devuelva al listado de usuarios, y volver a seleccionar el mismo user. La inicialización me la llevo a `user_view.dart`.
+
+## Carga de archivos y versión de producción
+
+Continuamos con el proyecto `admin_dashboard` y el backend `backend_cafe`.
+
+### Temas puntuales de la sección
+
+Esta sección tiene por objetivo que subamos archivos a un backend mediante un selector de archivos, pero adicionalmente desplegaremos tanto nuestro backend y la aplicación de Flutter a un backend propiamente para que pueda ser utilizado desde cualquier lugar del mundo.
+
+### Cloudinary
+
+Los archivos los vamos a subir a Cloudinary: `https://cloudinary.com/`.
+
+En nuestro proyecto `backend-cafe`, en el archivo `.env`, tenemos que configurar la variable de entorno `CLOUDINARY_URL`. La configuración de Cloudinary hay que hacerla en el backend, jamás en el frontend.
+
+### Seleccionar una imagen
+
+Vamos a seleccionar una imagen y, por ahora, obtener el nombre de la imagen seleccionada.
+
+Tenemos que instalar el paquete `file_picker`: `https://pub.dev/packages/file_picker`.
+
+Modificamos `user_view.dart`.
