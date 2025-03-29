@@ -269,13 +269,12 @@ class _AvatarContainer extends StatelessWidget {
                           );
 
                           if (result != null) {
-                            PlatformFile file = result.files.first;
-
-                            print(file.name);
-                            print(file.bytes);
-                            print(file.size);
-                            print(file.extension);
-
+                            // PlatformFile file = result.files.first;
+                            final resp = await userFormProvider.uploadImage(
+                              '/uploads/usuarios/${user.uid}',
+                              result.files.first.bytes!
+                            );
+                            print(resp.img);
                           } else {
                             // User canceled the picker
                           }

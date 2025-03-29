@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:dio/dio.dart';
 
 import 'package:admin_dashboard/services/local_storage.dart';
@@ -72,6 +74,26 @@ class CafeApi {
       return resp.data; // La data es el body de la respuesta.
     } on DioException catch (e) {
       throw ('Error en el DELETE: ${e.message}');
+    }
+  }
+
+  // Uso de Multipart.
+  // Multipart significa que podemos mandar un file y data de manera simultanea.
+  // En nuestro backend solo podemos recibir la imagen.
+  static Future uploadFile(String path, Uint8List bytes) async {
+    final formData = FormData.fromMap({
+      // archivo es el nombre de la propiedad que espera mi backend.
+      'archivo': MultipartFile.fromBytes(bytes),
+    });
+
+    try {
+      // No necesitamos volver a llamar al método configureDio porque ya está
+      // configurado en la instancia _dio.
+      // Si no hubiera data vale mandarle un map vacío.
+      final resp = await _dio.put(path, data: formData);
+      return resp.data; // La data es el body de la respuesta.
+    } on DioException catch (e) {
+      throw ('Error en el PUT: ${e.message}');
     }
   }
 }

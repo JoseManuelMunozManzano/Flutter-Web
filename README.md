@@ -1560,3 +1560,13 @@ Vamos a seleccionar una imagen y, por ahora, obtener el nombre de la imagen sele
 Tenemos que instalar el paquete `file_picker`: `https://pub.dev/packages/file_picker`.
 
 Modificamos `user_view.dart`.
+
+### Subir imagen al backend
+
+Vamos a coger los bytes de la imagen y subirlo al endpoint.
+
+Modificamos `user_form_provider.dart` y corregimos `usuario.dart` para que en el método `fromMap` trate la imagen.
+
+Modificamos `cafe_api.dart` para añadir un método que trata el multipart.
+
+Llamamos en `user_view.dart`.

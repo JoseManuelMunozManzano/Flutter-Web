@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import 'package:admin_dashboard/api/cafe_api.dart';
@@ -55,11 +57,23 @@ class UserFormProvider extends ChangeNotifier {
     try {
       // Hacemos el put con el path y el body
       final resp = await CafeApi.put('/usuarios/${user!.uid}', data);
-      print(resp);
+      // print(resp);
       return true;
     } catch (e) {
-      print('error en updateUser: $e');
+      // print('error en updateUser: $e');
       return false;
+    }
+  }
+
+  Future<Usuario> uploadImage(String path, Uint8List bytes) async {
+    try {
+      final resp = await CafeApi.uploadFile(path, bytes);
+      user = Usuario.fromMap(resp);
+      notifyListeners();
+
+      return user!;
+    } catch (e) {
+      throw 'Error en user_form_provider';
     }
   }
 }
