@@ -1586,3 +1586,13 @@ Modificamos `user_view.dart` para mostrar la imagen en el contenedor del Avatar.
 ### Mostrar imagen del usuario en la lista de usuarios
 
 Actualizamos en `user_view.dart` y `users_datasource.dart` la imagen del usuario.
+
+### Reduciendo la cantidad de importaciones
+
+Esto es una optimización para importar menos paquetes en nuestros fuentes de Dart.
+
+Usando archivos de barril podemos importar, por ejemplo, todos los providers, solo con una línea de código.
+
+En la carpeta `providers` creamos el archivo de barril `providers.dart` y exportamos todos los archivos de provider.
+
+Podríamos hacer lo mismo en las carpetas `services`, `ui`...
