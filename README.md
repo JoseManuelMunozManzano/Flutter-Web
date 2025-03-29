@@ -1578,3 +1578,7 @@ Desde el momento en que empezamos a subir la imagen hasta que obtengo la url pas
 Añadimos un modal con un dialog en `notifications_service.dart`.
 
 Modificamos `user_view.dart`.
+
+### Mostrar imagen actualizada
+
+Modificamos `user_view.dart` para mostrar la imagen en el contenedor del Avatar.

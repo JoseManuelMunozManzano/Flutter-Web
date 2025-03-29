@@ -221,6 +221,10 @@ class _AvatarContainer extends StatelessWidget {
     final userFormProvider = Provider.of<UserFormProvider>(context);
     final user = userFormProvider.user!;
 
+    final image = (user.img == null)
+      ? Image(image: AssetImage('no-image.jpg'))
+      : FadeInImage.assetNetwork(placeholder: 'loader.gif', image: user.img!);
+
     return WhiteCard(
       // Aunque ya es de 250, al indicarlo en columnWidths, lo vamos a
       // poner aquí, aunque no haga falta.
@@ -242,9 +246,7 @@ class _AvatarContainer extends StatelessWidget {
               child: Stack(
                 children: [
                   ClipOval(
-                    child: Image(
-                      image: AssetImage('no-image.jpg')
-                    ),
+                    child: image
                   ),
 
                   Positioned(
