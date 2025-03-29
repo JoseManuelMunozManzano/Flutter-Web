@@ -1596,3 +1596,25 @@ Usando archivos de barril podemos importar, por ejemplo, todos los providers, so
 En la carpeta `providers` creamos el archivo de barril `providers.dart` y exportamos todos los archivos de provider.
 
 Podríamos hacer lo mismo en las carpetas `services`, `ui`...
+
+### Generar build de produccíon
+
+Ver: `https://docs.flutter.dev/deployment/web`.
+
+Paramos la ejecución de nuestra app Flutter.
+
+Vamos a desplegar la app de Flutter Web en el archivo `/public/index.html` del proyecto `backend-cafe`.
+
+Podríamos subirla también a GitHub Pages, etc, pero nuestra app backend es un `servidor de Node` que ya está ejecutándose, así que vamos a aprovechar para desplegarla ahí.
+
+Básicamente, lo que hay que hacer es:
+
+- OPCIONAL: Si existe una carpeta `build` la podemos borrar
+- Ejecutamos el comando: `flutter build web`
+  - Nos genera la carpeta `build/web`.
+
+Copiamos todo el contenido de la carpeta `build/web` y la copiamos en el proyecto de backend, en concreto a la carpeta `public`, borrando el archivo `index.html`.
+
+Ahora vamos a un navegador web y accedemos a la ruta: `http://localhost:8080`. Donde antes veíamos `Acceso Denegado` ahora veremos ya nuestra app de Flutter.
+
+No veremos los `assets`, pero la app si funciona. Para corregir las imágenes de los `assets` nos vamos a nuestro backend, a la carpeta `public/assets` y veremos que existe otra carpeta `assets`. Ese es el problema. Cortamos las imágenes que están en la carpeta hija `assets` y copiamos en la carpeta padre `assets`. La carpeta hija `assets` la podemos borrar.
