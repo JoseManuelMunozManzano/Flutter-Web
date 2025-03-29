@@ -1582,3 +1582,7 @@ Modificamos `user_view.dart`.
 ### Mostrar imagen actualizada
 
 Modificamos `user_view.dart` para mostrar la imagen en el contenedor del Avatar.
+
+### Mostrar imagen del usuario en la lista de usuarios
+
+Actualizamos en `user_view.dart` y `users_datasource.dart` la imagen del usuario.

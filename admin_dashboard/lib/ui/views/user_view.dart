@@ -273,14 +273,16 @@ class _AvatarContainer extends StatelessWidget {
                           if (result != null) {
                             // PlatformFile file = result.files.first;
                             NotificationsService.showBudyIndicator(context);
-                            final resp = await userFormProvider.uploadImage(
+                            final newUser = await userFormProvider.uploadImage(
                               '/uploads/usuarios/${user.uid}',
                               result.files.first.bytes!
                             );
+                            Provider.of<UsersProvider>(context, listen: false).refreshUser(newUser);
                             // Cerramos el modal con el dialog
                             Navigator.of(context).pop();
                           } else {
                             // User canceled the picker
+                            print('no hay imagen');
                           }
                         },
                       ),

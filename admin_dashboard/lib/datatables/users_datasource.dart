@@ -17,7 +17,9 @@ class UsersDTS extends DataTableSource {
     final Usuario user = users[index];
 
     // Indicamos aquí no-image porque no todos los usuarios tienen imagen
-    final image = Image(image: AssetImage('no-image.jpg'), width: 35, height: 35);
+    final image = (user.img == null)
+      ? Image(image: AssetImage('no-image.jpg'), width: 35, height: 35)
+      : FadeInImage.assetNetwork(placeholder: 'loader.gif', image: user.img!, width: 35, height: 35);
 
     return DataRow.byIndex(
       index: index,
