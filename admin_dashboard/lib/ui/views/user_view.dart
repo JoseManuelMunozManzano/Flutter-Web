@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/services/navigation_service.dart';
 import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,11 +34,22 @@ class _UserViewState extends State<UserView> {
 
     usersProvider.getUserById(widget.uid)
       .then((userDB) {
-          userFormProvider.user = userDB;
-          setState(() {user = userDB;});
+          if (userDB != null) {
+            userFormProvider.user = userDB;
+            userFormProvider.formKey = GlobalKey<FormState>();
+            setState(() {user = userDB;});
+          } else {
+            NavigationService.replaceTo('/dashboard/users');
+          }
         }
       );
-    
+  }
+
+  @override
+  void dispose() {
+    user = null;
+    Provider.of<UserFormProvider>(context, listen: false).user = null;
+    super.dispose();
   }
 
   @override

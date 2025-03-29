@@ -25,8 +25,8 @@ class CafeApi {
       // configurado en la instancia _dio.
       final resp = await _dio.get(path);
       return resp.data; // La data es el body de la respuesta.
-    } catch (e) {
-      throw ('Error en el GET: $e');
+    } on DioException catch (e) {
+      throw ('Error en el GET: ${e.response}');
     }
   }
 
@@ -41,8 +41,8 @@ class CafeApi {
       // Si no hubiera data vale mandarle un map vacío.
       final resp = await _dio.post(path, data: formData);
       return resp.data; // La data es el body de la respuesta.
-    } catch (e) {
-      throw ('Error en el POST: $e');
+    } on DioException catch (e) {
+      throw ('Error en el POST: ${e.message}');
     }
   }
 
@@ -56,13 +56,13 @@ class CafeApi {
       final resp = await _dio.put(path, data: formData);
       return resp.data; // La data es el body de la respuesta.
     } on DioException catch (e) {
-      throw ('Error en el PUT: $e');
+      throw ('Error en el PUT: ${e.message}');
     }
   }
 
   // Nuestro back no espera ningún body, pero se deja configurado.
   static Future delete(String path, Map<String, dynamic> data) async {
-    final formData = FormData.fromMap(data);
+    // final formData = FormData.fromMap(data);
     
     try {
       // No necesitamos volver a llamar al método configureDio porque ya está
@@ -70,8 +70,8 @@ class CafeApi {
       // Si no hubiera data vale mandarle un map vacío.
       final resp = await _dio.delete(path);
       return resp.data; // La data es el body de la respuesta.
-    } catch (e) {
-      throw ('Error en el DELETE: $e');
+    } on DioException catch (e) {
+      throw ('Error en el DELETE: ${e.message}');
     }
   }
 }

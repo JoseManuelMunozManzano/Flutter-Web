@@ -1528,3 +1528,13 @@ Modificamos `user_view.dart` porque cuando volvemos a la lista, si hemos cambiad
 Vamos a actualizar el listado de usuarios, pero sin hacer la petición http.
 
 Modfificamos `users_provider.dart` y `user_view.dart`.
+
+### Manejo de errores
+
+Si indicamos un id de un usuario que no exista, por ejemplo `http://localhost:49304/#/dashboard/users/1` no estamos manejando el error.
+
+Modificamos `user_view.dart` y `users_providers.dart`.
+
+También modificamos `cafe_api.dart`.
+
+Modificamos `user_form_provider.dart` por un error que le da al instructor porque no se destruye el formKey (a mi no me ocurre ese error) al entrar a un user, cambiar el id en el url para que nos devuelva al listado de usuarios, y volver a seleccionar el mismo user. La inicialización me la llevo a `user_view.dart`.
